@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns:display="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>salut salut</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <form  style="display:none" action="/json/connexion.php" method="post" id="connexion">
+            Username : <input type="text" name="username"> <br>
+            Password : <input type="password" name="password"> <br>
+            <input type="submit" value="Connexion">
+        </form>
+
+        <form  style="display:none" action="/json/deconnexion.php" method="post" id="deconnexion">
+            <input type="submit" value="Deconnexion">
+        </form>
+
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
