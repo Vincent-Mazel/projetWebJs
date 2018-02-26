@@ -3,10 +3,13 @@
 
     $(document).ready(function () {
         $.ajax({
-            url: '/json/est_connectee.php'
+            url: '/json/estConnectee.php'
         }).done(function (data) {
             if (data.isConnecte) {
                 $('#deconnexion').show();
+                $('#creerPartie').show();
+                $('#rejoindrePartie').show();
+                $('#stats').show();
             } else {
                 $('#connexion').show();
             }
@@ -29,6 +32,7 @@
                 });
             return false;
         });
+
         $('#deconnexion').submit(function () {
             $.ajax({
                 url: $(this).attr('action'),
