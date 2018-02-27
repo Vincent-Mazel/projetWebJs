@@ -24,8 +24,8 @@
                 data: $(this).serialize()
             })
                 .done(function () {
-                    $('#deconnexion').show();
                     window.location.reload();
+                    $('#deconnexion').show();
                 })
                 .fail(function () {
                     alert('fais gaffe mec !')
@@ -40,8 +40,8 @@
                 data: $(this).serialize()
             })
                 .done(function () {
-                    $('#form-connexion').show();
                     window.location.reload();
+                    $('#form-connexion').show();
                 })
                 .fail(function () {
                     alert('Minceeeee ! Regardez qui voilà !');
