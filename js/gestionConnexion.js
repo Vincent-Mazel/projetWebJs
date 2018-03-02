@@ -4,18 +4,16 @@
     $(document).ready(function () {
         $.ajax({
             url: '/json/estConnectee.php'
-        }).done(function (data) {
-            if (data.isConnecte) {
-                $('#deconnexion').show();
-                $('#creerPartie').show();
-                $('#rejoindrePartie').show();
-                $('#stats').show();
-            } else {
-                $('#connexion').show();
-            }
-        }).fail(function () {
-            alert('hola manant ! attention !!!')
-        });
+        })
+            .done(function (data) {
+                if (data.isConnecte)
+                    $('#boutonsMenu').show();
+                else
+                    $('#connexion').show();
+        })
+            .fail(function () {
+                alert('hola manant ! attention !!!')
+            });
 
         $('#connexion').submit(function () {
             $.ajax({
