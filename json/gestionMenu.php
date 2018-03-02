@@ -3,7 +3,7 @@ session_start();
 
 //$resultat = new stdClass();
 
-if (isset($_POST["creePartie"]))
+if (isset($_POST["creerPartie"]))
     $_SESSION["etat"] = "créationPartie";
 
 else if (isset($_POST["rejoindrePartie"]))
@@ -18,3 +18,4 @@ else if (isset($_POST["stats"]))
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-type: application/json');
 echo json_encode($resultat);*/
+echo $_SESSION["etat"];

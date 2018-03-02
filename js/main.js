@@ -5,9 +5,35 @@
         $.ajax({
             url: '/json/estConnectee.php'
         })
-            .done(function (data) {
-                if (data.isConnecte)
-                    $('#boutonsMenu').show();
+            .done(function (dataConnexion) {
+                if (dataConnexion.isConnecte) {
+                    $.ajax({
+                        url: '/json/etatJoueur.php'
+                    })
+                        .done(function (dataEtat) {
+                            if ("menu" === dataEtat.etat) {
+                                $('#boutonsMenu').show();
+                            }
+                            else if ("créationPartie" === dataEtat.etat) {
+                                $('#boutonsMenu').hide();
+                                $('#formCreationPartie').show();
+                            }
+                            else if ("recherchePartie" === dataEtat.etat) {
+
+                            }
+                            else if ("consultationStats" === dataEtat.etat) {
+
+                            }
+                            else if ("attenteJoueurs" === dataEtat.etat) {
+
+                            }
+                            console.log(dataEtat.etat);
+                        })
+                        .fail(function () {
+                            alert('hola manant ! attention !!!')
+                        });
+                    return false;
+                }
                 else
                     $('#connexion').show();
         })
