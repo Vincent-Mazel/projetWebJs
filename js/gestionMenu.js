@@ -2,14 +2,14 @@
     "use strict";
 
     $(document).ready(function () {
-        $('#creerPartie').submit(function () {
+        $('#boutonCreerPartie').submit(function () {
             $.ajax({
                 url: $(this).attr('action'),
                 method: $(this).attr('method'),
                 data: $(this).serialize()
             })
                 .done(function () {
-                    $('#boutonsMenu').hide();
+                    $('#menuPrincipal').hide();
                     $('#formCreationPartie').show();
                 })
                 .fail(function () {
@@ -18,14 +18,14 @@
             return false;
         });
 
-        $('#rejoindrePartie').submit(function () {
+        $('#boutonRejoindrePartie').submit(function () {
             $.ajax({
                 url: $(this).attr('action'),
                 method: $(this).attr('method'),
                 data: $(this).serialize()
             })
                 .done(function () {
-                    $('#boutonsMenu').hide();
+                    $('#menuPrincipal').hide();
                     $('#formCreationPartie').show();
                 })
                 .fail(function () {

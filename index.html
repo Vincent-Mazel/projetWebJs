@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns:display="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Tarot Online 1.29</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div id="nonConnecte" style="display:none">
+            <p>Connectez-vous afin de profiter de ce merveilleux jeu qu'est Tarot Online 1.29 !</p>
+            <form action="/php/json/json_controller_connexion.php" method="post" id="formConnexion">
+                Nom d'utilisateur : <input type="text" name="nomUtilisateur"> <br>
+                Mot de passe : <input type="password" name="mdp"> <br>
+                <input type="submit" value="Connexion">
+            </form>
+            <p id="erreurConnexion" style="display:none"></p>
+
+            <br>
+
+            <p>Pas encore inscrit ? Ne perds pas une seule seconde et rejoins cette belle aventure qu'est Tarot Online 1.29 !</p>
+            <form action="/php/json/json_controller_inscription.php" method="post" id="formInscription">
+                Nom d'utilisateur : <input type="text" name="nomUtilisateur"> <br>
+                Mot de passe : <input type="password" name="mdp1"> <br>
+                Répéter le mot de passe : <input type="password" name="mdp2"> <br>
+                <input type="submit" value="S'inscrire">
+            </form>
+            <p id="messageInscription" style="display:none"></p>
+        </div>
+
+        <div id="connecte">
+            <div id="menuPrincipal" style="display:none">
+                <form action="/php/modifEtat/etat_creationPartie.php" method="post" id="boutonCreerPartie">
+                    <input type="submit" value="Créer une partie">
+                </form>
+                <form action="/php/modifEtat/etat_rejoindrePartie.php" method="post" id="boutonRejoindrePartie">
+                    <input type="submit" value="Rejoindre une partie">
+                </form>
+                <form action="/php/modifEtat/etat_consultationStats.php" method="post" id="boutonStats">
+                    <input type="submit" value="Stats">
+                </form>
+            </div>
+
+            <form style="display:none" action="/php/deconnexion.php" method="post" id="boutonDeconnexion">
+                <input type="submit" value="Deconnexion">
+            </form>
+
+
+            <form style="display:none" action="/php/controller_creationPartie.php" method="post" id="formCreationPartie">
+                Nom de la partie : <input type="text" name="nomPartie"> <br>
+                <select name="nbJoueurs">
+                    <option value="3">3</option>
+                    <option value="4" selected>4</option>
+                    <option value="5">5</option>
+                </select>
+                <input type="submit" value="Valider">
+            </form>
+        </div>
+
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/gestionMenu.js"></script>
+    </body>
+</html>

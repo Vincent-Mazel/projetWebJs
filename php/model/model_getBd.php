@@ -1,6 +1,6 @@
 <?php
 
-function getDb() {
+function getBd() {
     try {
         //Connexion à la base de données.
         $dsn = 'mysql:host=mysql-mrvincent13.alwaysdata.net;dbname=mrvincent13_tarotonlinebd';

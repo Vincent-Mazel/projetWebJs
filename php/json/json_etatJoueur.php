@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["etat"]))
-    $_SESSION["etat"] = "menu";
-
 $resultat = new stdClass();
 $resultat->etat = $_SESSION["etat"];
 

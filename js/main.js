@@ -3,20 +3,22 @@
 
     $(document).ready(function () {
         $.ajax({
-            url: '/json/estConnectee.php'
+            url: '/php/json/json_estConnecte.php',
+            data: $(this).serialize()
         })
-            .done(function (dataConnexion) {
-                if (dataConnexion.isConnecte) {
+            .done(function (dataEtatConnexion) {
+                if (dataEtatConnexion.isConnecte) {
                     $.ajax({
-                        url: '/json/etatJoueur.php'
+                        url: '/php/json/json_etatJoueur.php'
                     })
                         .done(function (dataEtat) {
                             if ("menu" === dataEtat.etat) {
-                                $('#boutonsMenu').show();
+                                $('#menuPrincipal').show();
+                                $('#boutonDeconnexion').show();
                             }
-                            else if ("créationPartie" === dataEtat.etat) {
-                                $('#boutonsMenu').hide();
+                            else if ("creationPartie" === dataEtat.etat) {
                                 $('#formCreationPartie').show();
+                                $('#boutonDeconnexion').show();
                             }
                             else if ("recherchePartie" === dataEtat.etat) {
 
@@ -30,45 +32,69 @@
                             console.log(dataEtat.etat);
                         })
                         .fail(function () {
-                            alert('hola manant ! attention !!!')
+                            alert("Problème de chargement de la page lié à l'état du joueur !!");
                         });
-                    return false;
                 }
                 else
-                    $('#connexion').show();
+                    $('#nonConnecte').show();
+                return false;
         })
             .fail(function () {
-                alert('hola manant ! attention !!!')
+                alert("Problème de chargement de la page lié à l'état de connexion du joueur !!");
             });
 
-        $('#connexion').submit(function () {
+        $('#formConnexion').submit(function () {
             $.ajax({
                 url: $(this).attr('action'),
                 method: $(this).attr('method'),
                 data: $(this).serialize()
             })
-                .done(function () {
-                    window.location.reload();
-                    $('#deconnexion').show();
+                .done(function (dataConnexion) {
+                    if (dataConnexion.erreur)
+                        $('#erreurConnexion').html(dataConnexion.messageErreur).show();
+                    else {
+                        $('#nonConnecte').hide();
+                        $('#connecte').show();
+                        $('#menuPrincipal').show();
+                        $('#boutonDeconnexion').show();
+                    }
                 })
                 .fail(function () {
-                    alert('fais gaffe mec !')
+                    alert("Problème survenu lors de l'inscription !!");
                 });
             return false;
         });
 
-        $('#deconnexion').submit(function () {
+        $('#formInscription').submit(function () {
+            $.ajax({
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
+                data: $(this).serialize()
+            })
+                .done(function (dataInscription) {
+                    if (dataInscription.erreur)
+                        $('#messageInscription').html(dataInscription.messageErreur).show();
+                    else
+                        $('#messageInscription').html(dataInscription.messageInscription).show();
+                })
+                .fail(function () {
+                    alert("Problème survenu lors de l'inscription !!");
+                });
+            return false;
+        });
+
+        $('#boutonDeconnexion').submit(function () {
             $.ajax({
                 url: $(this).attr('action'),
                 method: $(this).attr('method'),
                 data: $(this).serialize()
             })
                 .done(function () {
-                    window.location.reload();
-                    $('#form-connexion').show();
+                    $('#connecte').hide();
+                    $('#nonConnecte').show();
                 })
                 .fail(function () {
-                    alert('Minceeeee ! Regardez qui voilà !');
+                    alert("Problème survenu lors de la déconnexion !!");
                 });
             return false;
         });
