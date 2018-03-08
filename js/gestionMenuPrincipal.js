@@ -2,11 +2,9 @@
     "use strict";
 
     $(document).ready(function () {
-        $('#boutonCreerPartie').submit(function () {
+        $('#boutonCreerPartie').click(function () {
             $.ajax({
-                url: $(this).attr('action'),
-                method: $(this).attr('method'),
-                data: $(this).serialize()
+                url: '/php/modifEtat/etat_creationPartie.php'
             })
                 .done(function () {
                     $('#menuPrincipal').hide();
@@ -18,15 +16,18 @@
             return false;
         });
 
-        $('#boutonRejoindrePartie').submit(function () {
+        $('#boutonRejoindrePartie').click(function () {
             $.ajax({
-                url: $(this).attr('action'),
-                method: $(this).attr('method'),
-                data: $(this).serialize()
+                url: '/php/json/json_controller_rejoindrePartie.php'
             })
-                .done(function () {
+                .done(function (dataParties) {
                     $('#menuPrincipal').hide();
-                    $('#formCreationPartie').show();
+                    if (dataParties.isPartieEnCours) {
+
+                        $('#rejoindrePartie').show();
+                    }
+                    else
+                        $('#messageErreurRejoindrePartie').show();
                 })
                 .fail(function () {
                     alert("Problème dans l'affichage du menu de sélection de partie !");
