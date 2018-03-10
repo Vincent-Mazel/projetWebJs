@@ -54,6 +54,11 @@
                         $('#formCreationPartie').hide();
                     else if ("recherchePartie" === dataEtatJoueur.etat)
                         $('#rejoindrePartie').hide();
+                    else if ("rejoindrePartie" === dataEtatJoueur.etat) {
+                        $('#messageErreurRejoindrePartie').hide();
+                        $('#tbodyParties').children().remove();
+                        $('#rejoindrePartie').hide();
+                    }
 
                     $('#boutonDeconnexion').hide();
                     $('#nonConnecte').show();

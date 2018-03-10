@@ -73,3 +73,47 @@ function updatePartie ($joueur1, $joueur2, $joueur3, $joueur4, $joueur5, $nomPar
     $stmt->bindParam(':nbJoueursCo',$nbJoueursCo);
     $stmt->execute();
 }
+
+function addJoueur2 ($joueur, $nomPartie, $nbJoueurs) {
+    $db = getBd();
+
+    $query = 'UPDATE PARTIE SET JOUEUR2 = :joueur, NB_JOUEURS_CO = :nbJoueurs WHERE NOM_PARTIE = :nomPartie';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':joueur',$joueur);
+    $stmt->bindParam(':nbJoueurs',$nbJoueurs);
+    $stmt->bindParam(':nomPartie',$nomPartie);
+    $stmt->execute();
+}
+
+function addJoueur3 ($joueur, $nomPartie, $nbJoueurs) {
+    $db = getBd();
+
+    $query = 'UPDATE PARTIE SET JOUEUR3 = :joueur, NB_JOUEURS_CO = :nbJoueurs WHERE NOM_PARTIE = :nomPartie';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':joueur',$joueur);
+    $stmt->bindParam(':nbJoueurs',$nbJoueurs);
+    $stmt->bindParam(':nomPartie',$nomPartie);
+    $stmt->execute();
+}
+
+function addJoueur4 ($joueur, $nomPartie, $nbJoueurs) {
+    $db = getBd();
+
+    $query = 'UPDATE PARTIE SET JOUEUR4 = :joueur, NB_JOUEURS_CO = :nbJoueurs WHERE NOM_PARTIE = :nomPartie';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':joueur',$joueur);
+    $stmt->bindParam(':nbJoueurs',$nbJoueurs);
+    $stmt->bindParam(':nomPartie',$nomPartie);
+    $stmt->execute();
+}
+
+function addJoueur5 ($joueur, $nomPartie, $nbJoueurs) {
+    $db = getBd();
+
+    $query = 'UPDATE PARTIE SET JOUEUR5 = :joueur, NB_JOUEURS_CO = :nbJoueurs WHERE NOM_PARTIE = :nomPartie';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':joueur',$joueur);
+    $stmt->bindParam(':nbJoueurs',$nbJoueurs);
+    $stmt->bindParam(':nomPartie',$nomPartie);
+    $stmt->execute();
+}

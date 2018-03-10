@@ -31,14 +31,12 @@ else {
     if (!$resultat->erreur) {
         addPartie($nomPartie, $nomJoueur, $nbJoueurs);
 
-        $_SESSION["etat"] = "attenteJoueurs";
+        $_SESSION["etat"] = "attenteJoueursCreation";
         $_SESSION["nomPartie"] = $nomPartie;
 
         $resultat->nomPartie = $nomPartie;
         $resultat->nbJoueurs = $nbJoueurs;
         $resultat->nomJoueur = $nomJoueur;
-
-        $_SESSION["nomPartie"] = $nomPartie;
     }
 
     header('Cache-Control: no-cache, must-revalidate');

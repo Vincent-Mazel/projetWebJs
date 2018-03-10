@@ -16,21 +16,24 @@
             return false;
         });
 
-        $('#boutonRejoindrePartie').click(function () {
+        $('#formCreationPartie').submit(function () {
             $.ajax({
-                url: '/php/json/json_controller_rejoindrePartie.php'
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
+                data: $(this).serialize()
             })
-                .done(function (dataParties) {
-                    $('#menuPrincipal').hide();
-                    if (dataParties.isPartieEnCours) {
-
-                        $('#rejoindrePartie').show();
+                .done(function (dataCreationPartie) {
+                    if (dataCreationPartie.erreur)
+                        $('#erreurCreationPartie').html(dataCreationPartie.messageErreur).show();
+                    else {
+                        $('#modalAttenteJoueurs').modal({backdrop: 'static', keyboard: false});
+                        $('#modalAttenteJoueurs').modal("show");
+                        $('#messageModalAttenteJoueurs').html("Nom de la partie : " + dataCreationPartie.nomPartie + "<br>" + "1/" + dataCreationPartie.nbJoueurs + " joueurs connectés"
+                            + "<br> <br>" + dataCreationPartie.nomJoueur);
                     }
-                    else
-                        $('#messageErreurRejoindrePartie').show();
                 })
                 .fail(function () {
-                    alert("Problème dans l'affichage du menu de sélection de partie !");
+                    alert("Problème survenu lors de la création de la partie !!");
                 });
             return false;
         });

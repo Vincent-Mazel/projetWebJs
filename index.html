@@ -34,7 +34,6 @@
         <div id="menuPrincipal" style="display:none">
             <button type="button" id="boutonCreerPartie">Créer une partie</button>
             <button type="button" id="boutonRejoindrePartie">Rejoindre une partie</button>
-            <button type="button" id="boutonStats">Stats</button>
         </div>
 
         <button type="button" id="boutonDeconnexion" style="display:none">Deconnexion</button>
@@ -54,7 +53,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">En attente de joueurs ...</h5>
+                        <h5 class="modal-title">En attente de joueurs ...</h5>
                     </div>
                     <div class="modal-body">
                         <p id="messageModalAttenteJoueurs"></p>
@@ -71,15 +70,32 @@
                 <tr>
                     <th>Nom de la partie</th>
                     <th>Nombre de joueurs</th>
+                    <th></th>
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody id="tbodyParties">
 
             </tbody>
         </table>
 
         <p id="messageErreurRejoindrePartie" style="display:none">Quel dommage, aucune partie ne recherche de joueurs actuellement ! N'hésite pas à tapoter ta touche F5 ou à en créer une nouvelle ;).</p>
+
+        <div class="modal fade" id="modalErreurRejoindrePartie" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Une erreur est survenue ...</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p id="messageErreurModalRejoindrePartie"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="fermerModalErreurRejoindrePartie" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         </div>
 
@@ -91,6 +107,5 @@
         <script src="js/main.js"></script>
         <script src="js/gestionMenuPrincipal.js"></script>
         <script src="js/gestionCompte.js"></script>
-        <script src="js/gestionMenuCreationPartie.js"></script>
     </body>
 </html>
