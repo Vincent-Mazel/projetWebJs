@@ -34,9 +34,8 @@ else {
         $_SESSION["etat"] = "attenteJoueursCreation";
         $_SESSION["nomPartie"] = $nomPartie;
 
-        $resultat->nomPartie = $nomPartie;
-        $resultat->nbJoueurs = $nbJoueurs;
-        $resultat->nomJoueur = $nomJoueur;
+        $resultat->htmlMessage = "Nom de la partie : " . $nomPartie . "<br>" . "1/" . $nbJoueurs . " joueurs connectés"
+            . "<br> <br>" .$nomJoueur;
     }
 
     header('Cache-Control: no-cache, must-revalidate');

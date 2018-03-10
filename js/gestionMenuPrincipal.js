@@ -28,8 +28,7 @@
                     else {
                         $('#modalAttenteJoueurs').modal({backdrop: 'static', keyboard: false});
                         $('#modalAttenteJoueurs').modal("show");
-                        $('#messageModalAttenteJoueurs').html("Nom de la partie : " + dataCreationPartie.nomPartie + "<br>" + "1/" + dataCreationPartie.nbJoueurs + " joueurs connectés"
-                            + "<br> <br>" + dataCreationPartie.nomJoueur);
+                        $('#messageModalAttenteJoueurs').html(dataCreationPartie.htmlMessage);
                     }
                 })
                 .fail(function () {

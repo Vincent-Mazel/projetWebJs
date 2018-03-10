@@ -32,6 +32,12 @@
         return false;
     };
 
+    let chargerModal = function (data) {
+        $('#modalAttenteJoueurs').modal({backdrop: 'static', keyboard: false});
+        $('#modalAttenteJoueurs').modal("show");
+        $('#messageModalAttenteJoueurs').html(data.htmlMessage);
+    };
+
     let rejoindrePartie = function () {
         $.ajax({
             url: '/php/json/json_controller_rejoindrePartie.php',
@@ -43,15 +49,11 @@
                     $('#messageErreurModalRejoindrePartie').html(dataRejoindrePartie.message);
                     $('#modalErreurRejoindrePartie').modal("show");
                 }
-                else {
-                    $('#modalAttenteJoueurs').modal({backdrop: 'static', keyboard: false});
-                    $('#modalAttenteJoueurs').modal("show");
-                    $('#messageModalAttenteJoueurs').html("Nom de la partie : " + dataRejoindrePartie.nomPartie + "<br>" + dataRejoindrePartie.nbJoueursCo +"/" + dataRejoindrePartie.nbJoueurs + " joueurs connectés"
-                        + "<br> <br>" + dataRejoindrePartie.joueurs);
-                }
+                else
+                    chargerModal(dataRejoindrePartie);
+
                 $('#tbodyParties').children().remove();
                 chargerTableauParties();
-                console.log(dataRejoindrePartie.etat);
             })
             .fail(function () {
                 alert("Problème survenu lors de la connexion à la partie !");
@@ -68,12 +70,8 @@
               if (dataPartie.isJouable) {
 
               }
-              else {
-                  $('#modalAttenteJoueurs').modal({backdrop: 'static', keyboard: false});
-                  $('#modalAttenteJoueurs').modal("show");
-                  $('#messageModalAttenteJoueurs').html("Nom de la partie : " + dataPartie.nomPartie + "<br>" + dataPartie.nbJoueursCo +"/" + dataPartie.nbJoueurs + " joueurs connectés"
-                      + "<br> <br>" + dataPartie.joueurs);
-              }
+              else
+                  chargerModal(dataPartie);
           })
           .fail(function () {
               alert("Problème survenu lors de la récupération des informations sur la partie");
@@ -92,7 +90,6 @@
                         url: '/php/json/json_etatJoueur.php'
                     })
                         .done(function (dataEtat) {
-                            console.log(dataEtat.etat);
                             if ("menu" === dataEtat.etat) {
                                 $('#menuPrincipal').show();
                                 $('#boutonDeconnexion').show();

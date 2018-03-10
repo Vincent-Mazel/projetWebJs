@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97e97645-dd77-44e9-b476-d4a9bedeb4b5" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/php/json/json_controller_getInfosPartie.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/php/json/json_controller_getParties.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/js/gestionCompte.js" afterPath="$PROJECT_DIR$/js/gestionCompte.js" />
-      <change beforePath="$PROJECT_DIR$/js/gestionMenuCreationPartie.js" afterPath="" />
       <change beforePath="$PROJECT_DIR$/js/gestionMenuPrincipal.js" afterPath="$PROJECT_DIR$/js/gestionMenuPrincipal.js" />
       <change beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change beforePath="$PROJECT_DIR$/php/controller_updatePartie.php" afterPath="$PROJECT_DIR$/php/json/json_controller_quitterFile.php" />
       <change beforePath="$PROJECT_DIR$/php/json/json_controller_creationPartie.php" afterPath="$PROJECT_DIR$/php/json/json_controller_creationPartie.php" />
+      <change beforePath="$PROJECT_DIR$/php/json/json_controller_getInfosPartie.php" afterPath="$PROJECT_DIR$/php/json/json_controller_getInfosPartie.php" />
       <change beforePath="$PROJECT_DIR$/php/json/json_controller_rejoindrePartie.php" afterPath="$PROJECT_DIR$/php/json/json_controller_rejoindrePartie.php" />
-      <change beforePath="$PROJECT_DIR$/php/model/model_gestionParties.php" afterPath="$PROJECT_DIR$/php/model/model_gestionParties.php" />
-      <change beforePath="$PROJECT_DIR$/php/modifEtat/etat_consultationStats.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/php/modifEtat/etat_rejoindrePartie.php" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,8 +42,8 @@
       <file leaf-file-name="json_controller_rejoindrePartie.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/json/json_controller_rejoindrePartie.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+            <state relative-caret-position="517">
+              <caret line="61" column="4" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="62" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -61,18 +52,8 @@
       <file leaf-file-name="json_controller_creationPartie.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/json/json_controller_creationPartie.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gestionCompte.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/gestionCompte.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="908">
-              <caret line="60" column="21" lean-forward="true" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+            <state relative-caret-position="629">
+              <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -81,8 +62,18 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1598">
-              <caret line="94" column="55" lean-forward="false" selection-start-line="94" selection-start-column="55" selection-end-line="94" selection-end-column="55" />
+            <state relative-caret-position="17">
+              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="json_controller_connexion.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/json/json_controller_connexion.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -111,8 +102,8 @@
       <file leaf-file-name="json_controller_getInfosPartie.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/json/json_controller_getInfosPartie.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+            <state relative-caret-position="476">
+              <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -128,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gestionMenuPrincipal.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gestionMenuPrincipal.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/gestionMenuPrincipal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="510">
+              <caret line="30" column="92" lean-forward="false" selection-start-line="30" selection-start-column="92" selection-end-line="30" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -195,15 +186,15 @@
         <option value="$PROJECT_DIR$/js/gestionCompte.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/php/model/model_gestionParties.php" />
-        <option value="$PROJECT_DIR$/php/json/json_controller_creationPartie.php" />
         <option value="$PROJECT_DIR$/php/json/getInfosPartie.php" />
-        <option value="$PROJECT_DIR$/php/json/json_controller_getInfosPartie.php" />
         <option value="$PROJECT_DIR$/php/controller_updatePartie.php" />
-        <option value="$PROJECT_DIR$/js/gestionMenuPrincipal.js" />
         <option value="$PROJECT_DIR$/php/json/json_controller_updatePartie.php" />
-        <option value="$PROJECT_DIR$/php/json/json_controller_rejoindrePartie.php" />
-        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/php/json/json_controller_getParties.php" />
+        <option value="$PROJECT_DIR$/js/gestionMenuPrincipal.js" />
+        <option value="$PROJECT_DIR$/php/json/json_controller_creationPartie.php" />
+        <option value="$PROJECT_DIR$/php/json/json_controller_rejoindrePartie.php" />
+        <option value="$PROJECT_DIR$/php/json/json_controller_getInfosPartie.php" />
+        <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
   </component>
@@ -214,9 +205,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="398" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="830" />
+    <option name="y" value="-21" />
     <option name="width" value="960" />
     <option name="height" value="1040" />
   </component>
@@ -325,12 +316,12 @@
       <workItem from="1520419305073" duration="16451000" />
       <workItem from="1520532039001" duration="3083000" />
       <workItem from="1520594464998" duration="16850000" />
-      <workItem from="1520686047902" duration="14586000" />
+      <workItem from="1520686047902" duration="16505000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101221000" />
+    <option name="totallyTimeSpent" value="103140000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -342,7 +333,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -491,14 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/json_controller_connexion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/modifEtat/etat_rejoindrePartie.php" />
     <entry file="file://$PROJECT_DIR$/js/plugins.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -570,14 +553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/json_controller_getInfosPartie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/json/json_estConnecte.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -594,18 +569,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/json_controller_rejoindrePartie.php">
+    <entry file="file://$PROJECT_DIR$/js/gestionMenuPrincipal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+        <state relative-caret-position="510">
+          <caret line="30" column="92" lean-forward="false" selection-start-line="30" selection-start-column="92" selection-end-line="30" selection-end-column="92" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$PROJECT_DIR$/php/json/json_controller_creationPartie.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="94" column="55" lean-forward="false" selection-start-line="94" selection-start-column="55" selection-end-line="94" selection-end-column="55" />
+        <state relative-caret-position="629">
+          <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/json_controller_rejoindrePartie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="61" column="4" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="62" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -618,18 +601,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/json_controller_creationPartie.php">
+    <entry file="file://$PROJECT_DIR$/php/json/json_controller_getInfosPartie.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        <state relative-caret-position="476">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/gestionMenuPrincipal.js">
+    <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/json_controller_connexion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
           <folding />
         </state>
       </provider>

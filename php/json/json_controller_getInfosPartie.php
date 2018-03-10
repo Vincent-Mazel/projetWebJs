@@ -21,13 +21,12 @@ if ($partie["NB_JOUEURS"] == $partie["NB_JOUEURS_CO"]) {
     echo json_encode($resultat);
 }
 else {
-    $resultat->nomPartie = $nomPartie;
-    $resultat->nbJoueurs = $partie["NB_JOUEURS"];
-    $resultat->nbJoueursCo = $partie["NB_JOUEURS_CO"];
+    $resultat->htmlMessage = "Nom de la partie : " . $nomPartie . "<br>" . $partie["NB_JOUEURS_CO"] . "/" . $partie["NB_JOUEURS"] . " joueurs connectés"
+        . "<br> <br>";
 
     $k = 1;
     while ($k <= $partie["NB_JOUEURS_CO"]) {
-        $resultat->joueurs .= "Joueur " . $k . " : " . $partie["JOUEUR" . $k] . '<br>';
+        $resultat->htmlMessage .= "Joueur " . $k . " : " . $partie["JOUEUR" . $k] . '<br>';
         $k += 1;
     }
 

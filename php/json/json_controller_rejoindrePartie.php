@@ -58,13 +58,17 @@ else {
 
     $resultat->etat = $_SESSION["etat"];
 
+    $nbJoueursCoOk = $nbJoueursCo + 1;
+    $resultat->htmlMessage = "Nom de la partie : " . $nomPartie . "<br>" . $nbJoueursCoOk . "/" . $partie["NB_JOUEURS"] . " joueurs connectés"
+        . "<br> <br>";
+
     $k = 1;
     while ($k <= $nbJoueursCo) {
-        $resultat->joueurs .= "Joueur " . $k . " : " . $partie["JOUEUR" . $k] . '<br>';
+        $resultat->htmlMessage .= "Joueur " . $k . " : " . $partie["JOUEUR" . $k] . '<br>';
         $k += 1;
     }
     $nb = $nbJoueursCo + 1;
-    $resultat->joueurs .= "Joueur " .$nb . " : " . $nomJoueur;
+    $resultat->htmlMessage .= "Joueur " .$nb . " : " . $nomJoueur;
 
     header('Cache-Control: no-cache, must-revalidate');
     header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
