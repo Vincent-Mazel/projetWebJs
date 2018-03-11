@@ -40,6 +40,29 @@
         $('#messageModalAttenteJoueurs').html(data.htmlMessage);
     };
 
+    let closeModal = function () {
+        $('#modalErreur').modal("hide");
+    };
+
+    let chargerModalChargement = function () {
+        $('#modalChargementPartie').modal({backdrop: 'static', keyboard: false});
+        $('#modalChargementPartie').modal("show");
+        $('#messageModalChargement').html("Corruption du croupier");
+        setTimeout(function () {
+            $('#messageModalChargement').html("Nettoyage du joli tapis");
+            setTimeout(function () {
+                $('#messageModalChargement').html("Mise à disposition de délicieux cocktels");
+                setTimeout(function () {
+                    $('#messageModalChargement').html("Clin d'oeil à la charmante serveuse");
+                    setTimeout(function () {
+                        $('#modalChargementPartie').modal("hide");
+                        $('#messageModalChargement').html("Corruption du croupier");
+                    }, 4000);
+                    }, 4000);
+                }, 4000);
+            }, 4000);
+    };
+
     let rejoindrePartie = function () {
         $.ajax({
             url: '/php/json/json_controller_rejoindrePartie.php',
@@ -48,8 +71,15 @@
         })
             .done(function (dataRejoindrePartie) {
                 if (dataRejoindrePartie.erreur) {
-                    $('#messageErreurModalRejoindrePartie').html(dataRejoindrePartie.message);
-                    $('#modalErreurRejoindrePartie').modal("show");
+                    $('#messageErreurModal').html(dataRejoindrePartie.messageErreur);
+                    $('#modalErreur').modal("show");
+                    setTimeout(closeModal, 15000);
+                }
+                else if (dataRejoindrePartie.isJouable) {
+                    chargerModalChargement();
+                    $('#rejoindrePartie').hide();
+                    $('#messageErreurRejoindrePartie').hide();
+                    $('#plateau').show();
                 }
                 else {
                     chargerModal(dataRejoindrePartie);
@@ -72,7 +102,9 @@
       })
           .done(function (dataPartie) {
               if (dataPartie.isJouable) {
-
+                  $('#modalAttenteJoueurs').modal("hide");
+                  chargerModalChargement();
+                  $('#plateau').show();
               }
               else
                   chargerModal(dataPartie);
@@ -134,14 +166,6 @@
             .fail(function () {
                 alert("Problème de chargement de la page lié à l'état de connexion du joueur !!");
             });
-
-        /*$('window').unload(function () {
-            $.ajax({
-                url: '/php/json/json_controller_etatJoueur.php',
-                type: 'GET',
-                data: 'boutonDeconnexion=true'
-            })
-        });*/
 
         $('#boutonRejoindrePartie').click(function () {
             $('#menuPrincipal').hide();

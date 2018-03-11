@@ -10,7 +10,7 @@ $resultat = new stdClass();
 $resultat->isPartieEnCours = true;
 
 $resultReq = getAllParties();
-$partieReq = $partieReq = $resultReq->fetch();
+$partieReq = $resultReq->fetch();
 
 if (empty($partieReq)) {
     $resultat->isPartieEnCours = false;
@@ -23,7 +23,8 @@ if (empty($partieReq)) {
 else {
     $resultat->parties = array();
     do {
-        $resultat->parties[] = array($partieReq["NOM_PARTIE"], $partieReq["NB_JOUEURS_CO"] . "/" . $partieReq["NB_JOUEURS"]);
+        if ($partieReq["NB_JOUEURS_CO"] < $partieReq["NB_JOUEURS"])
+            $resultat->parties[] = array($partieReq["NOM_PARTIE"], $partieReq["NB_JOUEURS_CO"] . "/" . $partieReq["NB_JOUEURS"]);
     }while ($partieReq = $resultReq->fetch());
 
     header('Cache-Control: no-cache, must-revalidate');

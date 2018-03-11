@@ -89,6 +89,7 @@
                     </div>
                     <div class="modal-body">
                         <p id="messageErreurModal"></p>
+                        <div class="loader"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" id="fermerModalErreurRejoindrePartie" data-dismiss="modal">Fermer</button>
@@ -97,6 +98,24 @@
             </div>
         </div>
 
+        <div class="modal fade" id="modalChargementPartie" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Chargement de la partie en cours ...</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <p id="messageModalChargement">Corruption du croupier</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="plateau" style="display:none">
+            <p>c'est le plateau lol</p>
         </div>
 
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>

@@ -5,6 +5,7 @@ require('../model/model_gestionParties.php');
 
 $resultat = new stdClass();
 $resultat->erreur = false;
+$resultat->isJouable = false;
 
 $nomPartie = $_GET["nomPartie"];
 $nomJoueur = $_SESSION["username"];
@@ -62,8 +63,14 @@ else {
         $resultat->htmlMessage .= "Joueur " . $k . " : " . $partie["JOUEUR" . $k] . '<br>';
         $k += 1;
     }
-    $nb = $nbJoueursCo + 1;
-    $resultat->htmlMessage .= "Joueur " .$nb . " : " . $nomJoueur;
+
+    $resultat->htmlMessage .= "Joueur " .$nbJoueursCoOk . " : " . $nomJoueur;
+
+    if ($nbJoueursCoOk == $partie["NB_JOUEURS"]) {
+        $resultat->isjouable = true;
+        $_SESSION["etat"] = "distributionCartes";
+    }
+
 
     header('Cache-Control: no-cache, must-revalidate');
     header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
