@@ -33,9 +33,15 @@ else if ($mdp != $mdpReq) {
     $resultat->erreur = true;
     $resultat->messageErreur = "Aie aie aie, ce n'est pas le bon mot de passe ! Tu essaies de hacker le compte, c'est ça ?";
 }
+else if ($utilisateur["IS_CONNECTE"]) {
+    $resultat->erreur = true;
+    $resultat->messageErreur = "Une seule personne à la fois voyons ! Quelqu'un est déjà connecté sur ce compte !";
+}
 else {
     $_SESSION["etat"] = "menu";
     $_SESSION["username"] = $nomUtilisateur;
+
+    updateEtatConnexion($nomUtilisateur, true);
 }
 
 header('Cache-Control: no-cache, must-revalidate');

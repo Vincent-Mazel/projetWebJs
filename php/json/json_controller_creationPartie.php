@@ -35,7 +35,7 @@ else {
         $_SESSION["nomPartie"] = $nomPartie;
 
         $resultat->htmlMessage = "Nom de la partie : " . $nomPartie . "<br>" . "1/" . $nbJoueurs . " joueurs connectés"
-            . "<br> <br>" .$nomJoueur;
+            . "<br> <br>" . "Joueur 1 : " . $nomJoueur;
     }
 
     header('Cache-Control: no-cache, must-revalidate');

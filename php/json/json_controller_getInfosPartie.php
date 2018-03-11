@@ -13,7 +13,7 @@ $partie = $resultReq->fetch();
 
 if ($partie["NB_JOUEURS"] == $partie["NB_JOUEURS_CO"]) {
     $resultat->isJouable = true;
-    $_SESSION["etat"] = "carteDistribuees";
+    $_SESSION["etat"] = "distributionCartes";
 
     header('Cache-Control: no-cache, must-revalidate');
     header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');

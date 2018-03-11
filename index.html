@@ -15,17 +15,16 @@
         <div id="nonConnecte" style="display:none">
             <p>Connectez-vous afin de profiter de ce merveilleux jeu qu'est Tarot Online 1.29 !</p>
             <form action="/php/json/json_controller_connexion.php" method="post" id="formConnexion">
-                Nom d'utilisateur : <input type="text" name="nomUtilisateur"> <br>
-                Mot de passe : <input type="password" name="mdp"> <br>
+                Nom d'utilisateur : <input type="text" name="nomUtilisateur" class="inputConnexion" id="inputNomUtilisateurConnexion"> <br>
+                Mot de passe : <input type="password" name="mdp" class="inputConnexion"> <br>
                 <input type="submit" value="Connexion">
             </form>
-            <p id="erreurConnexion" style="display:none"></p>
 
             <p>Pas encore inscrit ? Ne perds pas une seule seconde et rejoins cette belle aventure qu'est Tarot Online 1.29 !</p>
             <form action="/php/json/json_controller_inscription.php" method="post" id="formInscription">
-                Nom d'utilisateur : <input type="text" name="nomUtilisateur"> <br>
-                Mot de passe : <input type="password" name="mdp1"> <br>
-                Répéter le mot de passe : <input type="password" name="mdp2"> <br>
+                Nom d'utilisateur : <input type="text" name="nomUtilisateur" class="inputInscription"> <br>
+                Mot de passe : <input type="password" name="mdp1" class="inputInscription"> <br>
+                Répéter le mot de passe : <input type="password" name="mdp2" class="inputInscription"> <br>
                 <input type="submit" value="S'inscrire">
             </form>
             <p id="messageInscription" style="display:none"></p>
@@ -37,9 +36,10 @@
         </div>
 
         <button type="button" id="boutonDeconnexion" style="display:none">Deconnexion</button>
+        <button type="button" id="boutonMenuPrincipal" style="display:none">Menu principal</button>
 
         <form style="display:none" action="/php/json/json_controller_creationPartie.php" method="post" id="formCreationPartie">
-            Nom de la partie : <input type="text" name="nomPartie"> <br>
+            Nom de la partie : <input type="text" name="nomPartie" id="inputCreationPartie"> <br>
             <select name="nbJoueurs">
                 <option value="3">3</option>
                 <option value="4" selected>4</option>
@@ -81,14 +81,14 @@
 
         <p id="messageErreurRejoindrePartie" style="display:none">Quel dommage, aucune partie ne recherche de joueurs actuellement ! N'hésite pas à tapoter ta touche F5 ou à en créer une nouvelle ;).</p>
 
-        <div class="modal fade" id="modalErreurRejoindrePartie" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="modalErreur" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Une erreur est survenue ...</h5>
                     </div>
                     <div class="modal-body">
-                        <p id="messageErreurModalRejoindrePartie"></p>
+                        <p id="messageErreurModal"></p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" id="fermerModalErreurRejoindrePartie" data-dismiss="modal">Fermer</button>
@@ -105,7 +105,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/gestionMenuPrincipal.js"></script>
         <script src="js/gestionCompte.js"></script>
     </body>
 </html>

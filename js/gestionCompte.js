@@ -1,6 +1,16 @@
 (function ()  {
     "use strict";
 
+    let closeModal = function () {
+        $('#modalErreur').modal("hide");
+    };
+
+    let chargerModalErreur = function (data) {
+        $('#messageErreurModal').html(data.messageErreur);
+        $('#modalErreur').modal("show");
+        setTimeout(closeModal, 15000);
+    };
+
     $(document).ready(function () {
         $('#formConnexion').submit(function () {
             $.ajax({
@@ -10,13 +20,18 @@
             })
                 .done(function (dataConnexion) {
                     if (dataConnexion.erreur)
-                        $('#erreurConnexion').html(dataConnexion.messageErreur).show();
+                        chargerModalErreur(dataConnexion);
                     else {
                         $('#nonConnecte').hide();
+
+                        $('.inputInscription').val("");
+
                         $('#connecte').show();
                         $('#menuPrincipal').show();
                         $('#boutonDeconnexion').show();
                     }
+                    $('.inputConnexion').val("");
+                    $('#messageInscription').hide();
                 })
                 .fail(function () {
                     alert("Problème survenu lors de l'inscription !!");
@@ -32,47 +47,15 @@
             })
                 .done(function (dataInscription) {
                     if (dataInscription.erreur)
-                        $('#messageInscription').html(dataInscription.messageErreur).show();
+                        chargerModalErreur(dataInscription);
                     else
                         $('#messageInscription').html(dataInscription.messageInscription).show();
+
+                    $('.inputInscription').val("");
+                    $('#inputNomUtilisateurConnexion').focus();
                 })
                 .fail(function () {
                     alert("Problème survenu lors de l'inscription !!");
-                });
-            return false;
-        });
-
-        $('#boutonDeconnexion').click(function () {
-            $.ajax({
-                url: '/php/json/json_etatJoueur.php',
-                data: $(this).serialize()
-            })
-                .done(function (dataEtatJoueur) {
-                    if ("menu" === dataEtatJoueur.etat)
-                        $('#menuPrincipal').hide();
-                    else if ("creationPartie" === dataEtatJoueur.etat)
-                        $('#formCreationPartie').hide();
-                    else if ("recherchePartie" === dataEtatJoueur.etat)
-                        $('#rejoindrePartie').hide();
-                    else if ("rejoindrePartie" === dataEtatJoueur.etat) {
-                        $('#messageErreurRejoindrePartie').hide();
-                        $('#tbodyParties').children().remove();
-                        $('#rejoindrePartie').hide();
-                    }
-
-                    $('#boutonDeconnexion').hide();
-                    $('#nonConnecte').show();
-
-                    $.ajax({
-                        url: '/php/deconnexion.php'
-                    })
-                        .fail(function () {
-                            alert("Problème survenu lors de la déconnexion !!");
-                        });
-                    return false;
-                })
-                .fail(function () {
-                    alert("Problème survenu lors de la déconnexion !!");
                 });
             return false;
         });

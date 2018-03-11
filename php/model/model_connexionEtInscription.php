@@ -2,11 +2,10 @@
 require('model_getBd.php');
 
 // Récupère les données concernant un utilisateur en fonction de son nom.
-function getUser($username)
-{
+function getUser($username) {
     $db = getBd();
 
-    $query = 'SELECT USERNAME, PASSWORD FROM USER WHERE USERNAME = :username';
+    $query = 'SELECT * FROM USER WHERE USERNAME = :username';
     $stmt = $db->prepare($query);
     $stmt->bindParam(':username',$username);
     $stmt->execute();
@@ -15,8 +14,7 @@ function getUser($username)
 }
 
 //Ajout d'un utilisateur dans la base de données après l'inscription
-function addUser($username, $pass)
-{
+function addUser($username, $pass) {
     $db = getBd();
 
     $query = 'INSERT INTO USER (USERNAME, PASSWORD) VALUES (:username, :pass)';
@@ -26,4 +24,14 @@ function addUser($username, $pass)
     $stmt->execute();
 
     return $stmt;
+}
+
+function updateEtatConnexion ($username, $etat) {
+    $db = getBd();
+
+    $query = 'UPDATE USER SET IS_CONNECTE = :etat WHERE USERNAME = :username';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':etat',$etat);
+    $stmt->bindParam(':username',$username);
+    $stmt->execute();
 }

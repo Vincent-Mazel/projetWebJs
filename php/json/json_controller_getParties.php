@@ -3,6 +3,9 @@ session_start();
 
 require('../model/model_gestionParties.php');
 
+if ($_SESSION["etat"] == "menu")
+    $_SESSION["etat"] = "rejoindrePartie";
+
 $resultat = new stdClass();
 $resultat->isPartieEnCours = true;
 

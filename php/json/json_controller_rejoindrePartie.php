@@ -51,11 +51,6 @@ else {
     $_SESSION["etat"] = "attenteJoueursRejoindre";
     $_SESSION["nomPartie"] = $nomPartie;
 
-    $resultat->nomPartie = $nomPartie;
-    $resultat->nbJoueursCo = $nbJoueursCo + 1;
-    $resultat->nbJoueurs = $partie["NB_JOUEURS"];
-    $resultat->nomJoueur = $nomJoueur;
-
     $resultat->etat = $_SESSION["etat"];
 
     $nbJoueursCoOk = $nbJoueursCo + 1;
