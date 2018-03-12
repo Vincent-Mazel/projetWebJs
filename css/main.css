@@ -16,10 +16,6 @@ html {
     line-height: 1.4;
 }
 
-p {
-    font-family: "Noto Sans Kharoshthi", sans-serif;
-}
-
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -310,11 +306,41 @@ textarea {
     100% { transform: rotate(360deg); }
 }
 
-#nonConnecte {
+.jumbotron {
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+
 
     margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
     transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+}
+
+#nonConnecte {
+    width: 55%;
+}
+
+#menuPrincipal {
+    width: 45%;
+    text-align: center;
+}
+
+p {
+    font-family: "Noto Sans Kharoshthi", sans-serif;
+}
+
+.display-4 {
+    text-align: center;
+}
+
+#boutonsMenu {
+    display: inline-block;
+}
+
+#rejoindrePartie {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#formCreationPartie {
+    width: 40%;
 }

@@ -22,13 +22,9 @@
                     if (dataConnexion.erreur)
                         chargerModalErreur(dataConnexion);
                     else {
-                        $('#nonConnecte').hide();
-
-                        $('.inputInscription').val("");
-
-                        $('#connecte').show();
-                        $('#menuPrincipal').show();
-                        $('#boutonDeconnexion').show();
+                        $('#nonConnecte').fadeOut(function () {
+                            $('#navBar').slideDown(function () {$('#menuPrincipal').fadeIn();});
+                        });
                     }
                     $('.form-control').val("");
                     $('#messageInscription').hide();

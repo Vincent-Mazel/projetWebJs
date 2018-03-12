@@ -116,6 +116,44 @@
       return false;
     };
 
+    let genererPaquet = function () {
+        let paquet = [];
+
+        for (let $i = 1; $i <= 21; ++$i)
+            paquet.push($i + "A");
+        paquet.push("excuse");
+
+        for (let $k = 1; $k <= 10; ++$i)
+            paquet.push($k + "CA");
+        paquet.push("VCA");
+        paquet.push("CCA");
+        paquet.push("DCA");
+        paquet.push("RCA");
+
+        for (let $l = 1; $l <= 10; ++$i)
+            paquet.push($l + "CO");
+        paquet.push("VCO");
+        paquet.push("CCO");
+        paquet.push("DCO");
+        paquet.push("RCO");
+
+        for (let $m = 1; $m <= 10; ++$i)
+            paquet.push($m + "P");
+        paquet.push("VP");
+        paquet.push("CP");
+        paquet.push("DP");
+        paquet.push("RP");
+
+        for (let $n = 1; $n <= 10; ++$i)
+            paquet.push($n + "T");
+        paquet.push("VT");
+        paquet.push("CT");
+        paquet.push("DT");
+        paquet.push("RT");
+
+        return paquet;
+    };
+
     $(document).ready(function () {
         $.ajax({
             url: '/php/json/json_estConnecte.php',
@@ -127,6 +165,7 @@
                         url: '/php/json/json_controller_etatJoueur.php'
                     })
                         .done(function (dataEtat) {
+                            $('#navBar').slideDown();
                             if ("menu" === dataEtat.etat) {
                                 $('#menuPrincipal').show();
                                 $('#boutonDeconnexion').show();
@@ -201,7 +240,7 @@
             })
                 .done(function (dataEtat) {
                     if ("creationPartie" === dataEtat.etat)
-                        $('#formCreationPartie').hide();
+                        $('#formCreationPartie').fadeOut(function () {$('#menuPrincipal').fadeIn()});
                     else if ("rejoindrePartie" === dataEtat.etat) {
                         $('#messageErreurRejoindrePartie').hide();
                         $('#rejoindrePartie').hide();
@@ -209,7 +248,6 @@
                         $('#tbodyParties').children().remove();
                     }
                     $('#menuPrincipal').show();
-                    $('#boutonMenuPrincipal').hide();
                 })
                 .fail(function () {
                    alert("Problème survenu lors du retour au menu principal !!");
@@ -221,9 +259,7 @@
                 url: '/php/modifEtat/etat_creationPartie.php'
             })
                 .done(function () {
-                    $('#menuPrincipal').hide();
-                    $('#formCreationPartie').show();
-                    $('#boutonMenuPrincipal').show();
+                    $('#menuPrincipal').fadeOut(function () {$('#formCreationPartie').fadeIn();});
                 })
                 .fail(function () {
                     alert("Problème dans l'affichage du menu de création de partie !");
@@ -241,6 +277,7 @@
                     if (dataCreationPartie.erreur)
                         $('#erreurCreationPartie').html(dataCreationPartie.messageErreur).show();
                     else {
+                        console.log(dataCreationPartie.nomPartie);
                         $('#modalAttenteJoueurs').modal({backdrop: 'static', keyboard: false});
                         $('#modalAttenteJoueurs').modal("show");
                         $('#messageModalAttenteJoueurs').html(dataCreationPartie.htmlMessage);
@@ -265,11 +302,11 @@
             })
                 .done(function (dataEtatJoueur) {
                     if ("menu" === dataEtatJoueur.etat)
-                        $('#menuPrincipal').hide();
+                        $('#menuPrincipal').fadeOut(function () {$('#nonConnecte').fadeIn();});
                     else if ("creationPartie" === dataEtatJoueur.etat)
-                        $('#formCreationPartie').hide();
+                        $('#formCreationPartie').fadeOut(function () {$('#nonConnecte').fadeIn()});
                     else if ("recherchePartie" === dataEtatJoueur.etat)
-                        $('#rejoindrePartie').hide();
+                        $('#rejoindrePartie').fadeOut(function () {$('#nonConnecte').fadeIn()});
                     else if ("rejoindrePartie" === dataEtatJoueur.etat) {
                         $('#messageErreurRejoindrePartie').hide();
                         clearInterval(timerInfosParties);
@@ -277,9 +314,8 @@
                         $('#rejoindrePartie').hide();
                     }
 
-                    $('#boutonDeconnexion').hide();
-                    $('#boutonMenuPrincipal').hide();
-                    $('#nonConnecte').show();
+                    $('#navBar').slideToggle("fast", "linear");
+                    $('#nonConnecte').fadeIn();
                 })
                 .fail(function () {
                     alert("Problème survenu lors de la déconnexion !!!");

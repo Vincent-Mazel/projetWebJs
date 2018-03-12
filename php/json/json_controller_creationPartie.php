@@ -34,6 +34,8 @@ else {
         $_SESSION["etat"] = "attenteJoueursCreation";
         $_SESSION["nomPartie"] = $nomPartie;
 
+        $resultat->nomPartie = $nomPartie;
+
         $resultat->htmlMessage = "Nom de la partie : " . $nomPartie . "<br>" . "1/" . $nbJoueurs . " joueurs connectés"
             . "<br> <br>" . "Joueur 1 : " . $nomJoueur;
     }
