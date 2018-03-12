@@ -56,7 +56,6 @@
                     $('#messageModalChargement').html("Clin d'oeil à la charmante serveuse");
                     setTimeout(function () {
                         $('#modalChargementPartie').modal("hide");
-                        $('#messageModalChargement').html("Corruption du croupier");
                     }, 4000);
                     }, 4000);
                 }, 4000);
@@ -102,8 +101,10 @@
       })
           .done(function (dataPartie) {
               if (dataPartie.isJouable) {
+                  clearInterval(timerInfosPartieModal);
                   $('#modalAttenteJoueurs').modal("hide");
                   chargerModalChargement();
+                  $('#rejoindrePartie').hide();
                   $('#plateau').show();
               }
               else

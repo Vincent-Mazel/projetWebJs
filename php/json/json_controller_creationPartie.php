@@ -6,11 +6,11 @@ require('../model/model_gestionParties.php');
 $resultat = new stdClass();
 $resultat->erreur = false;
 
-$nomPartie = $_POST["nomPartie"];
+$nomPartie = filter_input(INPUT_POST, 'nomPartie', FILTER_SANITIZE_SPECIAL_CHARS);
 $nbJoueurs = $_POST["nbJoueurs"];
 $nomJoueur = $_SESSION["username"];
 
-if (strlen($nomPartie) > 30) {
+if (strlen($nomPartie) > 50) {
     $resultat->erreur = true;
     $resultat->messageErreur = "Tout doux jeune aventurier, le nom de ta partie ne doit pas excéder les 30 caractères !";
 

@@ -30,7 +30,7 @@
                         $('#menuPrincipal').show();
                         $('#boutonDeconnexion').show();
                     }
-                    $('.inputConnexion').val("");
+                    $('.form-control').val("");
                     $('#messageInscription').hide();
                 })
                 .fail(function () {
@@ -51,7 +51,7 @@
                     else
                         $('#messageInscription').html(dataInscription.messageInscription).show();
 
-                    $('.inputInscription').val("");
+                    $('.form-control').val("");
                     $('#inputNomUtilisateurConnexion').focus();
                 })
                 .fail(function () {

@@ -16,6 +16,10 @@ html {
     line-height: 1.4;
 }
 
+p {
+    font-family: "Noto Sans Kharoshthi", sans-serif;
+}
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -304,4 +308,13 @@ textarea {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+#nonConnecte {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 }

@@ -64,10 +64,10 @@ else {
         $k += 1;
     }
 
-    $resultat->htmlMessage .= "Joueur " .$nbJoueursCoOk . " : " . $nomJoueur;
+    $resultat->htmlMessage .= "Joueur " . $nbJoueursCoOk . " : " . $nomJoueur;
 
     if ($nbJoueursCoOk == $partie["NB_JOUEURS"]) {
-        $resultat->isjouable = true;
+        $resultat->isJouable = true;
         $_SESSION["etat"] = "distributionCartes";
     }
 

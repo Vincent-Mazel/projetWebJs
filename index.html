@@ -12,20 +12,46 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div id="nonConnecte" style="display:none">
-            <p>Connectez-vous afin de profiter de ce merveilleux jeu qu'est Tarot Online 1.29 !</p>
+        <div id="nonConnecte" class="jumbotron" style="display:none">
+            <h1 class="display-4">Tarot Online 1.29</h1>
+            <p class="lead">Connectez-vous afin de profiter de ce merveilleux jeu qu'est Tarot Online 1.29 !</p>
             <form action="/php/json/json_controller_connexion.php" method="post" id="formConnexion">
-                Nom d'utilisateur : <input type="text" name="nomUtilisateur" class="inputConnexion" id="inputNomUtilisateurConnexion"> <br>
-                Mot de passe : <input type="password" name="mdp" class="inputConnexion"> <br>
-                <input type="submit" value="Connexion">
+                <div class="form-row">
+                    <div class="col-3">
+                        <input type="text" name="nomUtilisateur" class="form-control form-control-lg" id="inputNomUtilisateurConnexion" placeholder="Nom d'utilisateur">
+                    </div>
+
+                    <div class="col-3">
+                        <input type="password" name="mdp" class="form-control form-control-lg" id="inputMotDePasseConnexion" placeholder="Mot de passe">
+                    </div>
+
+                    <div class="col">
+                        <input type="submit" class="btn btn-info" value="Connexion">
+                    </div>
+                </div>
             </form>
 
-            <p>Pas encore inscrit ? Ne perds pas une seule seconde et rejoins cette belle aventure qu'est Tarot Online 1.29 !</p>
+            <hr class="my-4">
+
+            <p class="lead">Pas encore inscrit ? Ne perds pas une seule seconde et rejoins cette belle aventure qu'est Tarot Online 1.29 !</p>
             <form action="/php/json/json_controller_inscription.php" method="post" id="formInscription">
-                Nom d'utilisateur : <input type="text" name="nomUtilisateur" class="inputInscription"> <br>
-                Mot de passe : <input type="password" name="mdp1" class="inputInscription"> <br>
-                Répéter le mot de passe : <input type="password" name="mdp2" class="inputInscription"> <br>
-                <input type="submit" value="S'inscrire">
+                <div class="form-row">
+                    <div class="col-3">
+                        <input type="text" name="nomUtilisateur" class="form-control form-control-lg" placeholder="Nom d'utilisateur">
+                    </div>
+
+                    <div class="col-3">
+                        <input type="password" name="mdp1" class="form-control form-control-lg" placeholder="Mot de passe">
+                    </div>
+
+                    <div class="col-3">
+                        <input type="password" name="mdp2" class="form-control form-control-lg" placeholder="Répéter mdp">
+                    </div>
+
+                    <div class="col">
+                        <input type="submit" class="btn btn-info" value="S'inscrire">
+                    </div>
+                </div>
             </form>
             <p id="messageInscription" style="display:none"></p>
         </div>
@@ -89,7 +115,6 @@
                     </div>
                     <div class="modal-body">
                         <p id="messageErreurModal"></p>
-                        <div class="loader"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" id="fermerModalErreurRejoindrePartie" data-dismiss="modal">Fermer</button>
