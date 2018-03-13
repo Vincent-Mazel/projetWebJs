@@ -21,8 +21,9 @@
                         let button = $('<button />');
                         tr.append(button.html("Rejoindre")
                             .data("nomPartie", partie[0])
-                            .click(rejoindrePartie));
-                        $('#rejoindrePartie').append(tr);
+                            .click(rejoindrePartie)
+                            .attr("class", "btn btn-info"));
+                        $('#tableParties').append(tr);
                     }
                 }
                 else
@@ -38,10 +39,6 @@
         $('#modalAttenteJoueurs').modal({backdrop: 'static', keyboard: false});
         $('#modalAttenteJoueurs').modal("show");
         $('#messageModalAttenteJoueurs').html(data.htmlMessage);
-    };
-
-    let closeModal = function () {
-        $('#modalErreur').modal("hide");
     };
 
     let chargerModalChargement = function () {
@@ -116,6 +113,16 @@
       return false;
     };
 
+    let closeModal = function () {
+        $('#modalErreur').modal("hide");
+    };
+
+    let chargerModalErreur = function (data) {
+        $('#messageErreurModal').html(data.messageErreur);
+        $('#modalErreur').modal("show");
+        setTimeout(closeModal, 15000);
+    };
+
     let genererPaquet = function () {
         let paquet = [];
 
@@ -170,11 +177,8 @@
                                 $('#menuPrincipal').show();
                                 $('#boutonDeconnexion').show();
                             }
-                            else if ("creationPartie" === dataEtat.etat) {
-                                $('#formCreationPartie').show();
-                                $('#boutonDeconnexion').show();
-                                $('#boutonMenuPrincipal').show();
-                            }
+                            else if ("creationPartie" === dataEtat.etat)
+                                $('#divCreationPartie').show();
                             else if ("rejoindrePartie" === dataEtat.etat) {
                                 chargerTableauParties();
                                 $('#rejoindrePartie').show();
@@ -240,7 +244,7 @@
             })
                 .done(function (dataEtat) {
                     if ("creationPartie" === dataEtat.etat)
-                        $('#formCreationPartie').fadeOut(function () {$('#menuPrincipal').fadeIn()});
+                        $('#divCreationPartie').fadeOut(function () {$('#menuPrincipal').fadeIn();});
                     else if ("rejoindrePartie" === dataEtat.etat) {
                         $('#messageErreurRejoindrePartie').hide();
                         $('#rejoindrePartie').hide();
@@ -259,7 +263,7 @@
                 url: '/php/modifEtat/etat_creationPartie.php'
             })
                 .done(function () {
-                    $('#menuPrincipal').fadeOut(function () {$('#formCreationPartie').fadeIn();});
+                    $('#menuPrincipal').fadeOut(function () {$('#divCreationPartie').fadeIn();});
                 })
                 .fail(function () {
                     alert("Problème dans l'affichage du menu de création de partie !");
@@ -275,12 +279,9 @@
             })
                 .done(function (dataCreationPartie) {
                     if (dataCreationPartie.erreur)
-                        $('#erreurCreationPartie').html(dataCreationPartie.messageErreur).show();
+                        chargerModalErreur(dataCreationPartie);
                     else {
-                        console.log(dataCreationPartie.nomPartie);
-                        $('#modalAttenteJoueurs').modal({backdrop: 'static', keyboard: false});
-                        $('#modalAttenteJoueurs').modal("show");
-                        $('#messageModalAttenteJoueurs').html(dataCreationPartie.htmlMessage);
+                        chargerModal(dataCreationPartie);
 
                         timerInfosPartieModal = setInterval(getInfosPartie, 2000);
 
@@ -304,7 +305,7 @@
                     if ("menu" === dataEtatJoueur.etat)
                         $('#menuPrincipal').fadeOut(function () {$('#nonConnecte').fadeIn();});
                     else if ("creationPartie" === dataEtatJoueur.etat)
-                        $('#formCreationPartie').fadeOut(function () {$('#nonConnecte').fadeIn()});
+                        $('#divCreationPartie').fadeOut(function () {$('#nonConnecte').fadeIn()});
                     else if ("recherchePartie" === dataEtatJoueur.etat)
                         $('#rejoindrePartie').fadeOut(function () {$('#nonConnecte').fadeIn()});
                     else if ("rejoindrePartie" === dataEtatJoueur.etat) {

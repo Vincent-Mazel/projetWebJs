@@ -336,11 +336,10 @@ p {
     display: inline-block;
 }
 
-#rejoindrePartie {
-    margin-left: 30px;
-    margin-right: 30px;
+#divCreationPartie {
+    width: 40%;
 }
 
-#formCreationPartie {
+#rejoindrePartie {
     width: 40%;
 }

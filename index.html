@@ -89,21 +89,12 @@
             </div>
         </div>
 
-        <!--<div class="jumbotron" id="formCreationPartie" style="display:none">
+        <div class="jumbotron" id="divCreationPartie" style="display:none">
             <h1 class="display-4">Création d'une partie</h1>
 
-            <hr class="my-4">-->
-            <br><br><br>
-            <form action="/php/json/json_controller_creationPartie.php" method="post" id="formCreationPartie" style="display:none">
-                Nom de la partie : <input type="text" name="nomPartie" id="inputCreationPartie"> <br>
-                <select name="nbJoueurs">
-                    <option value="3">3</option>
-                    <option value="4" selected>4</option>
-                    <option value="5">5</option>
-                </select>
-                <input type="submit" value="Valider">
-            </form>
-            <!--<form action="/php/json/json_controller_creationPartie.php" method="post">
+            <hr class="my-4">
+
+            <form action="/php/json/json_controller_creationPartie.php" method="post" id="formCreationPartie">
                 <div class="form-group">
                     <label for="inputCreationPartie">Nom de la partie</label>
                     <input type="text" class="form-control" id="inputCreationPartie" name="nomPartie">
@@ -119,10 +110,8 @@
                 </div>
 
                 <input type="submit" class="btn btn-info" value="Valider">
-            </form>-->
-        <!--</div>-->
-
-        <p id="erreurCreationPartie"></p>
+            </form>
+        </div>
 
         <div class="modal fade" id="modalAttenteJoueurs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -140,21 +129,26 @@
             </div>
         </div>
 
-        <table id="rejoindrePartie" style="display:none">
-            <thead>
+        <div class="jumbotron" id="rejoindrePartie" style="display:none">
+            <h1 class="display-4">Liste des parties</h1>
+
+            <hr class="my-4">
+
+            <table class="table" id="tableParties">
+                <thead class="thead-dark">
                 <tr>
-                    <th>Nom de la partie</th>
-                    <th>Nombre de joueurs</th>
-                    <th></th>
+                    <th scope="col">Nom de la partie</th>
+                    <th scope="col">Nombre de joueurs</th>
+                    <th scope="col"></th>
                 </tr>
-            </thead>
+                </thead>
 
-            <tbody id="tbodyParties">
+                <tbody id="tbodyParties">
 
-            </tbody>
-        </table>
-
-        <p id="messageErreurRejoindrePartie" style="display:none">Quel dommage, aucune partie ne recherche de joueurs actuellement ! N'hésite pas à tapoter ta touche F5 ou à en créer une nouvelle ;).</p>
+                </tbody>
+            </table>
+            <p id="messageErreurRejoindrePartie" class="lead" style="display:none">Quel dommage, aucune partie ne recherche de joueurs actuellement ! N'hésite pas à revenir plus tard !</p>
+        </div>
 
         <div class="modal fade" id="modalErreur" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
