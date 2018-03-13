@@ -51,6 +51,8 @@ else {
 
     $_SESSION["etat"] = "attenteJoueursRejoindre";
     $_SESSION["nomPartie"] = $nomPartie;
+    $_SESSION["nbJoueurs"] = $partie["nbJoueurs"];
+    $_SESSION["numJoueur"] = $nbJoueursCo + 1;
 
     $resultat->etat = $_SESSION["etat"];
 
@@ -71,6 +73,8 @@ else {
         $_SESSION["etat"] = "distributionCartes";
     }
 
+    $resultat->nbJoueurs = $partie["NB_JOUEURS"];
+    $resultat->numJoueur = $nbJoueursCoOk;
 
     header('Cache-Control: no-cache, must-revalidate');
     header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');

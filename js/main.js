@@ -3,10 +3,13 @@
 
     let timerInfosPartieModal;
     let timerInfosParties;
+    let timerTourDeJeu;
+
+    let main;
 
     let chargerTableauParties = function () {
         $.ajax({
-            url: '/php/json/json_controller_getParties.php',
+            url: '/php/json/getParties.php',
             data: $(this).serialize()
         })
             .done(function (dataParties) {
@@ -61,7 +64,7 @@
 
     let rejoindrePartie = function () {
         $.ajax({
-            url: '/php/json/json_controller_rejoindrePartie.php',
+            url: '/php/json/rejoindrePartie.php',
             type: 'GET',
             data: 'nomPartie=' + $(this).data("nomPartie")
         })
@@ -73,9 +76,11 @@
                 }
                 else if (dataRejoindrePartie.isJouable) {
                     chargerModalChargement();
-                    $('#rejoindrePartie').hide();
-                    $('#messageErreurRejoindrePartie').hide();
-                    $('#plateau').show();
+                    $('#rejoindrePartie').fadeOut(function () {
+                        timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
+                        $('#plateau').show();
+                    });
+
                 }
                 else {
                     chargerModal(dataRejoindrePartie);
@@ -93,16 +98,22 @@
 
     let getInfosPartie = function () {
       $.ajax({
-          url: '/php/json/json_controller_getInfosPartie.php',
+          url: '/php/json/getInfosPartie.php',
           data: $(this).serialize()
       })
           .done(function (dataPartie) {
               if (dataPartie.isJouable) {
                   clearInterval(timerInfosPartieModal);
                   $('#modalAttenteJoueurs').modal("hide");
+
+                  if (1 === dataPartie.numJoueur)
+                      distribuerCartes(dataPartie.nbJoueurs);
+
                   chargerModalChargement();
-                  $('#rejoindrePartie').hide();
-                  $('#plateau').show();
+                  $('#rejoindrePartie').fadeOut(function () {
+                      timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
+                      $('#plateau').show();
+                  });
               }
               else
                   chargerModal(dataPartie);
@@ -123,79 +134,84 @@
         setTimeout(closeModal, 15000);
     };
 
-    let genererPaquet = function () {
-        let paquet = [];
+    let distribuerCartes = function (nbJoueurs) {
+        let paquet = new Paquet();
+        paquet.genererPaquet();
 
-        for (let $i = 1; $i <= 21; ++$i)
-            paquet.push($i + "A");
-        paquet.push("excuse");
+        if ("3" === nbJoueurs) {
 
-        for (let $k = 1; $k <= 10; ++$i)
-            paquet.push($k + "CA");
-        paquet.push("VCA");
-        paquet.push("CCA");
-        paquet.push("DCA");
-        paquet.push("RCA");
+        }
+        else if ("4" === nbJoueurs) {
 
-        for (let $l = 1; $l <= 10; ++$i)
-            paquet.push($l + "CO");
-        paquet.push("VCO");
-        paquet.push("CCO");
-        paquet.push("DCO");
-        paquet.push("RCO");
+        }
+        else {
 
-        for (let $m = 1; $m <= 10; ++$i)
-            paquet.push($m + "P");
-        paquet.push("VP");
-        paquet.push("CP");
-        paquet.push("DP");
-        paquet.push("RP");
+        }
 
-        for (let $n = 1; $n <= 10; ++$i)
-            paquet.push($n + "T");
-        paquet.push("VT");
-        paquet.push("CT");
-        paquet.push("DT");
-        paquet.push("RT");
+        $.ajax({
+            url: '/php/json/envoiCartes.php',
+            type: 'GET',
+            data: 'type=generationPaquet'
+        })
+            .fail(function () {
+                alert("Problème survenu lors de la génération du paquet");
+            });
+        return false;
+    };
 
-        return paquet;
+    let gestionTourDeJeu = function () {
+        $.ajax({
+            url: '/php/json/getTourEtatJeu.php'
+        })
+            .done(function (dataTourDeJeu) {
+                if (dataTourDeJeu.isMonTour) {
+                    if ("distributionCartes" === dataTourDeJeu.etatPartie) {
+                        $.ajax({
+                            url: 'php/json/getCartes.php'
+                        })
+                            .done(function (dataCartes) {
+                                main = dataCartes.cartes;
+                            })
+                            .fail(function () {
+                                alert("Problème survenu lors de la récupération de la main !!");
+                            });
+                        return false;
+                    }
+                }
+            })
+            .fail(function () {
+                alert("Problème survenu lors de la récupération de l'état et de la personne devant jouer !!");
+            });
+        return false;
     };
 
     $(document).ready(function () {
         $.ajax({
-            url: '/php/json/json_estConnecte.php',
+            url: '/php/json/estConnecte.php',
             data: $(this).serialize()
         })
             .done(function (dataEtatConnexion) {
                 if (dataEtatConnexion.isConnecte) {
                     $.ajax({
-                        url: '/php/json/json_controller_etatJoueur.php'
+                        url: '/php/json/etatJoueur.php'
                     })
                         .done(function (dataEtat) {
                             $('#navBar').slideDown();
-                            if ("menu" === dataEtat.etat) {
+                            if ("menu" === dataEtat.etat)
                                 $('#menuPrincipal').show();
-                                $('#boutonDeconnexion').show();
-                            }
                             else if ("creationPartie" === dataEtat.etat)
                                 $('#divCreationPartie').show();
                             else if ("rejoindrePartie" === dataEtat.etat) {
                                 chargerTableauParties();
                                 $('#rejoindrePartie').show();
-                                $('#boutonDeconnexion').show();
-                                $('#boutonMenuPrincipal').show();
                             }
                             else if ("attenteJoueursCreation" === dataEtat.etat) {
-                                $('#formCreationPartie').show();
-                                $('#boutonDeconnexion').show();
-                                $('#boutonMenuPrincipal').show();
+                                $('#divCreationPartie').show();
                                 getInfosPartie();
                             }
                             else if ("attenteJoueursRejoindre" === dataEtat.etat) {
                                 chargerTableauParties();
                                 $('#rejoindrePartie').show();
-                                $('#boutonDeconnexion').show();
-                                $('#boutonMenuPrincipal').show();
                                 getInfosPartie();
                             }
                         })
@@ -212,17 +228,15 @@
             });
 
         $('#boutonRejoindrePartie').click(function () {
-            $('#menuPrincipal').hide();
+            $('#menuPrincipal').fadeOut(function () {$('#rejoindrePartie').fadeIn();});
             chargerTableauParties();
-            $('#rejoindrePartie').show();
-            $('#boutonMenuPrincipal').show();
 
             timerInfosParties = setInterval(chargerTableauParties, 3500);
         });
 
         $('#quitterFile').click(function () {
             $.ajax({
-                url: '/php/json/json_controller_quitterFile.php'
+                url: '/php/json/quitterFile.php'
             })
                 .done(function (dataEtat) {
                     if ("rejoindrePartie" === dataEtat.etat) {
@@ -238,7 +252,7 @@
 
         $('#boutonMenuPrincipal').click(function () {
             $.ajax({
-                url: '/php/json/json_controller_etatJoueur.php',
+                url: '/php/json/etatJoueur.php',
                 type: 'GET',
                 data: 'boutonMenuPrincipal=true'
             })
@@ -246,12 +260,9 @@
                     if ("creationPartie" === dataEtat.etat)
                         $('#divCreationPartie').fadeOut(function () {$('#menuPrincipal').fadeIn();});
                     else if ("rejoindrePartie" === dataEtat.etat) {
-                        $('#messageErreurRejoindrePartie').hide();
-                        $('#rejoindrePartie').hide();
+                        $('#rejoindrePartie').fadeOut(function () {$('#menuPrincipal').fadeIn(function () {$('#tbodyParties').children().remove();});});
                         clearInterval(timerInfosParties);
-                        $('#tbodyParties').children().remove();
                     }
-                    $('#menuPrincipal').show();
                 })
                 .fail(function () {
                    alert("Problème survenu lors du retour au menu principal !!");
@@ -297,7 +308,7 @@
 
         $('#boutonDeconnexion').click(function () {
             $.ajax({
-                url: '/php/json/json_controller_etatJoueur.php',
+                url: '/php/json/etatJoueur.php',
                 type: 'GET',
                 data: 'boutonDeconnexion=true'
             })
@@ -306,17 +317,11 @@
                         $('#menuPrincipal').fadeOut(function () {$('#nonConnecte').fadeIn();});
                     else if ("creationPartie" === dataEtatJoueur.etat)
                         $('#divCreationPartie').fadeOut(function () {$('#nonConnecte').fadeIn()});
-                    else if ("recherchePartie" === dataEtatJoueur.etat)
-                        $('#rejoindrePartie').fadeOut(function () {$('#nonConnecte').fadeIn()});
                     else if ("rejoindrePartie" === dataEtatJoueur.etat) {
-                        $('#messageErreurRejoindrePartie').hide();
+                        $('#rejoindrePartie').fadeOut(function () {$('#nonConnecte').fadeIn(function () {$('#tbodyParties').children().remove();});});
                         clearInterval(timerInfosParties);
-                        $('#tbodyParties').children().remove();
-                        $('#rejoindrePartie').hide();
                     }
-
                     $('#navBar').slideToggle("fast", "linear");
-                    $('#nonConnecte').fadeIn();
                 })
                 .fail(function () {
                     alert("Problème survenu lors de la déconnexion !!!");

@@ -15,7 +15,7 @@
         <div id="nonConnecte" class="jumbotron" style="display:none">
             <h1 class="display-4">Tarot Online 1.29</h1>
             <p class="lead">Connectez-vous afin de profiter de ce merveilleux jeu qu'est Tarot Online 1.29 !</p>
-            <form action="/php/json/json_controller_connexion.php" method="post" id="formConnexion">
+            <form action="/php/json/connexion.php" method="post" id="formConnexion">
                 <div class="form-row">
                     <div class="col-3">
                         <input type="text" name="nomUtilisateur" class="form-control form-control-lg" id="inputNomUtilisateurConnexion" placeholder="Nom d'utilisateur">
@@ -34,7 +34,7 @@
             <hr class="my-4">
 
             <p class="lead">Pas encore inscrit ? Ne perds pas une seule seconde et rejoins cette belle aventure qu'est Tarot Online 1.29 !</p>
-            <form action="/php/json/json_controller_inscription.php" method="post" id="formInscription">
+            <form action="/php/json/inscription.php" method="post" id="formInscription">
                 <div class="form-row">
                     <div class="col-3">
                         <input type="text" name="nomUtilisateur" class="form-control form-control-lg" placeholder="Nom d'utilisateur">
@@ -94,7 +94,7 @@
 
             <hr class="my-4">
 
-            <form action="/php/json/json_controller_creationPartie.php" method="post" id="formCreationPartie">
+            <form action="/php/json/creationPartie.php" method="post" id="formCreationPartie">
                 <div class="form-group">
                     <label for="inputCreationPartie">Nom de la partie</label>
                     <input type="text" class="form-control" id="inputCreationPartie" name="nomPartie">

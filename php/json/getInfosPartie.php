@@ -13,6 +13,17 @@ $partie = $resultReq->fetch();
 
 if ($partie["NB_JOUEURS"] == $partie["NB_JOUEURS_CO"]) {
     $resultat->isJouable = true;
+
+    $i = 1;
+    while ($i <= $partie["NB_JOUEURS"]) {
+        if ($partie["JOUEUR" . $i] == $_SESSION["username"])
+            break;
+        $i += 1;
+    }
+
+    $resultat->numJoueur = $i;
+    $resultat->nbJoueurs = $partie["NB_JOUEURS"];
+
     $_SESSION["etat"] = "distributionCartes";
 
     header('Cache-Control: no-cache, must-revalidate');
