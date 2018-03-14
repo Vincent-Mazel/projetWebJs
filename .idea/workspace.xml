@@ -2,128 +2,83 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97e97645-dd77-44e9-b476-d4a9bedeb4b5" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/Carte.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/Paquet.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/php/json/envoiCartes.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/php/json/getCartes.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/php/json/getTourEtatJeu.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/php/model/model_gestionCartes.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/10CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/1CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/2CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/3CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/4CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/5CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/6CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/7CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/8CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/9CA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/DCA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/10CA.jpg" afterPath="$PROJECT_DIR$/images/carreau/10CA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/1CA.jpg" afterPath="$PROJECT_DIR$/images/carreau/1CA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/2CA.jpg" afterPath="$PROJECT_DIR$/images/carreau/2CA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/3CA.jpg" afterPath="$PROJECT_DIR$/images/carreau/3CA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/4CA.jpg" afterPath="$PROJECT_DIR$/images/carreau/4CA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/5CA.jpg" afterPath="$PROJECT_DIR$/images/carreau/5CA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/6CA.jpg" afterPath="$PROJECT_DIR$/images/carreau/6CA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/7CA.jpg" afterPath="$PROJECT_DIR$/images/carreau/7CA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/8CA.jpg" afterPath="$PROJECT_DIR$/images/carreau/8CA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/9CA.jpg" afterPath="$PROJECT_DIR$/images/carreau/9CA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/DCA.jpg" afterPath="$PROJECT_DIR$/images/carreau/DCA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/RCA.jpg" afterPath="$PROJECT_DIR$/images/carreau/RCA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/Ok/VCA.jpg" afterPath="$PROJECT_DIR$/images/carreau/VCA.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/RCA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/carreau/VCA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/10CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/1CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/2CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/3CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/4CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/5CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/6CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/7CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/8CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/9CO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/DCO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/10CO.jpg" afterPath="$PROJECT_DIR$/images/coeur/10CO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/1CO.jpg" afterPath="$PROJECT_DIR$/images/coeur/1CO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/2CO.jpg" afterPath="$PROJECT_DIR$/images/coeur/2CO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/3CO.jpg" afterPath="$PROJECT_DIR$/images/coeur/3CO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/4CO.jpg" afterPath="$PROJECT_DIR$/images/coeur/4CO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/5CO.jpg" afterPath="$PROJECT_DIR$/images/coeur/5CO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/6CO.jpg" afterPath="$PROJECT_DIR$/images/coeur/6CO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/7CO.jpg" afterPath="$PROJECT_DIR$/images/coeur/7CO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/8CO.jpg" afterPath="$PROJECT_DIR$/images/coeur/8CO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/9CO.jpg" afterPath="$PROJECT_DIR$/images/coeur/9CO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/DCO.jpg" afterPath="$PROJECT_DIR$/images/coeur/DCO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/RCO.jpg" afterPath="$PROJECT_DIR$/images/coeur/RCO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/Ok/VCO.jpg" afterPath="$PROJECT_DIR$/images/coeur/VCO.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/RCO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/coeur/VCO.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/10P.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/1P.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/2P.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/3P.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/4P.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/5P.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/6P.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/7P.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/8P.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/9P.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/DP.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/10P.jpg" afterPath="$PROJECT_DIR$/images/pique/10P.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/1P.jpg" afterPath="$PROJECT_DIR$/images/pique/1P.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/2P.jpg" afterPath="$PROJECT_DIR$/images/pique/2P.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/3P.jpg" afterPath="$PROJECT_DIR$/images/pique/3P.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/4P.jpg" afterPath="$PROJECT_DIR$/images/pique/4P.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/5P.jpg" afterPath="$PROJECT_DIR$/images/pique/5P.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/6P.jpg" afterPath="$PROJECT_DIR$/images/pique/6P.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/7P.jpg" afterPath="$PROJECT_DIR$/images/pique/7P.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/8P.jpg" afterPath="$PROJECT_DIR$/images/pique/8P.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/9P.jpg" afterPath="$PROJECT_DIR$/images/pique/9P.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/DP.jpg" afterPath="$PROJECT_DIR$/images/pique/DP.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/RP.jpg" afterPath="$PROJECT_DIR$/images/pique/RP.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/Ok/VP.jpg" afterPath="$PROJECT_DIR$/images/pique/VP.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/pique/RP.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/pique/VP.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/10T.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/1T.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/2T.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/3T.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/4T.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/5T.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/6T.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/7T.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/8T.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/9T.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/DT.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/10T.jpg" afterPath="$PROJECT_DIR$/images/trèfle/10T.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/1T.jpg" afterPath="$PROJECT_DIR$/images/trèfle/1T.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/2T.jpg" afterPath="$PROJECT_DIR$/images/trèfle/2T.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/3T.jpg" afterPath="$PROJECT_DIR$/images/trèfle/3T.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/4T.jpg" afterPath="$PROJECT_DIR$/images/trèfle/4T.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/5T.jpg" afterPath="$PROJECT_DIR$/images/trèfle/5T.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/6T.jpg" afterPath="$PROJECT_DIR$/images/trèfle/6T.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/7T.jpg" afterPath="$PROJECT_DIR$/images/trèfle/7T.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/8T.jpg" afterPath="$PROJECT_DIR$/images/trèfle/8T.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/9T.jpg" afterPath="$PROJECT_DIR$/images/trèfle/9T.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/DT.jpg" afterPath="$PROJECT_DIR$/images/trèfle/DT.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/RT.jpg" afterPath="$PROJECT_DIR$/images/trèfle/RT.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/Ok/VT.jpg" afterPath="$PROJECT_DIR$/images/trèfle/VT.jpg" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/RT.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/trèfle/VT.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change beforePath="$PROJECT_DIR$/php/json/json_controller_connexion.php" afterPath="$PROJECT_DIR$/php/json/connexion.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/json_controller_creationPartie.php" afterPath="$PROJECT_DIR$/php/json/creationPartie.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/json_controller_etatJoueur.php" afterPath="$PROJECT_DIR$/php/json/etatJoueur.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/json_controller_getInfosPartie.php" afterPath="$PROJECT_DIR$/php/json/getInfosPartie.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/json_controller_getParties.php" afterPath="$PROJECT_DIR$/php/json/getParties.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/json_controller_inscription.php" afterPath="$PROJECT_DIR$/php/json/inscription.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/json_controller_quitterFile.php" afterPath="$PROJECT_DIR$/php/json/quitterFile.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/json_controller_rejoindrePartie.php" afterPath="$PROJECT_DIR$/php/json/rejoindrePartie.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/json_estConnecte.php" afterPath="$PROJECT_DIR$/php/json/estConnecte.php" />
+      <change beforePath="$PROJECT_DIR$/images/atout/10A.jpg" afterPath="$PROJECT_DIR$/images/A/10A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/11A.jpg" afterPath="$PROJECT_DIR$/images/A/11A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/12A.jpg" afterPath="$PROJECT_DIR$/images/A/12A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/13A.jpg" afterPath="$PROJECT_DIR$/images/A/13A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/14A.jpg" afterPath="$PROJECT_DIR$/images/A/14A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/15A.jpg" afterPath="$PROJECT_DIR$/images/A/15A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/16A.jpg" afterPath="$PROJECT_DIR$/images/A/16A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/17A.jpg" afterPath="$PROJECT_DIR$/images/A/17A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/18A.jpg" afterPath="$PROJECT_DIR$/images/A/18A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/19A.jpg" afterPath="$PROJECT_DIR$/images/A/19A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/1A.jpg" afterPath="$PROJECT_DIR$/images/A/1A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/20A.jpg" afterPath="$PROJECT_DIR$/images/A/20A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/21A.jpg" afterPath="$PROJECT_DIR$/images/A/21A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/2A.jpg" afterPath="$PROJECT_DIR$/images/A/2A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/3A.jpg" afterPath="$PROJECT_DIR$/images/A/3A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/4A.jpg" afterPath="$PROJECT_DIR$/images/A/4A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/5A.jpg" afterPath="$PROJECT_DIR$/images/A/5A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/6A.jpg" afterPath="$PROJECT_DIR$/images/A/6A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/7A.jpg" afterPath="$PROJECT_DIR$/images/A/7A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/8A.jpg" afterPath="$PROJECT_DIR$/images/A/8A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/9A.jpg" afterPath="$PROJECT_DIR$/images/A/9A.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/atout/excuse.jpg" afterPath="$PROJECT_DIR$/images/A/excuse.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/10CA.jpg" afterPath="$PROJECT_DIR$/images/CA/10CA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/1CA.jpg" afterPath="$PROJECT_DIR$/images/CA/1CA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/2CA.jpg" afterPath="$PROJECT_DIR$/images/CA/2CA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/3CA.jpg" afterPath="$PROJECT_DIR$/images/CA/3CA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/4CA.jpg" afterPath="$PROJECT_DIR$/images/CA/4CA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/5CA.jpg" afterPath="$PROJECT_DIR$/images/CA/5CA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/6CA.jpg" afterPath="$PROJECT_DIR$/images/CA/6CA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/7CA.jpg" afterPath="$PROJECT_DIR$/images/CA/7CA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/8CA.jpg" afterPath="$PROJECT_DIR$/images/CA/8CA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/9CA.jpg" afterPath="$PROJECT_DIR$/images/CA/9CA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/DCA.jpg" afterPath="$PROJECT_DIR$/images/CA/DCA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/RCA.jpg" afterPath="$PROJECT_DIR$/images/CA/RCA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/carreau/VCA.jpg" afterPath="$PROJECT_DIR$/images/CA/VCA.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/10CO.jpg" afterPath="$PROJECT_DIR$/images/CO/10CO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/1CO.jpg" afterPath="$PROJECT_DIR$/images/CO/1CO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/2CO.jpg" afterPath="$PROJECT_DIR$/images/CO/2CO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/3CO.jpg" afterPath="$PROJECT_DIR$/images/CO/3CO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/4CO.jpg" afterPath="$PROJECT_DIR$/images/CO/4CO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/5CO.jpg" afterPath="$PROJECT_DIR$/images/CO/5CO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/6CO.jpg" afterPath="$PROJECT_DIR$/images/CO/6CO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/7CO.jpg" afterPath="$PROJECT_DIR$/images/CO/7CO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/8CO.jpg" afterPath="$PROJECT_DIR$/images/CO/8CO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/9CO.jpg" afterPath="$PROJECT_DIR$/images/CO/9CO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/DCO.jpg" afterPath="$PROJECT_DIR$/images/CO/DCO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/RCO.jpg" afterPath="$PROJECT_DIR$/images/CO/RCO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/coeur/VCO.jpg" afterPath="$PROJECT_DIR$/images/CO/VCO.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/10P.jpg" afterPath="$PROJECT_DIR$/images/P/10P.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/1P.jpg" afterPath="$PROJECT_DIR$/images/P/1P.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/2P.jpg" afterPath="$PROJECT_DIR$/images/P/2P.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/3P.jpg" afterPath="$PROJECT_DIR$/images/P/3P.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/4P.jpg" afterPath="$PROJECT_DIR$/images/P/4P.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/5P.jpg" afterPath="$PROJECT_DIR$/images/P/5P.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/6P.jpg" afterPath="$PROJECT_DIR$/images/P/6P.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/7P.jpg" afterPath="$PROJECT_DIR$/images/P/7P.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/8P.jpg" afterPath="$PROJECT_DIR$/images/P/8P.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/9P.jpg" afterPath="$PROJECT_DIR$/images/P/9P.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/DP.jpg" afterPath="$PROJECT_DIR$/images/P/DP.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/RP.jpg" afterPath="$PROJECT_DIR$/images/P/RP.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/pique/VP.jpg" afterPath="$PROJECT_DIR$/images/P/VP.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/10T.jpg" afterPath="$PROJECT_DIR$/images/T/10T.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/1T.jpg" afterPath="$PROJECT_DIR$/images/T/1T.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/2T.jpg" afterPath="$PROJECT_DIR$/images/T/2T.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/3T.jpg" afterPath="$PROJECT_DIR$/images/T/3T.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/4T.jpg" afterPath="$PROJECT_DIR$/images/T/4T.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/5T.jpg" afterPath="$PROJECT_DIR$/images/T/5T.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/6T.jpg" afterPath="$PROJECT_DIR$/images/T/6T.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/7T.jpg" afterPath="$PROJECT_DIR$/images/T/7T.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/8T.jpg" afterPath="$PROJECT_DIR$/images/T/8T.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/9T.jpg" afterPath="$PROJECT_DIR$/images/T/9T.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/DT.jpg" afterPath="$PROJECT_DIR$/images/T/DT.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/RT.jpg" afterPath="$PROJECT_DIR$/images/T/RT.jpg" />
+      <change beforePath="$PROJECT_DIR$/images/trèfle/VT.jpg" afterPath="$PROJECT_DIR$/images/T/VT.jpg" />
+      <change beforePath="$PROJECT_DIR$/js/Carte.js" afterPath="$PROJECT_DIR$/js/Carte.js" />
+      <change beforePath="$PROJECT_DIR$/js/Paquet.js" afterPath="$PROJECT_DIR$/js/Paquet.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -149,38 +104,28 @@
       <file leaf-file-name="rejoindrePartie.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/json/rejoindrePartie.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="72" column="38" lean-forward="true" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
+            <state relative-caret-position="557">
+              <caret line="72" column="38" lean-forward="false" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getTourEtatJeu.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/json/getTourEtatJeu.php">
+      <file leaf-file-name="plugins.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/plugins.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="48" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Paquet.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/Paquet.js">
+      <file leaf-file-name="inscription.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/json/inscription.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="60" lean-forward="false" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getCartes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/json/getCartes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            <state relative-caret-position="594">
+              <caret line="33" column="1" lean-forward="false" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -189,24 +134,19 @@
       <file leaf-file-name="envoiCartes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/json/envoiCartes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="18">
               <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model_gestionCartes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/model/model_gestionCartes.php">
+      <file leaf-file-name="quitterFile.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/json/quitterFile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-              <folding>
-                <marker date="1520976660990" expanded="true" signature="104:161" ph="SELECT FROM USER" />
-                <marker date="1520976660990" expanded="true" signature="104:170" ph="SELECT ETAT_... PARTIE" />
-                <marker date="1520976660990" expanded="true" signature="374:428" ph="SELECT CARTE... PAQUET" />
-                <marker date="1520976660990" expanded="true" signature="374:449" ph="SELECT CARTE... PAQUET" />
-              </folding>
+            <state relative-caret-position="468">
+              <caret line="26" column="82" lean-forward="false" selection-start-line="26" selection-start-column="82" selection-end-line="26" selection-end-column="82" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -214,18 +154,18 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+            <state relative-caret-position="183">
+              <caret line="137" column="22" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getInfosPartie.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/json/getInfosPartie.php">
+      <file leaf-file-name="Carte.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/Carte.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="49" lean-forward="false" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+            <state relative-caret-position="180">
+              <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -234,18 +174,28 @@
       <file leaf-file-name="creationPartie.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/json/creationPartie.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+            <state relative-caret-position="504">
+              <caret line="28" column="9" lean-forward="false" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="etatJoueur.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/json/etatJoueur.php">
+      <file leaf-file-name="etat_creationPartie.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/modifEtat/etat_creationPartie.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            <state relative-caret-position="54">
+              <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getParties.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/json/getParties.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="27" column="46" lean-forward="false" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -305,7 +255,6 @@
         <option value="$PROJECT_DIR$/php/json/json_controller_creationPartie.php" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/Carte.js" />
         <option value="$PROJECT_DIR$/js/Paquet.js" />
         <option value="$PROJECT_DIR$/php/model/model_gestioCartes.php" />
         <option value="$PROJECT_DIR$/php/json/json_controller_rejoindrePartie.php" />
@@ -317,6 +266,7 @@
         <option value="$PROJECT_DIR$/php/json/getTourEtatJeu.php" />
         <option value="$PROJECT_DIR$/php/json/getInfosPartie.php" />
         <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/js/Carte.js" />
       </list>
     </option>
   </component>
@@ -347,6 +297,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -359,6 +310,11 @@
               <item name="projetWebJs" type="b2602c69:ProjectViewProjectNode" />
               <item name="projetWebJs" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="projetWebJs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projetWebJs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="projetWebJs" type="b2602c69:ProjectViewProjectNode" />
@@ -392,7 +348,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,11 +404,12 @@
       <workItem from="1520764484913" duration="23097000" />
       <workItem from="1520858294569" duration="6772000" />
       <workItem from="1520926414689" duration="4071000" />
+      <workItem from="1521022849466" duration="1742000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163685000" />
+    <option name="totallyTimeSpent" value="165427000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -465,40 +421,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="27" width="1680" height="1023" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08324324" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17588496" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17377399" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1720238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278328" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32743362" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25586355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17588496" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1720238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25586355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,13 +492,6 @@
     <entry file="file://$PROJECT_DIR$/php/connexion.php" />
     <entry file="file://$PROJECT_DIR$/php/deconnexion.php" />
     <entry file="file://$PROJECT_DIR$/js/gestionCreationPartie.js" />
-    <entry file="file://$PROJECT_DIR$/js/plugins.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/normalize.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -584,20 +520,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <marker date="1520688562525" expanded="true" signature="124:218" ph="INSERT INTO PARTIE... " />
-            <marker date="1520688562525" expanded="true" signature="497:517" ph="SELECT * FRO... PARTIE" />
-            <marker date="1520688562525" expanded="true" signature="670:803" ph="SELECT * FRO... PARTIE" />
-            <marker date="1520688562525" expanded="true" signature="1167:1217" ph="SELECT * FRO... PARTIE" />
-            <marker date="1520688562525" expanded="true" signature="1416:1464" ph="DELETE FROM PARTIE... " />
-            <marker date="1520688562525" expanded="true" signature="1422:1464" ph="SELECT * FRO... PARTIE" />
-            <marker date="1520688562525" expanded="true" signature="1708:1873" ph="UPDATE PARTIE... " />
-            <marker date="1520688562525" expanded="true" signature="1708:1884" ph="UPDATE PARTIE... " />
-            <marker date="1520688562525" expanded="true" signature="2349:2442" ph="UPDATE PARTIE... " />
-            <marker date="1520688562525" expanded="true" signature="2729:2822" ph="UPDATE PARTIE... " />
-            <marker date="1520688562525" expanded="true" signature="3109:3202" ph="UPDATE PARTIE... " />
-            <marker date="1520688562525" expanded="true" signature="3489:3582" ph="UPDATE PARTIE... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -609,19 +532,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/modifEtat/etat_creationPartie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/gestionCompte.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="27" lean-forward="false" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -629,7 +543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5610">
           <caret line="330" column="10" lean-forward="false" selection-start-line="330" selection-start-column="10" selection-end-line="330" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -648,45 +561,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Carte.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="52" lean-forward="false" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/model/model_connexionEtInscription.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="13" selection-end-column="1" />
-          <folding>
-            <marker date="1520771542489" expanded="true" signature="173:218" ph="SELECT * FRO... USER" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/getParties.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/inscription.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/quitterFile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="82" lean-forward="false" selection-start-line="26" selection-start-column="82" selection-end-line="26" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -694,13 +572,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="29" lean-forward="false" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/json/etatJoueur.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="270">
           <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding />
         </state>
@@ -708,77 +585,120 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/model/model_gestionCartes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="360">
           <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <marker date="1520976660990" expanded="true" signature="104:161" ph="SELECT FROM USER" />
-            <marker date="1520976660990" expanded="true" signature="104:170" ph="SELECT ETAT_... PARTIE" />
-            <marker date="1520976660990" expanded="true" signature="374:428" ph="SELECT CARTE... PAQUET" />
-            <marker date="1520976660990" expanded="true" signature="374:449" ph="SELECT CARTE... PAQUET" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/getTourEtatJeu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="48" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/creationPartie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/rejoindrePartie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="72" column="38" lean-forward="true" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/getCartes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/envoiCartes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/getInfosPartie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="49" lean-forward="false" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Paquet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="60" lean-forward="false" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
+        <state relative-caret-position="377">
+          <caret line="25" column="58" lean-forward="false" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/getCartes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/getInfosPartie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="49" lean-forward="false" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/getTourEtatJeu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="48" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/quitterFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="82" lean-forward="false" selection-start-line="26" selection-start-column="82" selection-end-line="26" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/inscription.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="1" lean-forward="false" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/rejoindrePartie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="72" column="38" lean-forward="false" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/getParties.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="46" lean-forward="false" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/envoiCartes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/creationPartie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="9" lean-forward="false" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/modifEtat/etat_creationPartie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="137" column="22" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Carte.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding />
         </state>
       </provider>

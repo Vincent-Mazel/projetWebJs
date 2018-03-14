@@ -2,10 +2,10 @@ let Carte;
 (function () {
     "use strict";
 
-    Carte = function (nom, valeur, couleur) {
-        this.nom = nom;
+    Carte = function (valeur, couleur) {
+        this.nom = valeur + couleur;
         this.valeur = valeur;
         this.couleur = couleur;
-        this.url = "/images/" + couleur + "/" + nom;
+        this.url = "/images/" + couleur + "/" + this.nom + ".jpg";
     }
 }) ();
