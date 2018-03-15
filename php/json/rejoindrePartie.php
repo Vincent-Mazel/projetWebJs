@@ -51,7 +51,7 @@ else {
 
     $_SESSION["etat"] = "attenteJoueursRejoindre";
     $_SESSION["nomPartie"] = $nomPartie;
-    $_SESSION["nbJoueurs"] = $partie["nbJoueurs"];
+    $_SESSION["nbJoueurs"] = $partie["NB_JOUEURS"];
     $_SESSION["numJoueur"] = $nbJoueursCo + 1;
 
     $resultat->etat = $_SESSION["etat"];

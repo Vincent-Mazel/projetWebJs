@@ -7,13 +7,31 @@ let Carte;
             this.nom = nom;
 
             if ("excuse" !== nom) {
-                if ("0" === nom.substr(1, 1)) {
+                if ("0" === nom.substr(1, 1) || "1" === nom.substr(1, 1) || "2" === nom.substr(1, 1) || "3" === nom.substr(1, 1) || "4" === nom.substr(1, 1)
+                || "5" === nom.substr(1, 1) || "6" === nom.substr(1, 1) || "7" === nom.substr(1, 1) || "8" === nom.substr(1, 1) || "9" === nom.substr(1, 1)) {
                     this.valeur = nom.substr(0, 2);
-                    this.couleur = nom.substr(3, nom.length - 2);
+                    this.couleur = nom.substr(2, nom.length - 2);
+                }
+                else if ("V" === nom.substr(0, 1) || "C" === nom.substr(0, 1) || "D" === nom.substr(0, 1) || "R" === nom.substr(0, 1)) {
+                    switch (nom.substr(0, 1)) {
+                        case "V" :
+                            this.valeur = "Valet";
+                            break;
+                        case "C" :
+                            this.valeur = "Cavalier";
+                            break;
+                        case "D" :
+                            this.valeur = "Dame";
+                            break;
+                        case "R" :
+                            this.valeur = "Roi";
+                            break;
+                    }
+                    this.couleur = nom.substr(1, nom.length - 1);
                 }
                 else {
                     this.valeur = nom.substr(0, 1);
-                    this.couleur = nom.substr(2, nom.length - 1);
+                    this.couleur = nom.substr(1, nom.length - 1);
                 }
 
                 switch (this.couleur) {
@@ -30,7 +48,7 @@ let Carte;
                         this.couleur = "Pique";
                         break;
                     case "T" :
-                        this.couleur = "Trèfle";
+                        this.couleur = "Trefle";
                         break;
                 }
             }
@@ -52,6 +70,28 @@ let Carte;
 
         get Url() {
             return this.url;
+        }
+
+        ajouterImageCarte() {
+            let a = $('<img />');
+            $('#mainJoueur').append(
+                a.attr("src", this.url)
+                    .attr("alt", this.tostring())
+                    .attr("class", "imageCarte")
+                    .width(50)
+                    .height(170)
+                    .data("valeur", this.valeur)
+                    .data("couleur", this.couleur)
+            );
+        }
+
+        tostring() {
+            if ("Excuse" === this.valeur)
+                return "L'excuse";
+            else if ("Atout" === this.couleur)
+                return this.valeur + " d'atout";
+            else
+                return this.valeur + " de " + this.couleur;
         }
     }
 }) ();

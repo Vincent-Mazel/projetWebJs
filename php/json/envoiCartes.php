@@ -1,28 +1,31 @@
 <?php
 session_start();
 
-require ("../model/model_gestionCartes.php");
-require('../model/model_gestionParties.php');
+require_once ("../model/model_gestionCartes.php");
+require_once('../model/model_gestionParties.php');
+
+$resultat = new stdClass();
 
 $nbJoueurs = $_SESSION["nbJoueurs"];
 $joueurs = $_SESSION["joueurs"];
 $nomPartie = $_SESSION["nomPartie"];
 
-for ($i = 2; $i <= $nbJoueurs; ++$i) {
+$test = false;
+
+for ($i = 2; $i <= 3; $i++) {
+    $test = true;
     $main = $_POST["j" . $i];
-    foreach ($main as &$value) {
-        envoiCarteDistribuee($nomPartie, $value, $joueurs[$i]);
+    foreach ((array) $main as $value) {
+        envoiCarteDistribuee($nomPartie, $value, $joueurs[$i - 1]);
     }
 }
 
 updateEtatPartie("distributionCartes", $nomPartie);
 
-$resultat = new stdClass();
+
 $resultat->nomPartie = $_SESSION["nomPartie"];
 $resultat->joueurs = $_SESSION["joueurs"];
 $resultat->nbJoueurs = $_SESSION["nbJoueurs"];
-
-$resultat->j1 = $_POST["j1"];
 
 header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');

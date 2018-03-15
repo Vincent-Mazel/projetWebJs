@@ -1,5 +1,5 @@
 <?php
-require('model_getBd.php');
+require_once('model_getBd.php');
 
 function getEtatTour($nomPartie) {
     $db = getBd();
@@ -24,10 +24,10 @@ function getPaquet($nomPartie, $joueur) {
     return $stmt;
 }
 
-function envoiCarteDistribuee ($nomPartie, $nomJoueur, $carte) {
+function envoiCarteDistribuee ($nomPartie, $carte, $nomJoueur) {
     $db = getBd();
 
-    $query = 'INSERT INTO PAQUET (NOM_PARTIE, CARTE, JOUEUR) WHERE NOM_PARTIE = :nomPartie AND CARTE = :carte AND JOUEUR = :nomJoueur';
+    $query = 'INSERT INTO PAQUET (NOM_PARTIE, CARTE, JOUEUR) VALUES (:nomPartie, :carte, :nomJoueur)';
     $stmt = $db->prepare($query);
     $stmt->bindParam(':nomPartie',$nomPartie);
     $stmt->bindParam(':carte',$carte);

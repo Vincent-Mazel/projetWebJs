@@ -14,14 +14,14 @@ let Paquet;
             this.nomCartes.push("excuse");
 
             for (let k = 1; k <= 10; ++k)
-                this.nomCartes.push(new Carte(k + "CA"));
+                this.nomCartes.push(new Carte(k + "Carreau"));
             this.nomCartes.push("VCA");
             this.nomCartes.push("CCA");
             this.nomCartes.push("DCA");
             this.nomCartes.push("RCA");
 
             for (let l = 1; l <= 10; ++l)
-                this.nomCartes.push(new Carte(l + "CO"));
+                this.nomCartes.push(new Carte(l + "Coeur"));
             this.nomCartes.push("VCO");
             this.nomCartes.push("CCO");
             this.nomCartes.push("DCO");
@@ -35,7 +35,7 @@ let Paquet;
             this.nomCartes.push("RP");
 
             for (let n = 1; n <= 10; ++n)
-                this.nomCartes.push(n + "T");
+                this.nomCartes.push(n + "Trefle");
             this.nomCartes.push("VT");
             this.nomCartes.push("CT");
             this.nomCartes.push("DT");

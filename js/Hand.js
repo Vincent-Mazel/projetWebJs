@@ -15,5 +15,11 @@ let Hand;
                 str += carte.valeur + " de " + carte.couleur + "<br>";
             return str;
         }
+
+        afficherCartes() {
+            for (let carte of this.cartes)
+                carte.ajouterImageCarte();
+            $('.imageCarte').fadeIn();
+        }
     }
 }) ();

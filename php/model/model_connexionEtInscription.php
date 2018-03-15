@@ -1,5 +1,5 @@
 <?php
-require('model_getBd.php');
+require_once('model_getBd.php');
 
 // Récupère les données concernant un utilisateur en fonction de son nom.
 function getUser($username) {

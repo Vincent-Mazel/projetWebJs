@@ -1,5 +1,5 @@
 <?php
-require('model_getBd.php');
+require_once('model_getBd.php');
 
 function addPartie($nomPartie, $joueur1, $nbJoueurs) {
     $db = getBd();

@@ -33,6 +33,7 @@ if ($partie["NB_JOUEURS"] == $partie["NB_JOUEURS_CO"]) {
 
     $resultat->joueurs = $_SESSION["joueurs"];
     $resultat->nomPartie = $_SESSION["nomPartie"];
+    $resultat->etat = $_SESSION["etat"];
 
     $_SESSION["etat"] = "distributionCartes";
 
