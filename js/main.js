@@ -120,7 +120,7 @@
                   $('#modalAttenteJoueurs').modal("hide");
 
                   if (1 === dataPartie.numJoueur)
-                      distribuerCartes(dataPartie.nbJoueurs);
+                      distribuerCartes(dataPartie.nbJoueurs, dataPartie.nomPartie, dataPartie.joueurs);
 
                   chargerModalChargement();
                   $('#rejoindrePartie').fadeOut(function () {
@@ -148,7 +148,7 @@
         setTimeout(closeModal, 15000);
     };
 
-    let distribuerCartes = function (nbJoueurs) {
+    let distribuerCartes = function (nbJoueurs, nomPartie, joueurs) {
         generatePaquet();
         let chien = getChien(nbJoueurs);
 
@@ -156,35 +156,21 @@
         let mainJoueur2 = getMain(nbJoueurs);
         let mainJoueur3 = getMain(nbJoueurs);
 
-        if (3 == nbJoueurs)
-            mainJoueur3 = paquet;
-        else
-            mainJoueur3 = getMain(nbJoueurs);
-
         let mainJoueur4;
         let mainJoueur5;
         if (4 == nbJoueurs)
-            mainJoueur4 = paquet;
-        else if (5 == nbJoueurs) {
             mainJoueur4 = getMain(nbJoueurs);
-            mainJoueur5 = paquet;
-        }
+        else if (5 == nbJoueurs)
+            mainJoueur5 = getMain(nbJoueurs);
 
-        console.log("Paquet : " + paquet.length);
         console.log("Chien : " + chien);
 
         console.log("j1" + main.toString());
-        console.log("Paquet : " + paquet.length);
-
         console.log("j2" + mainJoueur2);
-        console.log("Paquet : " + paquet.length);
-
         console.log("j3" + mainJoueur3);
-        console.log("Paquet : " + paquet.length);
-
         console.log("j4" + mainJoueur4);
         console.log("j5" + mainJoueur5);
-        console.log("paquet" + paquet.length);
+
 
         $.ajax({
             url: '/php/json/envoiCartes.php',
@@ -192,11 +178,13 @@
             data: {j2 : mainJoueur2, j3 : mainJoueur3, j4 : mainJoueur4, j5 : mainJoueur5}
         })
             .done(function (dataEnvoi) {
+
                 console.log("nomPartie 2 : " + dataEnvoi.nomPartie);
                 console.log("nbJoueurs 2 : " + dataEnvoi.nbJoueurs);
                 console.log("j1 2 : " + dataEnvoi.joueurs[0]);
                 console.log("j2 2 : " + dataEnvoi.joueurs[1]);
                 console.log("j3 2 : " + dataEnvoi.joueurs[2]);
+
             })
             .fail(function () {
                 alert("Problème survenu lors de la génération du paquet");

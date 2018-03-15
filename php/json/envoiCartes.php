@@ -22,6 +22,8 @@ $resultat->nomPartie = $_SESSION["nomPartie"];
 $resultat->joueurs = $_SESSION["joueurs"];
 $resultat->nbJoueurs = $_SESSION["nbJoueurs"];
 
+$resultat->j1 = $_POST["j1"];
+
 header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-type: application/json');
