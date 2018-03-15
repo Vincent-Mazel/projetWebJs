@@ -24,6 +24,16 @@ if ($partie["NB_JOUEURS"] == $partie["NB_JOUEURS_CO"]) {
     $resultat->numJoueur = $i;
     $resultat->nbJoueurs = $partie["NB_JOUEURS"];
 
+    $_SESSION["joueurs"] = array();
+    $k = 1;
+    while ($k <= $partie["NB_JOUEURS"]) {
+        $_SESSION["joueurs"][] = $partie["JOUEUR" . $k];
+        $k += 1;
+    }
+
+    $resultat->joueurs = $_SESSION["joueurs"];
+    $resultat->nomPartie = $_SESSION["nomPartie"];
+
     $_SESSION["etat"] = "distributionCartes";
 
     header('Cache-Control: no-cache, must-revalidate');

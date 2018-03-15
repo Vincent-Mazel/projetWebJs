@@ -5,6 +5,7 @@
     let timerInfosParties;
     let timerTourDeJeu;
 
+    let paquet = [];
     let main;
 
     let chargerTableauParties = function () {
@@ -15,22 +16,27 @@
             .done(function (dataParties) {
                 $('#tbodyParties').children().remove();
                 if (dataParties.isPartieEnCours) {
-                    for (let partie of dataParties.parties) {
-                        let tr = $('<tr />');
-                        for (let i = 0; i < 2; ++i) {
-                            let td = $('<td />');
-                            tr.append(td.html(partie[i]))
+                    $('#messageErreurRejoindrePartie').fadeOut(function () {
+                        for (let partie of dataParties.parties) {
+                            let tr = $('<tr />');
+                            for (let i = 0; i < 2; ++i) {
+                                let td = $('<td />');
+                                tr.append(td.html(partie[i]))
+                            }
+                            let button = $('<button />');
+                            tr.append(button.html("Rejoindre")
+                                .data("nomPartie", partie[0])
+                                .click(rejoindrePartie)
+                                .attr("class", "btn btn-info"));
+                            $('#tableParties').append(tr);
                         }
-                        let button = $('<button />');
-                        tr.append(button.html("Rejoindre")
-                            .data("nomPartie", partie[0])
-                            .click(rejoindrePartie)
-                            .attr("class", "btn btn-info"));
-                        $('#tableParties').append(tr);
-                    }
+                    });
+                    $('#tableParties').fadeIn();
                 }
-                else
+                else {
+                    $('#tableParties').hide();
                     $('#messageErreurRejoindrePartie').show();
+                }
             })
             .fail(function () {
                 alert("Problème dans l'affichage du menu de sélection de partie !");
@@ -103,6 +109,13 @@
       })
           .done(function (dataPartie) {
               if (dataPartie.isJouable) {
+
+                  console.log("nomPartie 1 : " + dataPartie.nomPartie);
+                  console.log("nbJoueurs 1 : " + dataPartie.nbJoueurs);
+                  console.log("j1 1 : " + dataPartie.joueurs[0]);
+                  console.log("j2 1 : " + dataPartie.joueurs[1]);
+                  console.log("j3 1 : " + dataPartie.joueurs[2]);
+
                   clearInterval(timerInfosPartieModal);
                   $('#modalAttenteJoueurs').modal("hide");
 
@@ -113,6 +126,7 @@
                   $('#rejoindrePartie').fadeOut(function () {
                       timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
                       $('#plateau').show();
+                      $('#testCartes').html(main.toString());
                   });
               }
               else
@@ -135,29 +149,148 @@
     };
 
     let distribuerCartes = function (nbJoueurs) {
-        let paquet = new Paquet();
-        paquet.genererPaquet();
+        generatePaquet();
+        let chien = getChien(nbJoueurs);
 
-        if ("3" === nbJoueurs) {
+        main = getMain(nbJoueurs);
+        let mainJoueur2 = getMain(nbJoueurs);
+        let mainJoueur3 = getMain(nbJoueurs);
 
+        if (3 == nbJoueurs)
+            mainJoueur3 = paquet;
+        else
+            mainJoueur3 = getMain(nbJoueurs);
+
+        let mainJoueur4;
+        let mainJoueur5;
+        if (4 == nbJoueurs)
+            mainJoueur4 = paquet;
+        else if (5 == nbJoueurs) {
+            mainJoueur4 = getMain(nbJoueurs);
+            mainJoueur5 = paquet;
         }
-        else if ("4" === nbJoueurs) {
 
-        }
-        else {
+        console.log("Paquet : " + paquet.length);
+        console.log("Chien : " + chien);
 
-        }
+        console.log("j1" + main.toString());
+        console.log("Paquet : " + paquet.length);
+
+        console.log("j2" + mainJoueur2);
+        console.log("Paquet : " + paquet.length);
+
+        console.log("j3" + mainJoueur3);
+        console.log("Paquet : " + paquet.length);
+
+        console.log("j4" + mainJoueur4);
+        console.log("j5" + mainJoueur5);
+        console.log("paquet" + paquet.length);
 
         $.ajax({
             url: '/php/json/envoiCartes.php',
-            type: 'GET',
-            data: 'type=generationPaquet'
+            type: 'POST',
+            data: {j2 : mainJoueur2, j3 : mainJoueur3, j4 : mainJoueur4, j5 : mainJoueur5}
         })
+            .done(function (dataEnvoi) {
+                console.log("nomPartie 2 : " + dataEnvoi.nomPartie);
+                console.log("nbJoueurs 2 : " + dataEnvoi.nbJoueurs);
+                console.log("j1 2 : " + dataEnvoi.joueurs[0]);
+                console.log("j2 2 : " + dataEnvoi.joueurs[1]);
+                console.log("j3 2 : " + dataEnvoi.joueurs[2]);
+            })
             .fail(function () {
                 alert("Problème survenu lors de la génération du paquet");
             });
         return false;
     };
+
+        let generatePaquet = function () {
+            for (let i = 1; i <= 21; ++i)
+                paquet.push(i + "A");
+            paquet.push("excuse");
+
+            for (let k = 1; k <= 10; ++k)
+                paquet.push(k + "CA");
+            paquet.push("VCA");
+            paquet.push("CCA");
+            paquet.push("DCA");
+            paquet.push("RCA");
+
+            for (let l = 1; l <= 10; ++l)
+                paquet.push(l + "CO");
+            paquet.push("VCO");
+            paquet.push("CCO");
+            paquet.push("DCO");
+            paquet.push("RCO");
+
+            for (let m = 1; m <= 10; ++m)
+                paquet.push(m + "P");
+            paquet.push("VP");
+            paquet.push("CP");
+            paquet.push("DP");
+            paquet.push("RP");
+
+            for (let n = 1; n <= 10; ++n)
+                paquet.push(n + "T");
+            paquet.push("VT");
+            paquet.push("CT");
+            paquet.push("DT");
+            paquet.push("RT");
+        };
+
+        let getRandomIntInclusive = function(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+
+            return Math.floor(Math.random() * (max - min +1)) + min;
+        };
+
+        let getChien = function (nbJoueurs) {
+            let chien = [];
+            if (3 == nbJoueurs || 4 == nbJoueurs) {
+                for (let i = 0; i < 6; ++i) {
+                    let rand = getRandomIntInclusive(0, paquet.length - 1);
+                    chien.push(paquet[rand]);
+                    paquet.splice(rand, 1);
+                }
+            }
+            else {
+                for (let i = 0; i < 3; ++i) {
+                    let rand = getRandomIntInclusive(0, paquet.length - 1);
+                    chien.push(paquet[rand]);
+                    paquet.splice(rand, 1);
+                }
+            }
+            return chien;
+        };
+
+        let getMain = function (nbJoueurs) {
+            let main = [];
+            console.log(nbJoueurs);
+            if (3 == nbJoueurs) {
+                for (let i = 0; i < 24; ++i) {
+                    let rand = getRandomIntInclusive(0, paquet.length - 1);
+                    main.push(paquet[rand]);
+                    paquet.splice(rand, 1);
+                }
+            }
+            else if (4 == nbJoueurs) {
+                for (let i = 0; i < 18; ++i) {
+                    let rand = getRandomIntInclusive(0, paquet.length - 1);
+                    main.push(paquet[rand]);
+                    paquet.splice(rand, 1);
+                }
+            }
+            else {
+                for (let i = 0; i < 15; ++i) {
+                    let rand = getRandomIntInclusive(0, paquet.length - 1);
+                    main.push(paquet[rand]);
+                    paquet.splice(rand, 1);
+                }
+            }
+
+            return main;
+        };
 
     let gestionTourDeJeu = function () {
         $.ajax({
@@ -170,7 +303,7 @@
                             url: 'php/json/getCartes.php'
                         })
                             .done(function (dataCartes) {
-                                main = dataCartes.cartes;
+                                main = new Hand(dataCartes.cartes);
                             })
                             .fail(function () {
                                 alert("Problème survenu lors de la récupération de la main !!");
@@ -214,6 +347,9 @@
                                 $('#rejoindrePartie').show();
                                 getInfosPartie();
                             }
+                            else if ("distributionCartes" === dataEtat.etat) {
+
+                            }
                         })
                         .fail(function () {
                             alert("Problème de chargement de la page lié à l'état du joueur !!");
@@ -228,8 +364,8 @@
             });
 
         $('#boutonRejoindrePartie').click(function () {
-            $('#menuPrincipal').fadeOut(function () {$('#rejoindrePartie').fadeIn();});
             chargerTableauParties();
+            $('#menuPrincipal').fadeOut(function () {$('#rejoindrePartie').fadeIn();});
 
             timerInfosParties = setInterval(chargerTableauParties, 3500);
         });
@@ -321,6 +457,8 @@
                         $('#rejoindrePartie').fadeOut(function () {$('#nonConnecte').fadeIn(function () {$('#tbodyParties').children().remove();});});
                         clearInterval(timerInfosParties);
                     }
+                    else if ("distributionCartes" === dataEtatJoueur.etat)
+                        $('#plateau').fadeOut(function () {$('#nonConnecte').fadeIn();});
                     $('#navBar').slideToggle("fast", "linear");
                 })
                 .fail(function () {

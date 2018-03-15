@@ -22,10 +22,16 @@ if (empty($partieReq)) {
 }
 else {
     $resultat->parties = array();
+    $bool = true;
     do {
-        if ($partieReq["NB_JOUEURS_CO"] < $partieReq["NB_JOUEURS"])
+        if ($partieReq["NB_JOUEURS_CO"] < $partieReq["NB_JOUEURS"]) {
             $resultat->parties[] = array($partieReq["NOM_PARTIE"], $partieReq["NB_JOUEURS_CO"] . "/" . $partieReq["NB_JOUEURS"]);
+            $bool = false;
+        }
     }while ($partieReq = $resultReq->fetch());
+
+    if ($bool)
+        $resultat->isPartieEnCours = false;
 
     header('Cache-Control: no-cache, must-revalidate');
     header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');

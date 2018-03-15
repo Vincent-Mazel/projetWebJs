@@ -71,10 +71,20 @@ else {
     if ($nbJoueursCoOk == $partie["NB_JOUEURS"]) {
         $resultat->isJouable = true;
         $_SESSION["etat"] = "distributionCartes";
+        $_SESSION["joueurs"] = array();
+        $k = 1;
+        while ($k <= $nbJoueursCo) {
+            $_SESSION["joueurs"] = $partie["JOUEUR" . $k];
+            $k += 1;
+        }
+
     }
 
     $resultat->nbJoueurs = $partie["NB_JOUEURS"];
     $resultat->numJoueur = $nbJoueursCoOk;
+
+    $resultat->nomPartie = $_SESSION["nomPartie"];
+    $resultat->joueurs = $_SESSION["joueurs"];
 
     header('Cache-Control: no-cache, must-revalidate');
     header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');

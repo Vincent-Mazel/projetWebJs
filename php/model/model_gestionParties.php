@@ -117,3 +117,13 @@ function addJoueur5 ($joueur, $nomPartie, $nbJoueurs) {
     $stmt->bindParam(':nomPartie',$nomPartie);
     $stmt->execute();
 }
+
+function updateEtatPartie ($nouvelEtat, $nomPartie) {
+    $db = getBd();
+
+    $query = 'UPDATE PARTIE SET ETAT_PARTIE = :etatPartie WHERE NOM_PARTIE = :nomPartie';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':etatPartie',$nouvelEtat);
+    $stmt->bindParam(':nomPartie',$nomPartie);
+    $stmt->execute();
+}

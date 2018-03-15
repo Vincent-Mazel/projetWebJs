@@ -19,6 +19,15 @@ if (strlen($nomPartie) > 50) {
     header('Content-type: application/json');
     echo json_encode($resultat);
 }
+else if (empty($nbJoueurs)) {
+    $resultat->erreur = true;
+    $resultat->messageErreur = "Choisis un nombre de joueurs mon bon !";
+
+    header('Cache-Control: no-cache, must-revalidate');
+    header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+    header('Content-type: application/json');
+    echo json_encode($resultat);
+}
 else {
     $resultReq = getAllParties();
     while ($partieReq = $resultReq->fetch()) {
