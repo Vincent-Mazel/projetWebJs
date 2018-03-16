@@ -20,6 +20,11 @@ for ($i = 2; $i <= 3; $i++) {
     }
 }
 
+$chien = $_POST["doggo"];
+
+foreach ((array) $chien as $value)
+    envoiCarteChien($nomPartie, $value);
+
 updateEtatPartie("distributionCartes", $nomPartie);
 
 

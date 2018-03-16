@@ -1,10 +1,12 @@
 <?php
 session_start();
 
-require('../model/model_connexionEtInscription.php');
+require('../model/model_gestionUtilisateur.php');
 
 $resultat = new stdClass();
 $resultat->erreur = false;
+
+//$resultat->session = $_SESSION["nomPartie"];
 
 $nomUtilisateur = $_POST["nomUtilisateur"];
 $mdp = $_POST["mdp"];

@@ -3,13 +3,20 @@ session_start();
 
 require ("../model/model_gestionCartes.php");
 
+if (!isset($_SESSION["carteRecuperees"]))
+    $_SESSION["carteRecuperees"] = false;
+
 $resultat = new stdClass();
 $resultat->isMonTour = false;
+
+$resultat->carteRecup = $_SESSION["carteRecuperees"];
 
 $resultReq = getEtatTour($_SESSION["nomPartie"]);
 $partie = $resultReq->fetch();
 
-if ($_SESSION["username"] == $partie["TOUR"] || empty($partie["TOUR"])) {
+$testRecupCartes = $_SESSION["carteRecuperees"];
+
+if (($_SESSION["username"] == $partie["TOUR"]) || (empty($partie["TOUR"]) && !$testRecupCartes)) {
     $resultat->isMonTour = true;
     $resultat->etatPartie = $partie["ETAT_PARTIE"];
 }

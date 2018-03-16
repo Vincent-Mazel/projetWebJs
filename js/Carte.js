@@ -6,7 +6,7 @@ let Carte;
         constructor(nom) {
             this.nom = nom;
 
-            if ("excuse" !== nom) {
+            if ("Excuse" !== nom) {
                 if ("0" === nom.substr(1, 1) || "1" === nom.substr(1, 1) || "2" === nom.substr(1, 1) || "3" === nom.substr(1, 1) || "4" === nom.substr(1, 1)
                 || "5" === nom.substr(1, 1) || "6" === nom.substr(1, 1) || "7" === nom.substr(1, 1) || "8" === nom.substr(1, 1) || "9" === nom.substr(1, 1)) {
                     this.valeur = nom.substr(0, 2);
@@ -57,7 +57,7 @@ let Carte;
                 this.couleur = "Atout";
             }
 
-            this.url = "/images/" + this.couleur + "/" + this.nom + ".jpg";
+            this.url = "/images/" + this.couleur + "/" + this.valeur + ".jpg";
         }
 
         get Valeur() {
@@ -78,8 +78,6 @@ let Carte;
                 a.attr("src", this.url)
                     .attr("alt", this.tostring())
                     .attr("class", "imageCarte")
-                    .width(50)
-                    .height(170)
                     .data("valeur", this.valeur)
                     .data("couleur", this.couleur)
             );

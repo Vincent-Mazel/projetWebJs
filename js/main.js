@@ -58,15 +58,15 @@
         setTimeout(function () {
             $('#messageModalChargement').html("Nettoyage du joli tapis");
             setTimeout(function () {
-                $('#messageModalChargement').html("Mise à disposition de délicieux cocktels");
+                $('#messageModalChargement').html("Mise à disposition de délicieux cocktails");
                 setTimeout(function () {
                     $('#messageModalChargement').html("Clin d'oeil à la charmante serveuse");
                     setTimeout(function () {
                         $('#modalChargementPartie').modal("hide");
-                    }, 4000);
-                    }, 4000);
-                }, 4000);
-            }, 4000);
+                    }, 2000);
+                    }, 2000);
+                }, 2000);
+            }, 2000);
     };
 
     let rejoindrePartie = function () {
@@ -121,6 +121,7 @@
                         $('#divCreationPartie').fadeOut(function () {afficherCartes(main);});
                       else
                           $('#rejoindrePartie').fadeOut(function () {afficherCartes(main);});
+                      timerTestIsDistributionOk = setInterval(testIsDistributionOk, 1000);
                   }
                   else
                       $('#rejoindrePartie').fadeOut(function () {timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);});
@@ -148,7 +149,7 @@
         generatePaquet();
         let chien = getChien(nbJoueurs);
 
-        main = getMain(nbJoueurs);
+        main = new Hand(getMain(nbJoueurs));
         let mainJoueur2 = getMain(nbJoueurs);
         let mainJoueur3 = getMain(nbJoueurs);
 
@@ -162,7 +163,7 @@
         $.ajax({
             url: '/php/json/envoiCartes.php',
             type: 'POST',
-            data: {j2 : mainJoueur2, j3 : mainJoueur3, j4 : mainJoueur4, j5 : mainJoueur5}
+            data: {j2 : mainJoueur2, j3 : mainJoueur3, j4 : mainJoueur4, j5 : mainJoueur5, doggo : chien}
         })
             .fail(function () {
                 alert("Problème survenu lors de la génération du paquet");
@@ -173,7 +174,7 @@
     let generatePaquet = function () {
         for (let i = 1; i <= 21; ++i)
             paquet.push(i + "A");
-        paquet.push("excuse");
+        paquet.push("Excuse");
 
         for (let k = 1; k <= 10; ++k)
             paquet.push(k + "CA");
@@ -269,8 +270,6 @@
                 .attr("class", "imageCarte")
                 .data("valeur", carte.valeur)
                 .data("couleur", carte.couleur)
-                .width(372)
-                .height(700)
         );
     };
 
@@ -288,18 +287,37 @@
                                 console.log("Récupération cartes : " + dataCartes.cartes);
                                 main = new Hand(dataCartes.cartes);
                                 afficherCartes(main);
-                                $('#testCartes').html(main.toString());
-                                clearInterval(timerTourDeJeu);
                             })
                             .fail(function () {
                                 alert("Problème survenu lors de la récupération de la main !!");
                             });
                         return false;
                     }
+                    else if ("prise" === dataTourDeJeu.etatPartie) {
+                        console.log("viol de chèvre");
+                    }
                 }
             })
             .fail(function () {
                 alert("Problème survenu lors de la récupération de l'état et de la personne devant jouer !!");
+            });
+        return false;
+    };
+
+    let testIsDistributionOk = function () {
+        $.ajax({
+            url: '/php/json/getEtatDistributionJoueurs.php'
+        })
+            .done(function (dataEtatDistribution) {
+                if (dataEtatDistribution.isDistributionOk) {
+
+                }
+                else {
+
+                }
+            })
+            .fail(function () {
+                alert("Problème survenu lors de la récupération de l'avancée de la distribution des cartes");
             });
         return false;
     };
@@ -334,6 +352,19 @@
                                 getInfosPartie();
                             }
                             else if ("distributionCartes" === dataEtat.etat) {
+                                $.ajax({
+                                    url: 'php/json/getCartesFromSession.php'
+                                })
+                                    .done(function (dataCartes) {
+                                        main = new Hand(dataCartes.cartes);
+                                        afficherCartes(main);
+                                    })
+                                    .fail(function () {
+                                        alert("Problème survenu lors de la récupération de la main en $_SESSION !!");
+                                    });
+                                return false;
+                            }
+                            else if ("prise" === dataEtat.etat) {
 
                             }
                         })
@@ -385,6 +416,10 @@
                         $('#rejoindrePartie').fadeOut(function () {$('#menuPrincipal').fadeIn(function () {$('#tbodyParties').children().remove();});});
                         clearInterval(timerInfosParties);
                     }
+                    else if ("distributionCartes" === dataEtat.etat) {
+                        $('#modalGoToMenuPartie').modal({backdrop: 'static', keyboard: false});
+                        $('#modalGoToMenuPartie').modal("show");
+                    }
                 })
                 .fail(function () {
                    alert("Problème survenu lors du retour au menu principal !!");
@@ -435,22 +470,56 @@
                 data: 'boutonDeconnexion=true'
             })
                 .done(function (dataEtatJoueur) {
-                    if ("menu" === dataEtatJoueur.etat)
+                    if ("menu" === dataEtatJoueur.etat) {
                         $('#menuPrincipal').fadeOut(function () {$('#nonConnecte').fadeIn();});
-                    else if ("creationPartie" === dataEtatJoueur.etat)
+                        $('#navBar').slideToggle("fast", "linear");
+                    }
+                    else if ("creationPartie" === dataEtatJoueur.etat) {
                         $('#divCreationPartie').fadeOut(function () {$('#nonConnecte').fadeIn()});
+                        $('#navBar').slideToggle("fast", "linear");
+                    }
                     else if ("rejoindrePartie" === dataEtatJoueur.etat) {
                         $('#rejoindrePartie').fadeOut(function () {$('#nonConnecte').fadeIn(function () {$('#tbodyParties').children().remove();});});
+                        $('#navBar').slideToggle("fast", "linear");
                         clearInterval(timerInfosParties);
                     }
-                    else if ("distributionCartes" === dataEtatJoueur.etat)
-                        $('#plateau').fadeOut(function () {$('#nonConnecte').fadeIn();});
-                    $('#navBar').slideToggle("fast", "linear");
+                    else if ("distributionCartes" === dataEtatJoueur.etat) {
+                        $('#modalDeconnexionPartie').modal({backdrop: 'static', keyboard: false});
+                        $('#modalDeconnexionPartie').modal("show");
+                    }
                 })
                 .fail(function () {
                     alert("Problème survenu lors de la déconnexion !!!");
                 });
             return false;
         });
+
+        $('#boutonDeconnexionModal').click(function () {
+            $('#mainJoueur').fadeOut(function () {$('#nonConnecte').fadeIn(function () {$('#modalDeconnexionPartie').modal("hide")});});
+            $('#navBar').slideToggle("fast", "linear");
+            $.ajax({
+                url: 'php/deconnexion.php'
+            })
+                .fail(function () {
+                    alert("Problème survenu lors de la déconnexion !!");
+                });
+            return false;
+        });
+
+        $('#boutonGoToMenuModal').click(function () {
+            $('#mainJoueur').fadeOut(function () {$('#menuPrincipal').fadeIn(function () {$('#modalGoToMenuPartie').modal("hide");});});
+            $.ajax({
+                url: 'php/modifEtat/etat_goToMenu.php'
+            })
+                .fail(function () {
+                    alert("Problème survenu lors du passage au menu principal depuis la partie en cours !!");
+                });
+            return false;
+        });
+
+        $('.boutonRester').click(function () {
+            $('#modalQuitterPartie').modal("hide");
+            $('#modalGoToMenuPartie').modal("hide");
+        })
     });
 }) ();

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require('../model/model_connexionEtInscription.php');
+require('../model/model_gestionUtilisateur.php');
 
 $resultat = new stdClass();
 $resultat->erreur = false;

@@ -34,3 +34,13 @@ function envoiCarteDistribuee ($nomPartie, $carte, $nomJoueur) {
     $stmt->bindParam(':nomJoueur',$nomJoueur);
     $stmt->execute();
 }
+
+function envoiCarteChien ($nomPartie, $carte) {
+    $db = getBd();
+
+    $query = 'INSERT INTO CHIEN (NOM_PARTIE, CARTE) VALUES (:nomPartie, :carte)';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':nomPartie',$nomPartie);
+    $stmt->bindParam(':carte',$carte);
+    $stmt->execute();
+}

@@ -35,3 +35,12 @@ function updateEtatConnexion ($username, $etat) {
     $stmt->bindParam(':username',$username);
     $stmt->execute();
 }
+
+function updateRecupCartes ($nomUtilisateur) {
+    $db = getBd();
+
+    $query = 'UPDATE USER SET RECUP_CARTES = TRUE WHERE USERNAME = :nomUtilisateur';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':nomUtilisateur',$nomUtilisateur);
+    $stmt->execute();
+}

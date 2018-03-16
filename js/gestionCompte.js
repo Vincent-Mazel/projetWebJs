@@ -19,6 +19,7 @@
                 data: $(this).serialize()
             })
                 .done(function (dataConnexion) {
+                    //console.log(dataConnexion.session);
                     if (dataConnexion.erreur)
                         chargerModalErreur(dataConnexion);
                     else {

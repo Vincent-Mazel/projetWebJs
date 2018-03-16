@@ -186,16 +186,34 @@
             <p>c'est le plateau lol</p>
         </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <p id="testCartes" style="display:none"></p>
+        <div class="modal fade" id="modalDeconnexionPartie" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Vous êtes vraiment sûr de votre décision ? N'abandonnez pas les autres joueurs comme ça voyons !</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="boutonDeconnexionModal" data-dismiss="modal">Partir comme un lâche</button>
+                        <button type="button" class="btn btn-secondary" class="boutonRester" data-dismiss="modal">Rester (le choix de la raison)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
+        <div class="modal fade" id="modalGoToMenuPartie" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Vous êtes vraiment sûr de votre décision ? N'abandonnez pas les autres joueurs comme ça voyons !</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="boutonGoToMenuModal" data-dismiss="modal">Partir comme un lâche</button>
+                        <button type="button" class="btn btn-secondary" class="boutonRester" data-dismiss="modal">Rester (le choix de la raison)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="mainJoueur"></div>
 
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>

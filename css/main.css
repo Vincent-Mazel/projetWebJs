@@ -343,3 +343,17 @@ p {
 #rejoindrePartie {
     width: 40%;
 }
+
+.imageCarte {
+    width: 93px;
+    height: 175px;
+}
+
+.imageCarte:hover {
+    transform: scale(1.1);
+}
+
+#mainJoueur {
+    position: fixed;
+    bottom: 0;
+}
