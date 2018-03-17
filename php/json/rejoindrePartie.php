@@ -74,9 +74,10 @@ else {
         $_SESSION["joueurs"] = array();
         $k = 1;
         while ($k <= $nbJoueursCo) {
-            $_SESSION["joueurs"] = $partie["JOUEUR" . $k];
+            $_SESSION["joueurs"][] = $partie["JOUEUR" . $k];
             $k += 1;
         }
+        $_SESSION["joueurs"][] = $_SESSION["username"];
 
     }
 

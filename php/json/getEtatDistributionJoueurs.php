@@ -19,8 +19,12 @@ for ($i = 1; $i < 3; ++$i) {
     }
 }
 
-if ($bool)
+if ($bool) {
     updateEtatPartie("prise", $_SESSION["nomPartie"]);
+    updateTour($_SESSION["nomPartie"], $_SESSION["username"]);
+    $_SESSION["etat"] = "prise";
+}
+
 
 $resultat->nbJoueurs = $_SESSION["nbJoueurs"];
 $resultat->nomPartie = $_SESSION["nomPartie"];

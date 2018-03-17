@@ -15,7 +15,7 @@ function getPrise ($nomPartie) {
 function insertPrise ($nomPartie, $joueur, $valeur) {
     $db = getBd();
 
-    $query = 'INSERT INTO PARTIE (NOM_PARTIE, JOUEUR, VALEUR) VALUES (:nomPartie, :joueur, :valeur)';
+    $query = 'INSERT INTO PRISE (NOM_PARTIE, JOUEUR, VALEUR) VALUES (:nomPartie, :joueur, :valeur)';
     $stmt = $db->prepare($query);
     $stmt->bindParam(':nomPartie',$nomPartie);
     $stmt->bindParam(':joueur',$joueur);

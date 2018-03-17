@@ -17,8 +17,11 @@ $partie = $resultReq->fetch();
 $testRecupCartes = $_SESSION["carteRecuperees"];
 $resultat->etatPartie = $partie["ETAT_PARTIE"];
 
-if (($_SESSION["username"] == $partie["TOUR"]) || (empty($partie["TOUR"]) && !$testRecupCartes))
+if (($_SESSION["username"] == $partie["TOUR"]) || (empty($partie["TOUR"]) && !$testRecupCartes) || "recupCartes" == $partie["TOUR"]
+    || ($_SESSION["joueurs"][0] == $_SESSION["username"] && "redistributionCartes" == $partie["ETAT_PARTIE"]))
     $resultat->isMonTour = true;
+
+$resultat->nbJoueurs = sizeof($_SESSION["joueurs"]);
 
 header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');

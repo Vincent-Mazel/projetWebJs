@@ -24,6 +24,10 @@ else if (empty($nomUtilisateur) && empty($mdp2)) {
     $resultat->erreur = true;
     $resultat->messageErreur = "Hop hop hop, le nom d'utilisateur et le second mot de passe, c'est en option ?";
 }
+else if ("recupCartes" == $nomUtilisateur) {
+    $resultat->erreur = true;
+    $resultat->messageErreur = "Ce pseudo est malheureusement interdit pour des raisons que je ne t'expliquerai pas jeune fou !";
+}
 else if (empty($mdp1) && empty($mdp2)) {
     $resultat->erreur = true;
     $resultat->messageErreur = "Tu nous fais quoi là ? Il me faut le nom de compte ET un mot de passe ! C'est un prank où quoi ? Où est ibra ?";

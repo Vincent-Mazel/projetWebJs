@@ -82,6 +82,7 @@
                     setTimeout(closeModal, 15000);
                 }
                 else if (dataRejoindrePartie.isJouable) {
+                    clearInterval(timerInfosParties);
                     chargerModalChargement();
                     $('#rejoindrePartie').fadeOut(function () {
                         timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
@@ -110,6 +111,7 @@
       })
           .done(function (dataPartie) {
               if (dataPartie.isJouable) {
+                  clearInterval(timerInfosParties);
                   clearInterval(timerInfosPartieModal);
                   $('#modalAttenteJoueurs').modal("hide");
                   chargerModalChargement();
@@ -279,14 +281,27 @@
         })
             .done(function (dataTourDeJeu) {
                 if (dataTourDeJeu.isMonTour) {
-                    if ("distributionCartes" === dataTourDeJeu.etatPartie) {
+                    if("redistributionCartes" === dataTourDeJeu.etatPartie) {
+                        clearInterval(timerTourDeJeu);
+                        distribuerCartes(dataTourDeJeu.nbJoueurs);
+                        timerTestIsDistributionOk = setInterval(testIsDistributionOk, 1000);
+                    }
+                    else if ("distributionCartes" === dataTourDeJeu.etatPartie) {
                         $.ajax({
                             url: 'php/json/getCartes.php'
                         })
                             .done(function (dataCartes) {
                                 console.log("Récupération cartes : " + dataCartes.cartes);
                                 main = new Hand(dataCartes.cartes);
-                                afficherCartes(main);
+                                if (dataCartes.isRedistribution) {
+                                    $('#mainJoueur').fadeOut(function () {
+                                        $('#mainJoueur').empty();
+                                        afficherCartes(main);
+                                        setTimeout(function () {$('#mainJoueur').fadeIn();}, 2000);
+                                    });
+                                }
+                                else
+                                    afficherCartes(main);
                             })
                             .fail(function () {
                                 alert("Problème survenu lors de la récupération de la main !!");
@@ -294,7 +309,29 @@
                         return false;
                     }
                     else if ("prise" === dataTourDeJeu.etatPartie) {
-                        console.log("viol de chèvre");
+                        console.log("prise");
+                        $.ajax({
+                            url: '/php/json/getInfosPrise.php'
+                        })
+                            .done(function (dataInfosPrise) {
+                                if (dataInfosPrise.isPrise) {
+                                    if ("petite" === dataInfosPrise.prise)
+                                        $('#boutonPetite').hide();
+                                    else if ("pousse" === dataInfosPrise.prise) {
+                                        $('#boutonPetite').hide();
+                                        $('#boutonPousse').hide();
+                                    }
+                                }
+                                $('#modalPrise').modal({backdrop: 'static', keyboard: false});
+                                $('#modalPrise').modal("show");
+                                clearInterval(timerTourDeJeu);
+                            })
+                            .fail(function () {
+                               alert("Problème survenu lors de la récupération des infos sur la prise");
+                            });
+                    }
+                    else if ("chien" === dataTourDeJeu.etatPartie) {
+                        console.log("chien");
                     }
                 }
             })
@@ -311,8 +348,19 @@
             .done(function (dataEtatDistribution) {
                 if (dataEtatDistribution.isDistributionOk) {
                     clearInterval(timerTestIsDistributionOk);
-                    $('#modalPrise').modal({backdrop: 'static', keyboard: false});
-                    $('#modalPrise').modal("show");
+
+                    $.ajax({
+                        url: '/php/json/suppressionPaquetBd.php'
+                    })
+                        .fail(function () {
+                           alert("Un problème est survenu lors de la suppresion du paquet dans la base de données.");
+                        });
+
+                    setTimeout(function () {
+                        $('#modalPrise').modal({backdrop: 'static', keyboard: false});
+                        $('#modalPrise').modal("show");
+                    }, 7000);
+
                 }
             })
             .fail(function () {
@@ -524,15 +572,15 @@
         $('#boutonPetite').click(function () {
             $.ajax({
                 url: '/php/json/envoiPrise.php',
-                type: 'POST',
-                data: {prise : "petite"}
+                type: 'GET',
+                data: 'prise=petite'
             })
                 .done(function () {
-
                     $('#modalPrise').modal("hide");
+                    timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
                 })
                 .fail(function () {
-                    alert("");
+                    alert("Problème survenu lors de la prise d'une petite !!");
                 });
             return false;
         });
@@ -540,15 +588,15 @@
         $('#boutonPousse').click(function () {
             $.ajax({
                 url: '/php/json/envoiPrise.php',
-                type: 'POST',
-                data: {prise : "pousse"}
+                type: 'GET',
+                data: 'prise=pousse'
             })
                 .done(function () {
-
                     $('#modalPrise').modal("hide");
+                    timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
                 })
                 .fail(function () {
-                    alert("");
+                    alert("Problème survenu lors de la prise d'une pousse !!");
                 });
             return false;
         });
@@ -556,15 +604,15 @@
         $('#boutonGarde').click(function () {
             $.ajax({
                 url: '/php/json/envoiPrise.php',
-                type: 'POST',
-                data: {prise : "garde"}
+                type: 'GET',
+                data: 'prise=garde'
             })
                 .done(function () {
-
                     $('#modalPrise').modal("hide");
+                    timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
                 })
                 .fail(function () {
-                    alert("");
+                    alert("Problème survenu lors de la prise d'une garde !!");
                 });
             return false;
         });
@@ -572,15 +620,15 @@
         $('#boutonPasser').click(function () {
             $.ajax({
                 url: '/php/json/envoiPrise.php',
-                type: 'POST',
-                data: {prise : "passe"}
+                type: 'GET',
+                data: 'prise=passe'
             })
                 .done(function () {
-
                     $('#modalPrise').modal("hide");
+                    timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
                 })
                 .fail(function () {
-                    alert("");
+                    alert("Problème survenu lors des enchères et de la décision de passer !!");
                 });
             return false;
         });

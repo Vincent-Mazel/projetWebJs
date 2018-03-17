@@ -25,7 +25,13 @@ $chien = $_POST["doggo"];
 foreach ((array) $chien as $value)
     envoiCarteChien($nomPartie, $value);
 
+$resultReq = getPartieByName($nomPartie);
+$partieReq = $resultReq->fetch();
+if ("redistributionCartes" == $partieReq["ETAT_PARTIE"])
+    updateTour($nomPartie, "recupCartes");
+
 updateEtatPartie("distributionCartes", $nomPartie);
+
 
 
 $resultat->nomPartie = $_SESSION["nomPartie"];

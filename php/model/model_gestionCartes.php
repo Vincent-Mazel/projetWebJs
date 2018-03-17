@@ -44,3 +44,12 @@ function envoiCarteChien ($nomPartie, $carte) {
     $stmt->bindParam(':carte',$carte);
     $stmt->execute();
 }
+
+function deletePaquet ($nomPartie) {
+    $db = getBd();
+
+    $query = 'DELETE FROM PAQUET WHERE NOM_PARTIE = :nomPartie';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':nomPartie',$nomPartie);
+    $stmt->execute();
+}
