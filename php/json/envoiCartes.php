@@ -20,6 +20,8 @@ for ($i = 2; $i <= 3; $i++) {
     }
 }
 
+$_SESSION["main"] = $_POST["j1"];
+
 $chien = $_POST["doggo"];
 
 foreach ((array) $chien as $value)

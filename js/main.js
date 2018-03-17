@@ -8,6 +8,7 @@
 
     let paquet = [];
     let main;
+    let chien;
 
     let chargerTableauParties = function () {
         $.ajax({
@@ -63,10 +64,10 @@
                     $('#messageModalChargement').html("Clin d'oeil à la charmante serveuse");
                     setTimeout(function () {
                         $('#modalChargementPartie').modal("hide");
-                    }, 2000);
-                    }, 2000);
-                }, 2000);
-            }, 2000);
+                    }, 1300);
+                    }, 1300);
+                }, 1300);
+            }, 1300);
     };
 
     let rejoindrePartie = function () {
@@ -86,7 +87,6 @@
                     chargerModalChargement();
                     $('#rejoindrePartie').fadeOut(function () {
                         timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
-                        $('#plateau').show();
                     });
 
                 }
@@ -120,9 +120,15 @@
                       distribuerCartes(dataPartie.nbJoueurs);
                       console.log(main);
                       if ("attenteJoueursCreation" === dataPartie.etat)
-                        $('#divCreationPartie').fadeOut(function () {afficherCartes(main);});
+                        $('#divCreationPartie').fadeOut(function () {
+                            ajouterCartes(main, '#mainJoueur');
+                            $('#mainJoueur').fadeIn();
+                        });
                       else
-                          $('#rejoindrePartie').fadeOut(function () {afficherCartes(main);});
+                          $('#rejoindrePartie').fadeOut(function () {
+                              ajouterCartes(main, '#mainJoueur');
+                              $('#mainJoueur').fadeIn();
+                          });
                       timerTestIsDistributionOk = setInterval(testIsDistributionOk, 1000);
                   }
                   else
@@ -151,7 +157,9 @@
         generatePaquet();
         let chien = getChien(nbJoueurs);
 
-        main = new Hand(getMain(nbJoueurs));
+        let mainJoueur1 = getMain(nbJoueurs);
+        main = new Hand(mainJoueur1);
+
         let mainJoueur2 = getMain(nbJoueurs);
         let mainJoueur3 = getMain(nbJoueurs);
 
@@ -165,7 +173,7 @@
         $.ajax({
             url: '/php/json/envoiCartes.php',
             type: 'POST',
-            data: {j2 : mainJoueur2, j3 : mainJoueur3, j4 : mainJoueur4, j5 : mainJoueur5, doggo : chien}
+            data: {j1 : mainJoueur1, j2 : mainJoueur2, j3 : mainJoueur3, j4 : mainJoueur4, j5 : mainJoueur5, doggo : chien}
         })
             .fail(function () {
                 alert("Problème survenu lors de la génération du paquet");
@@ -259,20 +267,44 @@
         return main;
     };
 
-    let afficherCartes = function(main) {
-        for (let carte of main.cartes)
-            ajouterImageCarte(carte);
-        $('.imageCarte').fadeIn();
+    let afficherCartesRedistribution = function () {
+        $('#mainJoueur').fadeOut(function () {
+            $('#mainJoueur').empty();
+            ajouterCartes(main, '#mainJoueur');
+            setTimeout(function () {$('#mainJoueur').fadeIn();}, 2000);}
+            );
     };
 
-    let ajouterImageCarte = function (carte) {
+    let ajouterCartes = function(main, destination) {
+        for (let carte of main.cartes)
+            ajouterImageCarte(carte, destination);
+    };
+
+    let ajouterImageCarte = function (carte, destination) {
         let a = $('<img />');
-        $('#mainJoueur').append(
+        $(destination).append(
             a.attr("src", carte.url)
                 .attr("class", "imageCarte")
                 .data("valeur", carte.valeur)
                 .data("couleur", carte.couleur)
         );
+    };
+
+    let afficherChien = function () {
+        $.ajax({
+            url: '/php/json/getChien.php'
+        })
+            .done(function (dataChien) {
+                if (dataChien.afficher) {
+                    chien = new Hand(dataChien.chien);
+                    ajouterCartes(chien, '#plateau');
+                    setTimeout(function () {$('#plateau').fadeIn();}, 1000);
+                }
+
+            })
+            .fail(function () {
+               alert("Problème survenu lors de la récupération du chien !!");
+            });
     };
 
     let gestionTourDeJeu = function () {
@@ -284,6 +316,7 @@
                     if("redistributionCartes" === dataTourDeJeu.etatPartie) {
                         clearInterval(timerTourDeJeu);
                         distribuerCartes(dataTourDeJeu.nbJoueurs);
+                        afficherCartesRedistribution();
                         timerTestIsDistributionOk = setInterval(testIsDistributionOk, 1000);
                     }
                     else if ("distributionCartes" === dataTourDeJeu.etatPartie) {
@@ -294,14 +327,13 @@
                                 console.log("Récupération cartes : " + dataCartes.cartes);
                                 main = new Hand(dataCartes.cartes);
                                 if (dataCartes.isRedistribution) {
-                                    $('#mainJoueur').fadeOut(function () {
-                                        $('#mainJoueur').empty();
-                                        afficherCartes(main);
-                                        setTimeout(function () {$('#mainJoueur').fadeIn();}, 2000);
-                                    });
+                                    afficherCartesRedistribution();
                                 }
-                                else
-                                    afficherCartes(main);
+                                else  {
+                                    ajouterCartes(main, '#mainJoueur');
+                                    setTimeout(function () {$('#mainJoueur').fadeIn();}, 1000);
+                                }
+
                             })
                             .fail(function () {
                                 alert("Problème survenu lors de la récupération de la main !!");
@@ -314,6 +346,7 @@
                             url: '/php/json/getInfosPrise.php'
                         })
                             .done(function (dataInfosPrise) {
+                                clearInterval(timerTourDeJeu);
                                 if (dataInfosPrise.isPrise) {
                                     if ("petite" === dataInfosPrise.prise)
                                         $('#boutonPetite').hide();
@@ -322,17 +355,26 @@
                                         $('#boutonPousse').hide();
                                     }
                                 }
-                                $('#modalPrise').modal({backdrop: 'static', keyboard: false});
-                                $('#modalPrise').modal("show");
-                                clearInterval(timerTourDeJeu);
+                                afficherModalprise();
                             })
                             .fail(function () {
                                alert("Problème survenu lors de la récupération des infos sur la prise");
                             });
                     }
                     else if ("chien" === dataTourDeJeu.etatPartie) {
-                        console.log("chien");
+                        clearInterval(timerTourDeJeu);
+                        afficherChien();
+                        setTimeout(function () {$('#plateau').fadeOut(function () {
+                            $('#mainJoueur').fadeOut(function () {
+                                ajouterCartes(chien, '#mainJoueur');
+                                $('#mainJoueur').fadeIn();
+                            });
+                        });}, 8000)
                     }
+                }
+                else if ("chien" === dataTourDeJeu.etatPartie) {
+                    afficherChien();
+                    setTimeout(function () {$('#plateau').fadeOut();}, 8000);
                 }
             })
             .fail(function () {
@@ -356,10 +398,7 @@
                            alert("Un problème est survenu lors de la suppresion du paquet dans la base de données.");
                         });
 
-                    setTimeout(function () {
-                        $('#modalPrise').modal({backdrop: 'static', keyboard: false});
-                        $('#modalPrise').modal("show");
-                    }, 7000);
+                    setTimeout(function () {afficherModalprise();}, 7000);
 
                 }
             })
@@ -367,6 +406,11 @@
                 alert("Problème survenu lors de la récupération de l'avancée de la distribution des cartes");
             });
         return false;
+    };
+
+    let afficherModalprise = function () {
+        $('#modalPrise').modal({backdrop: 'static', keyboard: false});
+        $('#modalPrise').modal("show");
     };
 
     $(document).ready(function () {
@@ -398,13 +442,14 @@
                                 $('#rejoindrePartie').show();
                                 getInfosPartie();
                             }
-                            else if ("distributionCartes" === dataEtat.etat) {
+                            else if ("distributionCartes" === dataEtat.etat || "chien" === dataEtat.etat) {
                                 $.ajax({
                                     url: 'php/json/getCartesFromSession.php'
                                 })
                                     .done(function (dataCartes) {
                                         main = new Hand(dataCartes.cartes);
-                                        afficherCartes(main);
+                                        ajouterCartes(main, '#mainJoueur');
+                                        setTimeout(function () {$('#mainJoueur').fadeIn();}, 1000);
                                     })
                                     .fail(function () {
                                         alert("Problème survenu lors de la récupération de la main en $_SESSION !!");
@@ -412,7 +457,20 @@
                                 return false;
                             }
                             else if ("prise" === dataEtat.etat) {
+                                $.ajax({
+                                    url: 'php/json/getCartesFromSession.php'
+                                })
+                                    .done(function (dataCartes) {
+                                        main = new Hand(dataCartes.cartes);
+                                        ajouterCartes(main, '#mainJoueur');
+                                        setTimeout(function () {$('#mainJoueur').fadeIn();}, 1000);
 
+                                        timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
+                                    })
+                                    .fail(function () {
+                                        alert("Problème survenu lors de la récupération de la main en $_SESSION !!");
+                                    });
+                                return false;
                             }
                         })
                         .fail(function () {
@@ -463,7 +521,7 @@
                         $('#rejoindrePartie').fadeOut(function () {$('#menuPrincipal').fadeIn(function () {$('#tbodyParties').children().remove();});});
                         clearInterval(timerInfosParties);
                     }
-                    else if ("distributionCartes" === dataEtat.etat) {
+                    else if ("distributionCartes" === dataEtat.etat || "prise" === dataEtat.etat || "chien" === dataEtat.etat) {
                         $('#modalGoToMenuPartie').modal({backdrop: 'static', keyboard: false});
                         $('#modalGoToMenuPartie').modal("show");
                     }
@@ -530,7 +588,7 @@
                         $('#navBar').slideToggle("fast", "linear");
                         clearInterval(timerInfosParties);
                     }
-                    else if ("distributionCartes" === dataEtatJoueur.etat) {
+                    else if ("distributionCartes" === dataEtatJoueur.etat || "prise" === dataEtatJoueur.etat || "chien" === dataEtatJoueur.etat) {
                         $('#modalDeconnexionPartie').modal({backdrop: 'static', keyboard: false});
                         $('#modalDeconnexionPartie').modal("show");
                     }
@@ -631,6 +689,10 @@
                     alert("Problème survenu lors des enchères et de la décision de passer !!");
                 });
             return false;
+        });
+
+        $('.imageCarte').click(function () {
+            
         });
     });
 }) ();
