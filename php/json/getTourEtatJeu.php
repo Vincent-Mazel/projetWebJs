@@ -15,11 +15,10 @@ $resultReq = getEtatTour($_SESSION["nomPartie"]);
 $partie = $resultReq->fetch();
 
 $testRecupCartes = $_SESSION["carteRecuperees"];
+$resultat->etatPartie = $partie["ETAT_PARTIE"];
 
-if (($_SESSION["username"] == $partie["TOUR"]) || (empty($partie["TOUR"]) && !$testRecupCartes)) {
+if (($_SESSION["username"] == $partie["TOUR"]) || (empty($partie["TOUR"]) && !$testRecupCartes))
     $resultat->isMonTour = true;
-    $resultat->etatPartie = $partie["ETAT_PARTIE"];
-}
 
 header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');

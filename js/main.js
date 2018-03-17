@@ -310,10 +310,9 @@
         })
             .done(function (dataEtatDistribution) {
                 if (dataEtatDistribution.isDistributionOk) {
-
-                }
-                else {
-
+                    clearInterval(timerTestIsDistributionOk);
+                    $('#modalPrise').modal({backdrop: 'static', keyboard: false});
+                    $('#modalPrise').modal("show");
                 }
             })
             .fail(function () {
@@ -520,6 +519,70 @@
         $('.boutonRester').click(function () {
             $('#modalQuitterPartie').modal("hide");
             $('#modalGoToMenuPartie').modal("hide");
-        })
+        });
+
+        $('#boutonPetite').click(function () {
+            $.ajax({
+                url: '/php/json/envoiPrise.php',
+                type: 'POST',
+                data: {prise : "petite"}
+            })
+                .done(function () {
+
+                    $('#modalPrise').modal("hide");
+                })
+                .fail(function () {
+                    alert("");
+                });
+            return false;
+        });
+
+        $('#boutonPousse').click(function () {
+            $.ajax({
+                url: '/php/json/envoiPrise.php',
+                type: 'POST',
+                data: {prise : "pousse"}
+            })
+                .done(function () {
+
+                    $('#modalPrise').modal("hide");
+                })
+                .fail(function () {
+                    alert("");
+                });
+            return false;
+        });
+
+        $('#boutonGarde').click(function () {
+            $.ajax({
+                url: '/php/json/envoiPrise.php',
+                type: 'POST',
+                data: {prise : "garde"}
+            })
+                .done(function () {
+
+                    $('#modalPrise').modal("hide");
+                })
+                .fail(function () {
+                    alert("");
+                });
+            return false;
+        });
+
+        $('#boutonPasser').click(function () {
+            $.ajax({
+                url: '/php/json/envoiPrise.php',
+                type: 'POST',
+                data: {prise : "passe"}
+            })
+                .done(function () {
+
+                    $('#modalPrise').modal("hide");
+                })
+                .fail(function () {
+                    alert("");
+                });
+            return false;
+        });
     });
 }) ();
