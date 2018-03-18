@@ -5,10 +5,12 @@
     let timerInfosParties;
     let timerTestIsDistributionOk;
     let timerTourDeJeu;
+    let timerJeuEnCours;
 
     let paquet = [];
     let main;
     let chien = [];
+    let chien2 = [];
 
     let chargerTableauParties = function () {
         $.ajax({
@@ -147,8 +149,8 @@
         $('#modalErreur').modal("hide");
     };
 
-    let chargerModalErreur = function (data) {
-        $('#messageErreurModal').html(data.messageErreur);
+    let chargerModalErreur = function (messageErreur) {
+        $('#messageErreurModal').html(messageErreur);
         $('#modalErreur').modal("show");
         setTimeout(closeModal, 15000);
     };
@@ -288,6 +290,7 @@
                 .data("valeur", carte.valeur)
                 .data("couleur", carte.couleur)
                 .data("nom", carte.nom)
+                .data("chien", false)
                 .click(clickImgage)
         );
     };
@@ -307,6 +310,17 @@
             .fail(function () {
                alert("Problème survenu lors de la récupération du chien !!");
             });
+        return false;
+    };
+
+    let supprimerAncienChien = function () {
+        $.ajax({
+            url: '/php/json/supprimerAncienChien.php'
+        })
+            .fail(function () {
+                alert("Problème survenu lors de la suppression de l'ancien chien !!");
+            });
+        return false;
     };
 
     let gestionTourDeJeu = function () {
@@ -317,6 +331,7 @@
                 if (dataTourDeJeu.isMonTour) {
                     if("redistributionCartes" === dataTourDeJeu.etatPartie) {
                         clearInterval(timerTourDeJeu);
+                        supprimerAncienChien();
                         distribuerCartes(dataTourDeJeu.nbJoueurs);
                         afficherCartesRedistribution();
                         timerTestIsDistributionOk = setInterval(testIsDistributionOk, 1000);
@@ -368,17 +383,29 @@
                         afficherChien();
                         setTimeout(function () {$('#plateau').fadeOut(function () {
                             $('#mainJoueur').fadeOut(function () {
+                                $('#plateau').empty().show();
+                                $('#boutonChien').fadeIn();
                                 ajouterCartes(chien, '#mainJoueur');
                                 $('#mainJoueur').fadeIn();
                             });
                         });}, 8000);
-                        chien = [];
-                        chien.push("pute");
                     }
                 }
                 else if ("chien" === dataTourDeJeu.etatPartie) {
+                    clearInterval(timerTourDeJeu);
                     afficherChien();
-                    setTimeout(function () {$('#plateau').fadeOut();}, 8000);
+                    setTimeout(function () {
+                        $('#plateau').fadeOut();
+                        setTimeout(function () {
+                            $('#plateau').empty().show();
+                            setTimeout(function () {timerJeuEnCours = setInterval(refreshPlateauJeu, 500);}, 500);
+                            }, 1000);
+                        }, 8000);
+
+
+                }
+                else if ("enJeu" === dataTourDeJeu.etatPartie) {
+                    console.log("hehehehe");
                 }
             })
             .fail(function () {
@@ -419,44 +446,317 @@
 
     let clickImgage = function () {
         $.ajax({
-            url: '/php/json/getTourEtatJeu.php'
+            url: '/php/json/getTourEtatJeu.php',
+            context: this
         })
             .done(function (dataEtat) {
                 if (dataEtat.isMonTour && "chien" === dataEtat.etatPartie) {
-                    console.log("penis ");
-                    console.log(chien.length);
-                    console.log($(this).data('nom'));
-                    if (chien.length < 6) {
-                        let nom = $(this).data('nom');
-                        let carte = new Carte(nom);
-                        chien.push(carte);
-                        $(this).fadeOut(function () {
-                            let img = $('<img />');
-                            $('#plateau').append(
-                                img.attr("class", "imageCarte")
-                                    .attr("id", "carte" + chien.length)
-                                    .data("valeur", carte.valeur)
-                                    .data("couleur", carte.couleur)
-                                    .data("nom", carte.nom)
-                                    .click(clickImgage)
-                            );
-                            let destination = "#carte" + chien.length;
-                            $(destination).fadeIn();
-                        })
+                    if ("Atout" === $(this).data("couleur"))
+                        chargerModalErreur("Mais qu'est ce que tu fabriques ? On ne met pas d'atout dans le chien voyons !");
+                    else if (!$(this).data("chien")) {
+                        if (chien2.length < 6) {
+                            let id = chien2.length;
+                            let destination = "#" + id;
+                            let nom = $(this).data("nom");
+                            let carte = new Carte(nom);
+
+                            chien2.push(carte);
+
+                            for (let c of chien2)
+                                console.log("carte : " + c.nom + " ");
+
+                            $(this).hide(function () {
+                                let img = $('<img />');
+                                $('#plateau').append(
+                                    img.attr("src", carte.url)
+                                        .attr("class", "imageCarte")
+                                        .attr("id", id)
+                                        .data("valeur", carte.valeur)
+                                        .data("couleur", carte.couleur)
+                                        .data("nom", carte.nom)
+                                        .data("chien", true)
+                                        .click(clickImgage)
+                                );
+                                setTimeout(function () {$(destination).show();}, 500);
+                            })
+                        }
+                        else {
+                            console.log("fajitas ");
+                        }
                     }
                     else {
-                        console.log("fajitas ");
+                        $(this).hide(function () {
+                            ajouterImageCarte(chien2[$(this).attr("id")], "#mainJoueur");
+
+                            chien2.splice($(this).attr("id"), 1);
+                            let idToRemove = "#" + $(this).attr("id");
+                            $(idToRemove).remove();
+
+                            for (let c of chien2)
+                                console.log("carte : " + c.nom + " ");
+                        })
                     }
                 }
-                else if (dataEtat.isMonTour && "jeuEnCours" === dataEtat.etatPartie) {
+                else if (dataEtat.isMonTour && "enJeu" === dataEtat.etatPartie) {
+                    $.ajax({
+                        url: '/php/json/envoiCartePli.php',
+                        method: 'POST',
+                        context: this,
+                        data: "carte=" + $(this).data("nom")
+                    })
+                        .done(function (dataEnvoi) {
 
+                        })
+                        .fail(function () {
+
+                        });
+                    return false;
                 }
+                else
+                    chargerModalErreur("Ce n'est pas à toi de jouer voyons !");
             })
             .fail(function () {
                 alert("Problème survenu lors du clic sur une carte !!");
             });
         return false;
     };
+
+    let refreshPlateauJeu = function () {
+
+    };
+
+    $('#boutonChien').click(function () {
+        if (chien2.length < 6)
+            chargerModalErreur("Finis ton chien malandrin !");
+        else {
+            let chienAEnvoyer = [];
+            for (let carte of chien2)
+                chienAEnvoyer.push(carte.nom);
+
+            $.ajax({
+                url: '/php/json/envoiChien.php',
+                method: "POST",
+                data: {chien : chienAEnvoyer}
+            })
+                .done(function () {
+                    $('#boutonChien').fadeOut();
+                    $('#plateau').fadeOut(function () {
+                        $('#plateau').empty();
+                        clearInterval(timerJeuEnCours);
+                    });
+                    setTimeout(function () {timerJeuEnCours = setInterval(refreshPlateauJeu, 500);}, 500);
+                })
+                .fail(function () {
+                    alert("Problème survenu lors de l'envoi du chien !!");
+                })
+        }
+    });
+
+    $('#boutonRejoindrePartie').click(function () {
+        chargerTableauParties();
+        $('#menuPrincipal').fadeOut(function () {$('#rejoindrePartie').fadeIn();});
+
+        timerInfosParties = setInterval(chargerTableauParties, 2000);
+    });
+
+    $('#quitterFile').click(function () {
+        $.ajax({
+            url: '/php/json/quitterFile.php'
+        })
+            .done(function (dataEtat) {
+                if ("rejoindrePartie" === dataEtat.etat) {
+                    $('#tbodyParties').children().remove();
+                    chargerTableauParties();
+                }
+                clearInterval(timerInfosPartieModal);
+            })
+            .fail(function () {
+                alert("Problème survenu lors du quittage de la file !!");
+            });
+    });
+
+    $('#boutonMenuPrincipal').click(function () {
+        $.ajax({
+            url: '/php/json/etatJoueur.php',
+            type: 'GET',
+            data: 'boutonMenuPrincipal=true'
+        })
+            .done(function (dataEtat) {
+                if ("creationPartie" === dataEtat.etat)
+                    $('#divCreationPartie').fadeOut(function () {$('#menuPrincipal').fadeIn();});
+                else if ("rejoindrePartie" === dataEtat.etat) {
+                    $('#rejoindrePartie').fadeOut(function () {$('#menuPrincipal').fadeIn(function () {$('#tbodyParties').children().remove();});});
+                    clearInterval(timerInfosParties);
+                }
+                else if ("distributionCartes" === dataEtat.etat || "prise" === dataEtat.etat || "chien" === dataEtat.etat) {
+                    $('#modalGoToMenuPartie').modal({backdrop: 'static', keyboard: false});
+                    $('#modalGoToMenuPartie').modal("show");
+                }
+            })
+            .fail(function () {
+                alert("Problème survenu lors du retour au menu principal !!");
+            });
+    });
+
+    $('#boutonCreerPartie').click(function () {
+        $.ajax({
+            url: '/php/modifEtat/etat_creationPartie.php'
+        })
+            .done(function () {
+                $('#menuPrincipal').fadeOut(function () {$('#divCreationPartie').fadeIn();});
+            })
+            .fail(function () {
+                alert("Problème dans l'affichage du menu de création de partie !");
+            });
+        return false;
+    });
+
+    $('#formCreationPartie').submit(function () {
+        $.ajax({
+            url: $(this).attr('action'),
+            method: $(this).attr('method'),
+            data: $(this).serialize()
+        })
+            .done(function (dataCreationPartie) {
+                if (dataCreationPartie.erreur)
+                    chargerModalErreur(dataCreationPartie.messageErreur);
+                else {
+                    chargerModal(dataCreationPartie);
+
+                    timerInfosPartieModal = setInterval(getInfosPartie, 2000);
+
+                    $('#erreurCreationPartie').html("").hide();
+                }
+                $('#inputCreationPartie').val("");
+            })
+            .fail(function () {
+                alert("Problème survenu lors de la création de la partie !!");
+            });
+        return false;
+    });
+
+    $('#boutonDeconnexion').click(function () {
+        $.ajax({
+            url: '/php/json/etatJoueur.php',
+            type: 'GET',
+            data: 'boutonDeconnexion=true'
+        })
+            .done(function (dataEtatJoueur) {
+                if ("menu" === dataEtatJoueur.etat) {
+                    $('#menuPrincipal').fadeOut(function () {$('#nonConnecte').fadeIn();});
+                    $('#navBar').slideToggle("fast", "linear");
+                }
+                else if ("creationPartie" === dataEtatJoueur.etat) {
+                    $('#divCreationPartie').fadeOut(function () {$('#nonConnecte').fadeIn()});
+                    $('#navBar').slideToggle("fast", "linear");
+                }
+                else if ("rejoindrePartie" === dataEtatJoueur.etat) {
+                    $('#rejoindrePartie').fadeOut(function () {$('#nonConnecte').fadeIn(function () {$('#tbodyParties').children().remove();});});
+                    $('#navBar').slideToggle("fast", "linear");
+                    clearInterval(timerInfosParties);
+                }
+                else if ("distributionCartes" === dataEtatJoueur.etat || "prise" === dataEtatJoueur.etat || "chien" === dataEtatJoueur.etat) {
+                    $('#modalDeconnexionPartie').modal({backdrop: 'static', keyboard: false});
+                    $('#modalDeconnexionPartie').modal("show");
+                }
+            })
+            .fail(function () {
+                alert("Problème survenu lors de la déconnexion !!!");
+            });
+        return false;
+    });
+
+    $('#boutonDeconnexionModal').click(function () {
+        $('#mainJoueur').fadeOut(function () {$('#nonConnecte').fadeIn(function () {$('#modalDeconnexionPartie').modal("hide")});});
+        $('#navBar').slideToggle("fast", "linear");
+        $.ajax({
+            url: 'php/deconnexion.php'
+        })
+            .fail(function () {
+                alert("Problème survenu lors de la déconnexion !!");
+            });
+        return false;
+    });
+
+    $('#boutonGoToMenuModal').click(function () {
+        $('#mainJoueur').fadeOut(function () {$('#menuPrincipal').fadeIn(function () {$('#modalGoToMenuPartie').modal("hide");});});
+        $.ajax({
+            url: 'php/modifEtat/etat_goToMenu.php'
+        })
+            .fail(function () {
+                alert("Problème survenu lors du passage au menu principal depuis la partie en cours !!");
+            });
+        return false;
+    });
+
+    $('.boutonRester').click(function () {
+        $('#modalQuitterPartie').modal("hide");
+        $('#modalGoToMenuPartie').modal("hide");
+    });
+
+    $('#boutonPetite').click(function () {
+        $.ajax({
+            url: '/php/json/envoiPrise.php',
+            type: 'GET',
+            data: 'prise=petite'
+        })
+            .done(function () {
+                $('#modalPrise').modal("hide");
+                timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
+            })
+            .fail(function () {
+                alert("Problème survenu lors de la prise d'une petite !!");
+            });
+        return false;
+    });
+
+    $('#boutonPousse').click(function () {
+        $.ajax({
+            url: '/php/json/envoiPrise.php',
+            type: 'GET',
+            data: 'prise=pousse'
+        })
+            .done(function () {
+                $('#modalPrise').modal("hide");
+                timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
+            })
+            .fail(function () {
+                alert("Problème survenu lors de la prise d'une pousse !!");
+            });
+        return false;
+    });
+
+    $('#boutonGarde').click(function () {
+        $.ajax({
+            url: '/php/json/envoiPrise.php',
+            type: 'GET',
+            data: 'prise=garde'
+        })
+            .done(function () {
+                $('#modalPrise').modal("hide");
+                timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
+            })
+            .fail(function () {
+                alert("Problème survenu lors de la prise d'une garde !!");
+            });
+        return false;
+    });
+
+    $('#boutonPasser').click(function () {
+        $.ajax({
+            url: '/php/json/envoiPrise.php',
+            type: 'GET',
+            data: 'prise=passe'
+        })
+            .done(function () {
+                $('#modalPrise').modal("hide");
+                timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
+            })
+            .fail(function () {
+                alert("Problème survenu lors des enchères et de la décision de passer !!");
+            });
+        return false;
+    });
 
     $(document).ready(function () {
         $.ajax({
@@ -495,6 +795,9 @@
                                         main = new Hand(dataCartes.cartes);
                                         ajouterCartes(main, '#mainJoueur');
                                         setTimeout(function () {$('#mainJoueur').fadeIn();}, 1000);
+                                        $('#plateau').show();
+                                        if ("chien" === dataEtat.etat)
+                                            $('#boutonChien').fadeIn();
                                     })
                                     .fail(function () {
                                         alert("Problème survenu lors de la récupération de la main en $_SESSION !!");
@@ -517,7 +820,7 @@
                                     });
                                 return false;
                             }
-                            else if ("chien" === dataEtat.etat) {
+                            else if ("enJeu" === dataEtat.etat) {
 
                             }
                         })
@@ -532,211 +835,5 @@
             .fail(function () {
                 alert("Problème de chargement de la page lié à l'état de connexion du joueur !!");
             });
-
-        $('#boutonRejoindrePartie').click(function () {
-            chargerTableauParties();
-            $('#menuPrincipal').fadeOut(function () {$('#rejoindrePartie').fadeIn();});
-
-            timerInfosParties = setInterval(chargerTableauParties, 2000);
-        });
-
-        $('#quitterFile').click(function () {
-            $.ajax({
-                url: '/php/json/quitterFile.php'
-            })
-                .done(function (dataEtat) {
-                    if ("rejoindrePartie" === dataEtat.etat) {
-                        $('#tbodyParties').children().remove();
-                        chargerTableauParties();
-                    }
-                    clearInterval(timerInfosPartieModal);
-                })
-                .fail(function () {
-                    alert("Problème survenu lors du quittage de la file !!");
-                });
-        });
-
-        $('#boutonMenuPrincipal').click(function () {
-            $.ajax({
-                url: '/php/json/etatJoueur.php',
-                type: 'GET',
-                data: 'boutonMenuPrincipal=true'
-            })
-                .done(function (dataEtat) {
-                    if ("creationPartie" === dataEtat.etat)
-                        $('#divCreationPartie').fadeOut(function () {$('#menuPrincipal').fadeIn();});
-                    else if ("rejoindrePartie" === dataEtat.etat) {
-                        $('#rejoindrePartie').fadeOut(function () {$('#menuPrincipal').fadeIn(function () {$('#tbodyParties').children().remove();});});
-                        clearInterval(timerInfosParties);
-                    }
-                    else if ("distributionCartes" === dataEtat.etat || "prise" === dataEtat.etat || "chien" === dataEtat.etat) {
-                        $('#modalGoToMenuPartie').modal({backdrop: 'static', keyboard: false});
-                        $('#modalGoToMenuPartie').modal("show");
-                    }
-                })
-                .fail(function () {
-                   alert("Problème survenu lors du retour au menu principal !!");
-                });
-        });
-
-        $('#boutonCreerPartie').click(function () {
-            $.ajax({
-                url: '/php/modifEtat/etat_creationPartie.php'
-            })
-                .done(function () {
-                    $('#menuPrincipal').fadeOut(function () {$('#divCreationPartie').fadeIn();});
-                })
-                .fail(function () {
-                    alert("Problème dans l'affichage du menu de création de partie !");
-                });
-            return false;
-        });
-
-        $('#formCreationPartie').submit(function () {
-            $.ajax({
-                url: $(this).attr('action'),
-                method: $(this).attr('method'),
-                data: $(this).serialize()
-            })
-                .done(function (dataCreationPartie) {
-                    if (dataCreationPartie.erreur)
-                        chargerModalErreur(dataCreationPartie);
-                    else {
-                        chargerModal(dataCreationPartie);
-
-                        timerInfosPartieModal = setInterval(getInfosPartie, 2000);
-
-                        $('#erreurCreationPartie').html("").hide();
-                    }
-                    $('#inputCreationPartie').val("");
-                })
-                .fail(function () {
-                    alert("Problème survenu lors de la création de la partie !!");
-                });
-            return false;
-        });
-
-        $('#boutonDeconnexion').click(function () {
-            $.ajax({
-                url: '/php/json/etatJoueur.php',
-                type: 'GET',
-                data: 'boutonDeconnexion=true'
-            })
-                .done(function (dataEtatJoueur) {
-                    if ("menu" === dataEtatJoueur.etat) {
-                        $('#menuPrincipal').fadeOut(function () {$('#nonConnecte').fadeIn();});
-                        $('#navBar').slideToggle("fast", "linear");
-                    }
-                    else if ("creationPartie" === dataEtatJoueur.etat) {
-                        $('#divCreationPartie').fadeOut(function () {$('#nonConnecte').fadeIn()});
-                        $('#navBar').slideToggle("fast", "linear");
-                    }
-                    else if ("rejoindrePartie" === dataEtatJoueur.etat) {
-                        $('#rejoindrePartie').fadeOut(function () {$('#nonConnecte').fadeIn(function () {$('#tbodyParties').children().remove();});});
-                        $('#navBar').slideToggle("fast", "linear");
-                        clearInterval(timerInfosParties);
-                    }
-                    else if ("distributionCartes" === dataEtatJoueur.etat || "prise" === dataEtatJoueur.etat || "chien" === dataEtatJoueur.etat) {
-                        $('#modalDeconnexionPartie').modal({backdrop: 'static', keyboard: false});
-                        $('#modalDeconnexionPartie').modal("show");
-                    }
-                })
-                .fail(function () {
-                    alert("Problème survenu lors de la déconnexion !!!");
-                });
-            return false;
-        });
-
-        $('#boutonDeconnexionModal').click(function () {
-            $('#mainJoueur').fadeOut(function () {$('#nonConnecte').fadeIn(function () {$('#modalDeconnexionPartie').modal("hide")});});
-            $('#navBar').slideToggle("fast", "linear");
-            $.ajax({
-                url: 'php/deconnexion.php'
-            })
-                .fail(function () {
-                    alert("Problème survenu lors de la déconnexion !!");
-                });
-            return false;
-        });
-
-        $('#boutonGoToMenuModal').click(function () {
-            $('#mainJoueur').fadeOut(function () {$('#menuPrincipal').fadeIn(function () {$('#modalGoToMenuPartie').modal("hide");});});
-            $.ajax({
-                url: 'php/modifEtat/etat_goToMenu.php'
-            })
-                .fail(function () {
-                    alert("Problème survenu lors du passage au menu principal depuis la partie en cours !!");
-                });
-            return false;
-        });
-
-        $('.boutonRester').click(function () {
-            $('#modalQuitterPartie').modal("hide");
-            $('#modalGoToMenuPartie').modal("hide");
-        });
-
-        $('#boutonPetite').click(function () {
-            $.ajax({
-                url: '/php/json/envoiPrise.php',
-                type: 'GET',
-                data: 'prise=petite'
-            })
-                .done(function () {
-                    $('#modalPrise').modal("hide");
-                    timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
-                })
-                .fail(function () {
-                    alert("Problème survenu lors de la prise d'une petite !!");
-                });
-            return false;
-        });
-
-        $('#boutonPousse').click(function () {
-            $.ajax({
-                url: '/php/json/envoiPrise.php',
-                type: 'GET',
-                data: 'prise=pousse'
-            })
-                .done(function () {
-                    $('#modalPrise').modal("hide");
-                    timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
-                })
-                .fail(function () {
-                    alert("Problème survenu lors de la prise d'une pousse !!");
-                });
-            return false;
-        });
-
-        $('#boutonGarde').click(function () {
-            $.ajax({
-                url: '/php/json/envoiPrise.php',
-                type: 'GET',
-                data: 'prise=garde'
-            })
-                .done(function () {
-                    $('#modalPrise').modal("hide");
-                    timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
-                })
-                .fail(function () {
-                    alert("Problème survenu lors de la prise d'une garde !!");
-                });
-            return false;
-        });
-
-        $('#boutonPasser').click(function () {
-            $.ajax({
-                url: '/php/json/envoiPrise.php',
-                type: 'GET',
-                data: 'prise=passe'
-            })
-                .done(function () {
-                    $('#modalPrise').modal("hide");
-                    timerTourDeJeu = setInterval(gestionTourDeJeu, 1500);
-                })
-                .fail(function () {
-                    alert("Problème survenu lors des enchères et de la décision de passer !!");
-                });
-            return false;
-        });
     });
 }) ();

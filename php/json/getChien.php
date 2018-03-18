@@ -3,6 +3,7 @@ session_start();
 
 require_once ("../model/model_gestionChien.php");
 require_once ("../model/model_gestionCartes.php");
+require_once ("../model/model_gestionParties.php");
 
 $resultat = new stdClass();
 
@@ -28,6 +29,11 @@ $resultat->chien = $cartes;
 $_SESSION["chien"] = $cartes;
 
 updateJoueurChien($nomPartie, $nomJoueur);
+
+if ($partie["TOUR"] == $_SESSION["username"]) {
+    foreach ($_SESSION["chien"] as $carte)
+        $_SESSION["main"][] = $carte;
+}
 
 header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');

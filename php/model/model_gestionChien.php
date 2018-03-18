@@ -21,3 +21,23 @@ function updateJoueurChien ($nomPartie, $nomJoueur) {
     $stmt->bindParam(':nomPartie',$nomPartie);
     $stmt->execute();
 }
+
+function deleteChien ($nomPartie) {
+    $db = getBd();
+
+    $query = 'DELETE FROM CHIEN WHERE NOM_PARTIE = :nomPartie';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':nomPartie',$nomPartie);
+    $stmt->execute();
+}
+
+function insertCarteChien ($nomPartie, $joueur, $carte) {
+    $db = getBd();
+
+    $query = 'INSERT INTO CHIEN (NOM_PARTIE, JOUEUR, CARTE) VALUES (:nomPartie, :joueur, :carte)';
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':nomPartie',$nomPartie);
+    $stmt->bindParam(':joueur',$joueur);
+    $stmt->bindParam(':carte',$carte);
+    $stmt->execute();
+}

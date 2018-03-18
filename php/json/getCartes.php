@@ -15,7 +15,8 @@ $cartes = array();
 while ($carteReq = $resultReq->fetch())
     $cartes[] = $carteReq["CARTE"];
 
-$_SESSION["main"] = $cartes;
+$_SESSION["main"] = new Hand();
+$_SESSION["main"]->genererMain($cartes);
 $_SESSION["carteRecuperees"] = true;
 
 $resultat->cartes = $cartes;
