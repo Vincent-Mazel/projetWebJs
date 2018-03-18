@@ -8,7 +8,7 @@
 
     let paquet = [];
     let main;
-    let chien;
+    let chien = [];
 
     let chargerTableauParties = function () {
         $.ajax({
@@ -281,12 +281,14 @@
     };
 
     let ajouterImageCarte = function (carte, destination) {
-        let a = $('<img />');
+        let img = $('<img />');
         $(destination).append(
-            a.attr("src", carte.url)
+            img.attr("src", carte.url)
                 .attr("class", "imageCarte")
                 .data("valeur", carte.valeur)
                 .data("couleur", carte.couleur)
+                .data("nom", carte.nom)
+                .click(clickImgage)
         );
     };
 
@@ -369,7 +371,9 @@
                                 ajouterCartes(chien, '#mainJoueur');
                                 $('#mainJoueur').fadeIn();
                             });
-                        });}, 8000)
+                        });}, 8000);
+                        chien = [];
+                        chien.push("pute");
                     }
                 }
                 else if ("chien" === dataTourDeJeu.etatPartie) {
@@ -411,6 +415,47 @@
     let afficherModalprise = function () {
         $('#modalPrise').modal({backdrop: 'static', keyboard: false});
         $('#modalPrise').modal("show");
+    };
+
+    let clickImgage = function () {
+        $.ajax({
+            url: '/php/json/getTourEtatJeu.php'
+        })
+            .done(function (dataEtat) {
+                if (dataEtat.isMonTour && "chien" === dataEtat.etatPartie) {
+                    console.log("penis ");
+                    console.log(chien.length);
+                    console.log($(this).data('nom'));
+                    if (chien.length < 6) {
+                        let nom = $(this).data('nom');
+                        let carte = new Carte(nom);
+                        chien.push(carte);
+                        $(this).fadeOut(function () {
+                            let img = $('<img />');
+                            $('#plateau').append(
+                                img.attr("class", "imageCarte")
+                                    .attr("id", "carte" + chien.length)
+                                    .data("valeur", carte.valeur)
+                                    .data("couleur", carte.couleur)
+                                    .data("nom", carte.nom)
+                                    .click(clickImgage)
+                            );
+                            let destination = "#carte" + chien.length;
+                            $(destination).fadeIn();
+                        })
+                    }
+                    else {
+                        console.log("fajitas ");
+                    }
+                }
+                else if (dataEtat.isMonTour && "jeuEnCours" === dataEtat.etatPartie) {
+
+                }
+            })
+            .fail(function () {
+                alert("Problème survenu lors du clic sur une carte !!");
+            });
+        return false;
     };
 
     $(document).ready(function () {
@@ -471,6 +516,9 @@
                                         alert("Problème survenu lors de la récupération de la main en $_SESSION !!");
                                     });
                                 return false;
+                            }
+                            else if ("chien" === dataEtat.etat) {
+
                             }
                         })
                         .fail(function () {
@@ -689,10 +737,6 @@
                     alert("Problème survenu lors des enchères et de la décision de passer !!");
                 });
             return false;
-        });
-
-        $('.imageCarte').click(function () {
-            
         });
     });
 }) ();
