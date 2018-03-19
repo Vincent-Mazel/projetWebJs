@@ -1,4 +1,3 @@
-let Carte;
 (function () {
     "use strict";
 

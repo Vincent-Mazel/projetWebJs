@@ -1,10 +1,10 @@
 <?php
+require_once ("Hand.php");
+require_once ("Carte.php");
 session_start();
 
 require_once ("../model/model_gestionPli.php");
 require_once ("../model/model_gestionParties.php");
-require_once ("Hand.php");
-require_once ("Carte.php");
 
 $resultat = new stdClass();
 $resultat->isErreur = false;
@@ -24,9 +24,7 @@ $cartePost = $_POST["carte"];
 $carte = new Carte();
 $carte->genererCarte($cartePost, $nomJoueur);
 
-$mainSession = $_SESSION["main"];
-$main = new Hand();
-$main->genererMain($mainSession, $nomJoueur);
+$main = $_SESSION["main"];
 
 $nomPartie = $_SESSION["nomPartie"];
 
@@ -41,6 +39,12 @@ while ($pli = $resultReq->fetch()) {
     $carteReq->genererCarte($pli["CARTE"], $pli["JOUEUR"]);
     $cartesPli[] = $carteReq;
 }
+
+echo "Carte click : " . $carte->getNom() . "<br>" . "Main : " . $main->toString() . "<br>";
+
+echo "Cartes du pli : " . "<br>";
+foreach ($cartesPli as $c)
+    echo "Couleur : " . $c->getCouleur() . ", valeur : " . $c->getValeur();
 
 if (sizeof($main->getCartes()) == 1) {
     insertCartePli($nomPartie, $nomJoueur, $carte->getNom());

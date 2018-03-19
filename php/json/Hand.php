@@ -1,7 +1,6 @@
 <?php
-session_start();
-
 require_once ("Carte.php");
+session_start();
 
 class Hand
 {
@@ -77,5 +76,12 @@ class Hand
 
     public function addCarte ($carte) {
         $this->_cartes[] = $carte;
+    }
+
+    public function toString () {
+        $str = "";
+        foreach ($this->_cartes as $c)
+            $str .= "Couleur : " . $c->getCouleur() . ", valeur : " . $c->getValeur() . "<br>";
+        return $str;
     }
 }

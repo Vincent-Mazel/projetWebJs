@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97e97645-dd77-44e9-b476-d4a9bedeb4b5" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/php/json/getPli.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change beforePath="$PROJECT_DIR$/php/json/Carte.php" afterPath="$PROJECT_DIR$/php/json/Carte.php" />
+      <change beforePath="$PROJECT_DIR$/js/Carte.js" afterPath="$PROJECT_DIR$/js/Carte.js" />
       <change beforePath="$PROJECT_DIR$/php/json/Hand.php" afterPath="$PROJECT_DIR$/php/json/Hand.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/connexion.php" afterPath="$PROJECT_DIR$/php/json/connexion.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/creationPartie.php" afterPath="$PROJECT_DIR$/php/json/creationPartie.php" />
       <change beforePath="$PROJECT_DIR$/php/json/envoiCartePli.php" afterPath="$PROJECT_DIR$/php/json/envoiCartePli.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/envoiCartes.php" afterPath="$PROJECT_DIR$/php/json/envoiCartes.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/envoiChien.php" afterPath="$PROJECT_DIR$/php/json/envoiChien.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/envoiPrise.php" afterPath="$PROJECT_DIR$/php/json/envoiPrise.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/etatJoueur.php" afterPath="$PROJECT_DIR$/php/json/etatJoueur.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/getCartes.php" afterPath="$PROJECT_DIR$/php/json/getCartes.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/getChien.php" afterPath="$PROJECT_DIR$/php/json/getChien.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/getEtatDistributionJoueurs.php" afterPath="$PROJECT_DIR$/php/json/getEtatDistributionJoueurs.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/getInfosPartie.php" afterPath="$PROJECT_DIR$/php/json/getInfosPartie.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/getInfosPrise.php" afterPath="$PROJECT_DIR$/php/json/getInfosPrise.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/getParties.php" afterPath="$PROJECT_DIR$/php/json/getParties.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/getTourEtatJeu.php" afterPath="$PROJECT_DIR$/php/json/getTourEtatJeu.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/inscription.php" afterPath="$PROJECT_DIR$/php/json/inscription.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/quitterFile.php" afterPath="$PROJECT_DIR$/php/json/quitterFile.php" />
-      <change beforePath="$PROJECT_DIR$/php/json/rejoindrePartie.php" afterPath="$PROJECT_DIR$/php/json/rejoindrePartie.php" />
-      <change beforePath="$PROJECT_DIR$/php/model/model_gestionPli.php" afterPath="$PROJECT_DIR$/php/model/model_gestionPli.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,71 +31,86 @@
       <file leaf-file-name="Hand.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/json/Hand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="78" column="34" lean-forward="false" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+            <state relative-caret-position="249">
+              <caret line="66" column="33" lean-forward="true" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="creationPartie.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/json/creationPartie.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
+            <state relative-caret-position="5046">
               <caret line="797" column="146" lean-forward="false" selection-start-line="797" selection-start-column="146" selection-end-line="797" selection-end-column="146" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="envoiCartePli.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="envoiCartePli.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/json/envoiCartePli.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1173">
-              <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+            <state relative-caret-position="697">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="Carte.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Carte.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2818">
-              <caret line="235" column="36" lean-forward="true" selection-start-line="235" selection-start-column="36" selection-end-line="235" selection-end-column="36" />
+            <state relative-caret-position="-1023">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Paquet.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Paquet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1479">
+              <caret line="87" column="18" lean-forward="false" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hand.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Hand.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="model_gestionPli.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/model/model_gestionPli.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-357">
+              <caret line="6" column="55" lean-forward="true" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
               <folding>
-                <element signature="n#style#0;n#div#11;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1521470852977" expanded="true" signature="130:210" ph="INSERT INTO PLI... " />
+                <marker date="1521470852977" expanded="true" signature="511:630" ph="INSERT INTO PLI_OK... " />
+                <marker date="1521470852977" expanded="true" signature="1024:1160" ph="INSERT INTO PLI_OK... " />
+                <marker date="1521470852977" expanded="true" signature="1604:1757" ph="INSERT INTO PLI_OK... " />
+                <marker date="1521470852977" expanded="true" signature="2184:2231" ph="SELECT * FRO... PLI" />
+                <marker date="1521470852977" expanded="true" signature="2427:2472" ph="DELETE FROM PLI... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="suppressionPaquetBd.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/json/suppressionPaquetBd.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="supprimerAncienChien.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/json/supprimerAncienChien.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getChien.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/json/getChien.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -123,8 +118,8 @@
       <file leaf-file-name="Carte.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/json/Carte.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1234">
-              <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
+            <state relative-caret-position="1241">
+              <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -135,16 +130,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getPli.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/json/getPli.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -207,7 +192,6 @@
         <option value="$PROJECT_DIR$/php/model/model_connexionEtInscription.php" />
         <option value="$PROJECT_DIR$/js/Hand.js" />
         <option value="$PROJECT_DIR$/php/json/testRecuperationCartes.php5" />
-        <option value="$PROJECT_DIR$/js/Carte.js" />
         <option value="&lt;bc929f4d-55bb-4301-a109-3208592122c5&gt;/www/php/json/getTourEtatJeu.php" />
         <option value="$PROJECT_DIR$/php/json/getCartesFromSession.php5" />
         <option value="$PROJECT_DIR$/php/deconnexion.php" />
@@ -229,7 +213,6 @@
         <option value="$PROJECT_DIR$/php/json/test.php" />
         <option value="$PROJECT_DIR$/php/model/model_gestionPli.php" />
         <option value="$PROJECT_DIR$/php/json/Carte.php" />
-        <option value="$PROJECT_DIR$/php/json/envoiCartePli.php" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/php/json/connexion.php" />
         <option value="$PROJECT_DIR$/php/json/creationPartie.php" />
@@ -247,9 +230,11 @@
         <option value="$PROJECT_DIR$/php/json/inscription.php" />
         <option value="$PROJECT_DIR$/php/json/quitterFile.php" />
         <option value="$PROJECT_DIR$/php/json/rejoindrePartie.php" />
-        <option value="$PROJECT_DIR$/php/json/Hand.php" />
         <option value="$PROJECT_DIR$/php/json/getChien.php" />
         <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/php/json/envoiCartePli.php" />
+        <option value="$PROJECT_DIR$/php/json/Hand.php" />
+        <option value="$PROJECT_DIR$/js/Carte.js" />
       </list>
     </option>
   </component>
@@ -280,8 +265,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -326,6 +309,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -393,11 +378,12 @@
       <workItem from="1521216985033" duration="25319000" />
       <workItem from="1521275107810" duration="46810000" />
       <workItem from="1521362950381" duration="50824000" />
+      <workItem from="1521470866385" duration="3502000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346096000" />
+    <option name="totallyTimeSpent" value="349598000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -409,20 +395,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-5" y="26" width="1690" height="1005" extended-state="6" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2091776" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1708108" sideWeight="0.50852877" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1708108" sideWeight="0.4914712" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17056856" sideWeight="0.4914712" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10607676" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33513513" sideWeight="0.4914712" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25586355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -431,6 +415,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16791044" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33513513" sideWeight="0.4914712" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -514,11 +499,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <marker date="1521284474799" expanded="true" signature="107:156" ph="SELECT * FRO... PRISE" />
-            <marker date="1521284474799" expanded="true" signature="372:456" ph="INSERT INTO PARTIE... " />
-            <marker date="1521284474799" expanded="true" signature="735:816" ph="UPDATE PRISE... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -543,12 +524,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="13" selection-end-column="1" />
-          <folding>
-            <marker date="1521294493504" expanded="true" signature="178:223" ph="SELECT * FRO... USER" />
-            <marker date="1521294493504" expanded="true" signature="489:552" ph="INSERT INTO USER... " />
-            <marker date="1521294493504" expanded="true" signature="799:861" ph="UPDATE USER... " />
-            <marker date="1521294493504" expanded="true" signature="1095:1166" ph="UPDATE USER... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -556,13 +532,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="44" column="21" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="44" selection-end-column="21" />
-          <folding>
-            <marker date="1521280461695" expanded="true" signature="109:175" ph="SELECT ETAT_... PARTIE" />
-            <marker date="1521280461695" expanded="true" signature="379:454" ph="SELECT CARTE... PAQUET" />
-            <marker date="1521280461695" expanded="true" signature="722:808" ph="INSERT INTO PAQUET... " />
-            <marker date="1521280461695" expanded="true" signature="1085:1150" ph="INSERT INTO CHIEN... " />
-            <marker date="1521280461695" expanded="true" signature="1369:1417" ph="DELETE FROM PAQUET... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -578,28 +548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-          <folding>
-            <marker date="1521379292619" expanded="true" signature="106:155" ph="SELECT * FRO... CHIEN" />
-            <marker date="1521379292619" expanded="true" signature="371:437" ph="UPDATE CHIEN... " />
-            <marker date="1521379292619" expanded="true" signature="663:710" ph="DELETE FROM CHIEN... " />
-            <marker date="1521379292619" expanded="true" signature="911:993" ph="INSERT INTO CHIEN... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Hand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Carte.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -611,67 +559,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/test.php" />
     <entry file="file://$PROJECT_DIR$/php/model/model_gestionParties.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
           <caret line="59" column="1" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="59" selection-end-column="1" />
-          <folding>
-            <marker date="1521244376398" expanded="true" signature="129:223" ph="INSERT INTO PARTIE... " />
-            <marker date="1521244376398" expanded="true" signature="502:522" ph="SELECT * FRO... PARTIE" />
-            <marker date="1521244376398" expanded="true" signature="675:808" ph="SELECT * FRO... PARTIE" />
-            <marker date="1521244376398" expanded="true" signature="1172:1222" ph="SELECT * FRO... PARTIE" />
-            <marker date="1521244376398" expanded="true" signature="1421:1469" ph="DELETE FROM PARTIE... " />
-            <marker date="1521244376398" expanded="true" signature="1713:1889" ph="UPDATE PARTIE... " />
-            <marker date="1521244376398" expanded="true" signature="2354:2447" ph="UPDATE PARTIE... " />
-            <marker date="1521244376398" expanded="true" signature="2734:2827" ph="UPDATE PARTIE... " />
-            <marker date="1521244376398" expanded="true" signature="3114:3207" ph="UPDATE PARTIE... " />
-            <marker date="1521244376398" expanded="true" signature="3494:3587" ph="UPDATE PARTIE... " />
-            <marker date="1521244376398" expanded="true" signature="3872:3945" ph="UPDATE PARTIE... " />
-            <marker date="1521244376398" expanded="true" signature="4185:4251" ph="UPDATE PARTIE... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/model/model_gestionPli.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="65" column="1" lean-forward="true" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
-          <folding>
-            <marker date="1521407462233" expanded="true" signature="130:210" ph="INSERT INTO PLI... " />
-            <marker date="1521407462233" expanded="true" signature="511:630" ph="INSERT INTO PLI_OK... " />
-            <marker date="1521407462233" expanded="true" signature="1024:1160" ph="INSERT INTO PLI_OK... " />
-            <marker date="1521407462233" expanded="true" signature="1604:1757" ph="INSERT INTO PLI_OK... " />
-            <marker date="1521407462233" expanded="true" signature="2184:2231" ph="SELECT * FRO... PLI" />
-            <marker date="1521407462233" expanded="true" signature="2427:2472" ph="DELETE FROM PLI... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Paquet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="87" column="18" lean-forward="false" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/json/connexion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/creationPartie.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
@@ -779,7 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -787,7 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -815,6 +710,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/getChien.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3995">
+          <caret line="235" column="36" lean-forward="false" selection-start-line="235" selection-start-column="36" selection-end-line="235" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#11;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php/json/getCartes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -825,50 +738,79 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/json/Hand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="78" column="34" lean-forward="false" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+        <state relative-caret-position="249">
+          <caret line="66" column="33" lean-forward="true" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/json/creationPartie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5046">
+          <caret line="797" column="146" lean-forward="false" selection-start-line="797" selection-start-column="146" selection-end-line="797" selection-end-column="146" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/model/model_gestionPli.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="6" column="55" lean-forward="true" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
+          <folding>
+            <marker date="1521470852977" expanded="true" signature="130:210" ph="INSERT INTO PLI... " />
+            <marker date="1521470852977" expanded="true" signature="511:630" ph="INSERT INTO PLI_OK... " />
+            <marker date="1521470852977" expanded="true" signature="1024:1160" ph="INSERT INTO PLI_OK... " />
+            <marker date="1521470852977" expanded="true" signature="1604:1757" ph="INSERT INTO PLI_OK... " />
+            <marker date="1521470852977" expanded="true" signature="2184:2231" ph="SELECT * FRO... PLI" />
+            <marker date="1521470852977" expanded="true" signature="2427:2472" ph="DELETE FROM PLI... " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/json/Carte.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1234">
-          <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
+        <state relative-caret-position="1241">
+          <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/json/getChien.php">
+    <entry file="file://$PROJECT_DIR$/js/Hand.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        <state relative-caret-position="408">
+          <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Carte.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1023">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Paquet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="87" column="18" lean-forward="false" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/json/envoiCartePli.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1173">
-          <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2818">
-          <caret line="235" column="36" lean-forward="true" selection-start-line="235" selection-start-column="36" selection-end-line="235" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#div#11;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="797" column="146" lean-forward="false" selection-start-line="797" selection-start-column="146" selection-end-line="797" selection-end-column="146" />
+        <state relative-caret-position="697">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
