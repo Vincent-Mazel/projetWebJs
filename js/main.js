@@ -11,6 +11,7 @@
     let main;
     let chien = [];
     let chien2 = [];
+    let plateau = [];
 
     let chargerTableauParties = function () {
         $.ajax({
@@ -295,6 +296,17 @@
         );
     };
 
+    let ajouterImageCarteSansClick = function (carte, destination) {
+        let img = $('<img />');
+        $(destination).append(
+            img.attr("src", carte.url)
+                .attr("class", "imageCarte")
+                .data("valeur", carte.valeur)
+                .data("couleur", carte.couleur)
+                .data("nom", carte.nom)
+        );
+    };
+
     let afficherChien = function () {
         $.ajax({
             url: '/php/json/getChien.php'
@@ -505,10 +517,17 @@
                         data: "carte=" + $(this).data("nom")
                     })
                         .done(function (dataEnvoi) {
-
+                            if (dataEnvoi.isErreur) {
+                                chargerModalErreur(dataEnvoi.messageErreur);
+                            }
+                            else {
+                                main.splice(dataEnvoi.carteJouee, 1);
+                                $(this).hide(function () {ajouterImageCarteSansClick($(this).data("nom"), "#plateau")});
+                                $(this).remove();
+                            }
                         })
                         .fail(function () {
-
+                            alert("Problème survenu lors de l'envoi de la carte !!");
                         });
                     return false;
                 }
@@ -522,7 +541,24 @@
     };
 
     let refreshPlateauJeu = function () {
-
+        $.ajax({
+            url: '/php/json/getPli.php'
+        })
+            .done(function (dataPli) {
+                if (dataPli.isCarte || (dataPli.cartes).length > plateau.length) {
+                    $('#messagePasPli').fadeOut(function () {
+                        let carte = new Carte(dataPli.cartes[dataPli.cartes.length - 1]);
+                        plateau.push(carte.nom);
+                        ajouterImageCarteSansClick(carte, "#plateau");
+                    });
+                }
+                else
+                    $('#plateau').fadeOut(function () {$('#messagePasPli').fadeIn();});
+            })
+            .fail(function () {
+                alert("Problème survenu lors de la récupération du pli !!");
+            });
+        return false;
     };
 
     $('#boutonChien').click(function () {
@@ -588,7 +624,7 @@
                     $('#rejoindrePartie').fadeOut(function () {$('#menuPrincipal').fadeIn(function () {$('#tbodyParties').children().remove();});});
                     clearInterval(timerInfosParties);
                 }
-                else if ("distributionCartes" === dataEtat.etat || "prise" === dataEtat.etat || "chien" === dataEtat.etat) {
+                else if ("distributionCartes" === dataEtat.etat || "prise" === dataEtat.etat || "chien" === dataEtat.etat || "enJeu" === dataEtat.etat) {
                     $('#modalGoToMenuPartie').modal({backdrop: 'static', keyboard: false});
                     $('#modalGoToMenuPartie').modal("show");
                 }
@@ -655,7 +691,7 @@
                     $('#navBar').slideToggle("fast", "linear");
                     clearInterval(timerInfosParties);
                 }
-                else if ("distributionCartes" === dataEtatJoueur.etat || "prise" === dataEtatJoueur.etat || "chien" === dataEtatJoueur.etat) {
+                else if ("distributionCartes" === dataEtatJoueur.etat || "prise" === dataEtatJoueur.etat || "chien" === dataEtatJoueur.etat || "enJeu" === dataEtatJoueur.etat) {
                     $('#modalDeconnexionPartie').modal({backdrop: 'static', keyboard: false});
                     $('#modalDeconnexionPartie').modal("show");
                 }
@@ -758,6 +794,10 @@
         return false;
     });
 
+    $('#boutonStats').click(function () {
+        chargerModalErreur("Un cruel manque de temps fait que je n'ai pu terminer le projet à temps, mais ce n'est pas l'envie qui manquait ;(.");
+    });
+
     $(document).ready(function () {
         $.ajax({
             url: '/php/json/estConnecte.php',
@@ -804,7 +844,7 @@
                                     });
                                 return false;
                             }
-                            else if ("prise" === dataEtat.etat) {
+                            else if ("prise" === dataEtat.etat || "enJeu" === dataEtat.etat) {
                                 $.ajax({
                                     url: 'php/json/getCartesFromSession.php'
                                 })
@@ -819,9 +859,6 @@
                                         alert("Problème survenu lors de la récupération de la main en $_SESSION !!");
                                     });
                                 return false;
-                            }
-                            else if ("enJeu" === dataEtat.etat) {
-
                             }
                         })
                         .fail(function () {

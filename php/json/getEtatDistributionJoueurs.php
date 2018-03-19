@@ -3,14 +3,16 @@ session_start();
 
 require_once('../model/model_gestionUtilisateur.php');
 require_once('../model/model_gestionParties.php');
+require_once ("Hand.php");
+require_once ("Carte.php");
 
 $resultat = new stdClass();
 
 $joueurs = $_SESSION["joueurs"];
-$nbJoueurs = $_SESSION['nbJoueurs'];
+$nbJoueurs = sizeof($_SESSION["joueurs"]);
 
 $bool = true;
-for ($i = 1; $i < 3; ++$i) {
+for ($i = 1; $i < $nbJoueurs; ++$i) {
     $resultReq = getUser($joueurs[$i]);
     $joueur = $resultReq->fetch();
     if (!$joueur["RECUP_CARTES"]) {

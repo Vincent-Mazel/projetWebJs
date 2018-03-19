@@ -2,6 +2,8 @@
 session_start();
 
 require ("../model/model_gestionCartes.php");
+require_once ("Hand.php");
+require_once ("Carte.php");
 
 if (!isset($_SESSION["carteRecuperees"]))
     $_SESSION["carteRecuperees"] = false;

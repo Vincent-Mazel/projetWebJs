@@ -2,6 +2,8 @@
 session_start();
 
 require('../model/model_gestionUtilisateur.php');
+require_once ("Hand.php");
+require_once ("Carte.php");
 
 $resultat = new stdClass();
 $resultat->erreur = false;

@@ -4,6 +4,11 @@ session_start();
 require_once ("../model/model_gestionCartes.php");
 require_once ("../model/model_gestionUtilisateur.php");
 require_once ("../model/model_gestionParties.php");
+require_once ("Hand.php");
+require_once ("Carte.php");
+
+require_once ("Hand.php");
+require_once ("Carte.php");
 
 $resultat = new stdClass();
 $resultat->isRedistribution = false;
@@ -16,7 +21,7 @@ while ($carteReq = $resultReq->fetch())
     $cartes[] = $carteReq["CARTE"];
 
 $_SESSION["main"] = new Hand();
-$_SESSION["main"]->genererMain($cartes);
+$_SESSION["main"]->genererMain($cartes, $_SESSION["username"]);
 $_SESSION["carteRecuperees"] = true;
 
 $resultat->cartes = $cartes;

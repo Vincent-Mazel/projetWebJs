@@ -2,6 +2,8 @@
 session_start();
 
 require('../model/model_gestionParties.php');
+require_once ("Hand.php");
+require_once ("Carte.php");
 
 if ($_SESSION["etat"] == "menu")
     $_SESSION["etat"] = "rejoindrePartie";

@@ -3,6 +3,8 @@ session_start();
 
 require_once ("../model/model_gestionCartes.php");
 require_once('../model/model_gestionParties.php');
+require_once ("Hand.php");
+require_once ("Carte.php");
 
 $resultat = new stdClass();
 

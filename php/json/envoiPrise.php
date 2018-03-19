@@ -5,6 +5,8 @@ require_once ("../model/model_gestionCartes.php");
 require_once ('../model/model_gestionParties.php');
 require_once ("../model/model_gestionPrises.php");
 require_once ("../model/model_gestionUtilisateur.php");
+require_once ("Hand.php");
+require_once ("Carte.php");
 
 $prise = $_GET["prise"];
 $nomJoueur = $_SESSION["username"];

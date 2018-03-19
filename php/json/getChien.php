@@ -1,9 +1,12 @@
 <?php
+require_once ("Hand.php");
+require_once ("Carte.php");
 session_start();
 
 require_once ("../model/model_gestionChien.php");
 require_once ("../model/model_gestionCartes.php");
 require_once ("../model/model_gestionParties.php");
+
 
 $resultat = new stdClass();
 
@@ -31,8 +34,12 @@ $_SESSION["chien"] = $cartes;
 updateJoueurChien($nomPartie, $nomJoueur);
 
 if ($partie["TOUR"] == $_SESSION["username"]) {
-    foreach ($_SESSION["chien"] as $carte)
-        $_SESSION["main"][] = $carte;
+    foreach ($_SESSION["chien"] as $carte) {
+        $newCarte = new Carte();
+        $newCarte->genererCarte($carte, $_SESSION["username"]);
+        $_SESSION["main"]->addCarte($newCarte);
+    }
+
 }
 
 header('Cache-Control: no-cache, must-revalidate');

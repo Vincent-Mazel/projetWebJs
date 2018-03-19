@@ -3,6 +3,8 @@ session_start();
 
 require_once ("../model/model_gestionChien.php");
 require_once ("../model/model_gestionParties.php");
+require_once ("Hand.php");
+require_once ("Carte.php");
 
 $nomPartie = $_SESSION["nomPartie"];
 $chienStr = $_POST["chien"];

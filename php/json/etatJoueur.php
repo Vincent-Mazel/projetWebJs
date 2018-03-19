@@ -2,6 +2,8 @@
 session_start();
 
 require_once('../model/model_gestionUtilisateur.php');
+require_once ("Hand.php");
+require_once ("Carte.php");
 
 $resultat = new stdClass();
 $resultat->etat = $_SESSION["etat"];

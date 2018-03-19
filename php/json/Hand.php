@@ -1,14 +1,16 @@
 <?php
 session_start();
 
+require_once ("Carte.php");
+
 class Hand
 {
     private $_cartes = array();
 
-    public function genererMain ($nomCartes) {
+    public function genererMain ($nomCartes, $nomJoueur) {
         foreach ($nomCartes as $c) {
             $carte = new Carte();
-            $carte->genererCarte($c);
+            $carte->genererCarte($c, $nomJoueur);
             $this->_cartes[] = $carte;
         }
     }
@@ -32,11 +34,10 @@ class Hand
 
     public function getCarteJouablesAtouts ($valeurCarte) {
         $cartesJouables = [];
-        $i = 0;
+
         foreach ($this->_cartes as $carte) {
             if ($valeurCarte < $carte->getValeur())
-                $cartesJouables[] = $i;
-            $i += 1;
+                $cartesJouables[] = $carte;
         }
 
         return $cartesJouables;
@@ -44,11 +45,10 @@ class Hand
 
     public function getCartesJouablesAtoutEtAutreCouleur ($couleur) {
         $cartesJouables = [];
-        $i = 0;
+
         foreach ($this->_cartes as $carte) {
             if ($carte->getCouleur() == $couleur)
-                $cartesJouables[] = $i;
-            $i += 1;
+                $cartesJouables[] = $carte;
         }
 
         return $cartesJouables;
@@ -56,13 +56,26 @@ class Hand
 
     public function getPresenceAtout () {
         $carteJouables = [];
-        $i = 0;
+
         foreach ($this->_cartes as $carte) {
             if ("Atout" == $carte->getCouleur())
-                $carteJouables[] = $i;
-            $i += 1;
+                $carteJouables[] = $carte;
         }
 
         return $carteJouables;
+    }
+
+    public function isExcuse () {
+        $isExcuse = false;
+        foreach ($this->_cartes as $carte) {
+            if ("Excuse" == $carte->getNom())
+                $isExcuse = true;
+        }
+
+        return $isExcuse;
+    }
+
+    public function addCarte ($carte) {
+        $this->_cartes[] = $carte;
     }
 }
